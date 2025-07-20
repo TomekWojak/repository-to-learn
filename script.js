@@ -1,6 +1,16 @@
-const name = "Tomek";
-const name2 = [...name]
+const me = {
+	name: "Tomek",
+	lastName: "Xyz",
+	age: 20,
+};
 
-for(const [index, letter] of name2.entries()){
-    console.log(`${letter} ${index}`);
+for (let key in me) {
+	console.log(`Klucz ${key} ma wartość ${me[key]}`);
+}
+
+const test = Object.entries(me)
+console.log(test);
+
+for(const [key, value] of test){
+    console.log(key, value);
 }
