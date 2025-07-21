@@ -1,6 +1,12 @@
-function test(...args) {
-	return args.filter((el) => typeof el === "number");
-}
+const osoba = {
+	imie: "Kuba",
+	wiek: 25,
+	hobby: ["programowanie", "muzyka", "bieganie"],
+};
 
-let test1 = test(1, 2, undefined, null, true, "3", "czesc");
-console.log(test1);
+const name = osoba.imie
+const wiek = osoba.wiek
+
+const test = [...osoba.hobby]
+test.push('czytanie')
+console.log(name, wiek, test);
