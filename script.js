@@ -1,11 +1,13 @@
-function makeWrapper(prefix, suffix) {
-	return function (text) {
-		console.log(prefix + text + suffix);
-		return prefix + text + suffix;
+function createCounter(start, step) {
+	let current = start;
+
+	return function () {
+		const results = current;
+		current += step;
+		return results;
 	};
 }
-
-const test = makeWrapper("[", "]");
-const test2 = makeWrapper('{','}')
-test('Umieść mnie w nawiasie kwadratowym');
-test2('Umieść mnie w nawiasie klamrowym')
+const counter = createCounter(10, 5);
+console.log(counter(10,5));
+console.log(counter(10,5));
+console.log(counter(10,5));
