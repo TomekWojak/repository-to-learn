@@ -1,15 +1,11 @@
-// function makeAppender(suffix) {
-// 	return function (text) {
-// 		console.log(text + suffix);
-// 		return text + suffix;
-// 	};
-// }
-// const test = makeAppender("!!!");
-// test('Witaj')
-
-function makeAppender(text, suffix){
-    console.log(text + suffix);
-    return text + suffix
+function makeWrapper(prefix, suffix) {
+	return function (text) {
+		console.log(prefix + text + suffix);
+		return prefix + text + suffix;
+	};
 }
 
-makeAppender('Witaj', '!!!')
+const test = makeWrapper("[", "]");
+const test2 = makeWrapper('{','}')
+test('Umieść mnie w nawiasie kwadratowym');
+test2('Umieść mnie w nawiasie klamrowym')
