@@ -1,11 +1,15 @@
-function test(times, callback) {
-	for(let i = 0;i <= times;i++){
-        callback(i)
-    }
+// function makeAppender(suffix) {
+// 	return function (text) {
+// 		console.log(text + suffix);
+// 		return text + suffix;
+// 	};
+// }
+// const test = makeAppender("!!!");
+// test('Witaj')
+
+function makeAppender(text, suffix){
+    console.log(text + suffix);
+    return text + suffix
 }
 
-const test2 = (time) => {
-	console.log(time);
-};
-
-test(3, test2)
+makeAppender('Witaj', '!!!')
