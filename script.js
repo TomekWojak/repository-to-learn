@@ -1,13 +1,21 @@
-function createCounter(start, step) {
-	let current = start;
+function createPasswordManager(password) {
+	let pass = password;
+	console.log(pass);
 
-	return function () {
-		const results = current;
-		current += step;
-		return results;
+	return {
+		check(yourPass) {
+			return yourPass === pass;
+		},
+		change(newPassword) {
+			pass = newPassword;
+		},
 	};
 }
-const counter = createCounter(10, 5);
-console.log(counter(10,5));
-console.log(counter(10,5));
-console.log(counter(10,5));
+
+const manager = createPasswordManager("tajne123");
+
+console.log(manager.check("tajne123"));
+manager.change("noweHasło");
+
+console.log(manager.check("tajne123"));
+console.log(manager.check("noweHasło"));
