@@ -1,11 +1,11 @@
-function doubler(callback, ...value) {
-	callback(value);
+function test(times, callback) {
+	for(let i = 0;i <= times;i++){
+        callback(i)
+    }
 }
 
-const test = (x) => {
-	x.forEach((element) => {
-		console.log(element);
-	});
+const test2 = (time) => {
+	console.log(time);
 };
 
-doubler(test, 1, 2, 3)
+test(3, test2)
