@@ -1,21 +1,10 @@
-function createPasswordManager(password) {
-	let pass = password;
-	console.log(pass);
-
-	return {
-		check(yourPass) {
-			return yourPass === pass;
-		},
-		change(newPassword) {
-			pass = newPassword;
-		},
+function createDiscount(discount) {
+	return function (price) {
+		return price - price * (discount / 100);
 	};
 }
 
-const manager = createPasswordManager("tajne123");
-
-console.log(manager.check("tajne123"));
-manager.change("noweHasło");
-
-console.log(manager.check("tajne123"));
-console.log(manager.check("noweHasło"));
+const tenPercentOff = createDiscount(10);
+const twentyFivePercentOff = createDiscount(25)
+console.log(tenPercentOff(100));
+console.log(twentyFivePercentOff(200));
