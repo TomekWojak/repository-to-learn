@@ -11,5 +11,9 @@ class Player {
 }
 
 const player1 = new Player(0, 0);
-console.log(player1.move(10, 10));
-console.log(player1);
+const player2 = new Player(0, 0);
+
+player1.move(3, 3);
+player2.move(5, 5);
+
+console.log(player1, player2);
