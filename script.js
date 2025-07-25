@@ -8,12 +8,18 @@ class Player {
 		this.x += dx;
 		this.y += dy;
 	}
+	distanceTo(otherPlayer) {
+		let dx = otherPlayer.x - this.x;
+		let dy = otherPlayer.y - this.y;
+		return Math.hypot(dx, dy);
+	}
 }
 
 const player1 = new Player(0, 0);
 const player2 = new Player(0, 0);
+player1.move(10, 10);
+player2.move(15, 12);
 
-player1.move(3, 3);
-player2.move(5, 5);
+console.log(player1);
+console.log(player2);
 
-console.log(player1, player2);
