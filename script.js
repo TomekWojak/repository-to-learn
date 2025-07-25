@@ -1,10 +1,23 @@
-function createDiscount(discount) {
-	return function (price) {
-		return price - price * (discount / 100);
+const grades = [1, 4, 6, 3, 2, 5];
+
+function handleGrades(arr) {
+	return function () {
+		let initialValue = 0;
+		const filtered = arr.filter((el) => el >= 4);
+		const changed = arr.map((el) => (el < 6 ? el + 1 : 6));
+		const sum = arr.reduce((acc, cum) => acc + cum, initialValue);
+		const average = sum / arr.length;
+
+		return {
+			filtered: filtered,
+			changed: changed,
+			average: average,
+		};
 	};
 }
 
-const tenPercentOff = createDiscount(10);
-const twentyFivePercentOff = createDiscount(25)
-console.log(tenPercentOff(100));
-console.log(twentyFivePercentOff(200));
+const showGrades = handleGrades(grades)
+
+console.log(showGrades().filtered);
+console.log(showGrades().changed);
+console.log(showGrades().average);
