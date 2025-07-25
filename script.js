@@ -1,23 +1,15 @@
-const grades = [1, 4, 6, 3, 2, 5];
+class Player {
+	constructor(startX, startY) {
+		this.x = startX;
+		this.y = startY;
+	}
 
-function handleGrades(arr) {
-	return function () {
-		let initialValue = 0;
-		const filtered = arr.filter((el) => el >= 4);
-		const changed = arr.map((el) => (el < 6 ? el + 1 : 6));
-		const sum = arr.reduce((acc, cum) => acc + cum, initialValue);
-		const average = sum / arr.length;
-
-		return {
-			filtered: filtered,
-			changed: changed,
-			average: average,
-		};
-	};
+	move(dx, dy) {
+		this.x += dx;
+		this.y += dy;
+	}
 }
 
-const showGrades = handleGrades(grades)
-
-console.log(showGrades().filtered);
-console.log(showGrades().changed);
-console.log(showGrades().average);
+const player1 = new Player(0, 0);
+console.log(player1.move(10, 10));
+console.log(player1);
