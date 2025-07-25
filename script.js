@@ -8,17 +8,19 @@ class Actor {
 		this.x += dx;
 		this.y += dy;
 	}
-	distanceTo(otherPlayer) {
-		let dx = otherPlayer.x - this.x;
-		let dy = otherPlayer.y - this.y;
-		return Math.hypot(dx, dy);
-	}
 }
 
 class Player extends Actor {
-	constructor(startX, startY) {
+	constructor(startX, startY, nickname) {
 		super(startX, startY);
+		this.nickname = nickname;
+	}
+	introduce() {
+		return `Cześć, jestem ${this.nickname} i stoję na pozycji (x: ${this.x}, y: ${this.y})`;
 	}
 }
-const player1 = new Player(0, 0);
-console.log(player1);
+
+const test = new Player(0, 0, "Bartek");
+test.move(30, 14);
+
+console.log(test.introduce());
