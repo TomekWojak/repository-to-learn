@@ -1,4 +1,4 @@
-class Player {
+class Actor {
 	constructor(startX, startY) {
 		this.x = startX;
 		this.y = startY;
@@ -15,11 +15,10 @@ class Player {
 	}
 }
 
+class Player extends Actor {
+	constructor(startX, startY) {
+		super(startX, startY);
+	}
+}
 const player1 = new Player(0, 0);
-const player2 = new Player(0, 0);
-player1.move(10, 10);
-player2.move(15, 12);
-
 console.log(player1);
-console.log(player2);
-
