@@ -1,26 +1,23 @@
-class Actor {
-	constructor(startX, startY) {
-		this.x = startX;
-		this.y = startY;
-	}
+const numbers = [1, 2, 3, 4, 5, 6];
+function processNumbers(arr) {
+	return function (first, second) {
+		const filtered = arr.filter(first);
+		const changed = arr.map(second);
 
-	move(dx, dy) {
-		this.x += dx;
-		this.y += dy;
-	}
+		return {
+			filtered,
+			changed,
+		};
+	};
 }
 
-class Player extends Actor {
-	constructor(startX, startY, nickname) {
-		super(startX, startY);
-		this.nickname = nickname;
-	}
-	introduce() {
-		return `Cześć, jestem ${this.nickname} i stoję na pozycji (x: ${this.x}, y: ${this.y})`;
-	}
-}
+const filterNumbers = (x) => {
+	return x % 2 === 0;
+};
+const newNumbers = (x) => {
+	return x * 10;
+};
 
-const test = new Player(0, 0, "Bartek");
-test.move(30, 14);
-
-console.log(test.introduce());
+const summary = processNumbers(numbers)
+console.log(summary(filterNumbers, newNumbers).filtered)
+console.log(summary(filterNumbers, newNumbers).changed)
