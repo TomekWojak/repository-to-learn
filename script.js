@@ -1,23 +1,22 @@
-const numbers = [1, 2, 3, 4, 5, 6];
-function processNumbers(arr) {
-	return function (first, second) {
-		const filtered = arr.filter(first);
-		const changed = arr.map(second);
+class Actor {
+	constructor(startX, startY) {
+		(this.x = startX), (this.y = startY);
+	}
 
-		return {
-			filtered,
-			changed,
-		};
-	};
+	move(dx, dy) {
+		this.x += dx;
+		this.y += dy;
+	}
+
+	distanceTo(otherPlayer) {
+		let dx = otherPlayer.x - this.x;
+		let dy = otherPlayer.y - this.y;
+	}
 }
 
-const filterNumbers = (x) => {
-	return x % 2 === 0;
-};
-const newNumbers = (x) => {
-	return x * 10;
-};
-
-const summary = processNumbers(numbers)
-console.log(summary(filterNumbers, newNumbers).filtered)
-console.log(summary(filterNumbers, newNumbers).changed)
+class PLayer extends Actor {
+	constructor(startX, startY) {
+		super(startX, startY);
+		this.hp = 100
+	}
+}
