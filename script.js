@@ -49,12 +49,17 @@ const enemy = new Enemy(1, 2);
 const follower = new Follower(0, 0, player);
 follower.follow();
 
-function Test(name) {
-	this.name = name;
-}
-Test.prototype.sayHello = function(){
-	console.log(`Miau!, Na imię mam ${this.name}`);
+class Dog {
+	constructor(name) {
+		this.name = name;
+	}
+
+	sayHello() {
+		return `Cześć, jestem ${this.name}`;
+	}
 }
 
-const tt = new Test('Kotek')
-tt.sayHello()
+const t = new Dog("Alan");
+t.sayHello = function () {
+	return `Cześć, jestem ${this.name.toUpperCase()}`;
+};
