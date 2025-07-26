@@ -9,8 +9,8 @@ class Actor {
 	}
 
 	distanceTo(otherPlayer) {
-		let dx = otherPlayer.x - this.x;
-		let dy = otherPlayer.y - this.y;
+		let dx = this.x - otherPlayer.x;
+		let dy = this.y - otherPlayer.y;
 		return Math.hypot(dx, dy);
 	}
 }
@@ -33,7 +33,18 @@ class Enemy extends Actor {
 	}
 }
 
-const player = new Player(3, 4);
+class Follower extends Actor {
+	constructor(startX, startY, player) {
+		super(startX, startY);
+		this.player = player;
+	}
+	follow() {
+		this.x = this.player.x;
+		this.y = this.player.y;
+	}
+}
+
+const player = new Player(10, 2);
 const enemy = new Enemy(1, 2);
-
-
+const follower = new Follower(0, 0, player);
+follower.follow();
