@@ -11,7 +11,11 @@ html {
 	--secondColor: #14161f;
 	--border-color: rgba(0, 0, 0, 0.2);
 }
-
+button,
+input,
+select {
+	font-family: inherit;
+}
 body {
 	min-height: 100vh;
 	font-family: "Montserrat", sans-serif;
@@ -51,12 +55,6 @@ main {
 .transactions {
 	width: 1000px;
 
-	h3 {
-		margin-block-end: 30px;
-		font-size: 2.8rem;
-		text-align: center;
-	}
-
 	&__transaction-list {
 		display: flex;
 	}
@@ -71,6 +69,12 @@ main {
 	&__income-area h3 {
 		color: rgb(19, 200, 108);
 		font-weight: bold;
+		font-size: 1.5rem;
+	}
+	h3 {
+		margin-block-end: 30px;
+		font-size: 2.8rem;
+		text-align: center;
 	}
 	&__expenses-area,
 	&__expenses-area .transactions__transaction-amount {
@@ -173,7 +177,7 @@ main {
 }
 
 .add-transaction-panel {
-	position: absolute;
+	position: fixed;
 	inset: 0;
 	display: none;
 	justify-content: center;
