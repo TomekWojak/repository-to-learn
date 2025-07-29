@@ -25,6 +25,12 @@ const showPanel = () => {
 };
 const closePanel = () => {
 	addTransactionPanel.style.display = "none";
+	clearAreas();
+};
+const clearAreas = () => {
+	nameInput.value = "";
+	amountInput.value = "";
+	categorySelect.selectedIndex = 0;
 };
 
 const checkForm = () => {
@@ -33,8 +39,11 @@ const checkForm = () => {
 		amountInput.value !== "" &&
 		categorySelect.value !== "none"
 	) {
+		console.log("ok");
 	} else {
+		alert("Wypełnij wszystkie pola");
 	}
 };
+saveBtn.addEventListener("click", checkForm);
 addTransactionBtn.addEventListener("click", showPanel);
 cancelBtn.addEventListener("click", closePanel);
