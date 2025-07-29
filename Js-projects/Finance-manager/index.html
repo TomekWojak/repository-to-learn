@@ -21,7 +21,7 @@
     </header>
     <main>
         <section class="transactions">
-            <h2 class="transactions__title">Lista transakcji</h2>
+            <h2 class="transactions__title title">Lista transakcji</h2>
             <div class="transactions__transaction-list">
                 <div class="transactions__income-area">
                     <h3>Przychód</h3>
@@ -60,15 +60,17 @@
 
         <section class="options">
             <div class="options__box">
-                <h2 class="options__title">Dostępne środki</h2>
+                <h2 class="options__title title">Dostępne środki</h2>
                 <p class="options__available-money">0zł</p>
             </div>
             <div class="options__controls">
-                <button class="options__add-transaction"><i class="fas fa-plus"></i> Dodaj transakcję</button>
-                <button class="options__delete-all"><i class="far fa-trash-alt"></i> Usuń wszystko</button>
+                <button class="options__add-transaction"><i class="fas fa-plus" aria-hidden="true"></i> Dodaj
+                    transakcję</button>
+                <button class="options__delete-all"><i class="far fa-trash-alt" aria-hidden="true"></i> Usuń
+                    wszystko</button>
             </div>
             <div class="options__style-selection">
-                <h2 class="options__title">Wybierz motyw:</h2>
+                <h2 class="options__title title">Wybierz motyw:</h2>
                 <div class="options__color-buttons">
                     <button class="options__light" aria-label="Ustaw jasny motyw"></button>
                     <button class="options__dark" aria-label="Ustaw ciemny motyw"></button>
@@ -78,7 +80,7 @@
     </main>
 
     <div class="add-transaction-panel">
-        <h4 class="add-transaction-panel__title">Dodaj nową transakcję</h4>
+        <h4 class="add-transaction-panel__title title">Dodaj nową transakcję</h4>
         <label for="name">Nazwa:</label>
         <small>(podaj nazwę transakcji)</small>
         <input type="text" id="name">
@@ -96,9 +98,10 @@
             <option value="food">[ - ] Jedzenie</option>
             <option value="cinema">[ - ] Kino</option>
         </select>
-
-        <button class="add-transaction-panel__save"><i class="fas fa-save"></i> Zapisz</button>
-        <button class="add-transaction-panel__cancel"><i class="far fa-window-close"></i> Anuluj</button>
+        <div class="add-transaction-panel__buttons">
+            <button class="add-transaction-panel__save"><i class="fas fa-save"></i> Zapisz</button>
+            <button class="add-transaction-panel__cancel"><i class="far fa-window-close"></i> Anuluj</button>
+        </div>
     </div>
 </body>
 
