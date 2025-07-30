@@ -68,7 +68,6 @@ const createNewTransaction = () => {
 
 	closePanel();
 	ID++;
-	console.log(newTransaction.childNodes);
 	countMoney(moneyArr);
 
 	newTransaction.addEventListener("click", (e) => {
@@ -103,6 +102,15 @@ const checkCategory = (transaction) => {
 	}
 };
 
+const deleteAllTransactions = () => {
+	const allTransactions = document.querySelectorAll(
+		".transactions__transaction"
+	);
+	allTransactions.forEach((transaction) => transaction.remove());
+	availableMoney.textContent = "0zł";
+	moneyArr = [0];
+};
+
 const countMoney = (money) => {
 	newMoney = money.reduce((a, b) => a + b);
 	availableMoney.textContent = `${newMoney}zł`;
@@ -112,9 +120,22 @@ const selectCategory = () => {
 	selectedCategory = categorySelect.options[categorySelect.selectedIndex].text;
 };
 
+const changeStyleToLight = () => {
+	root.style.setProperty("--firstColor", "#F9F9F9");
+	root.style.setProperty("--secondColor", "#14161F");
+	root.style.setProperty("--border-color", "rgba(0, 0, 0, .2");
+};
+const changeStyleToDark = () => {
+	root.style.setProperty("--firstColor", "#14161F");
+	root.style.setProperty("--secondColor", "#F9F9F9");
+	root.style.setProperty("--border-color", "rgba(255, 255, 255, .4");
+};
+
+deleteTransactionBtn.addEventListener("click", deleteAllTransactions);
 saveBtn.addEventListener("click", checkForm);
 addTransactionBtn.addEventListener("click", showPanel);
 cancelBtn.addEventListener("click", closePanel);
-
+darkModeBtn.addEventListener("click", changeStyleToDark);
+lightModeBtn.addEventListener("click", changeStyleToLight);
 // Moje komentarze
 // Jeśli chcemy znaleźć i usunąć dowolny element w z tablicy, sprawdzamy metodą indexOf() index elementu, potem za pomocą splice() usuwamy element.
