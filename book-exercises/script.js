@@ -49,3 +49,8 @@ const enemy = new Enemy(1, 2);
 const follower = new Follower(0, 0, player);
 follower.follow();
 
+
+
+
+
+document.title = 'Nowa nazwa strony'
