@@ -13,7 +13,11 @@ const saveBtn = document.querySelector(".add-transaction-panel__save");
 const cancelBtn = document.querySelector(".add-transaction-panel__cancel");
 const lightModeBtn = document.querySelector(".options__light");
 const darkModeBtn = document.querySelector(".options__dark");
+const deleteBtns = document.getElementsByClassName(
+	"transactions__transaction-delete"
+);
 
+let newMoney;
 let root = document.documentElement;
 let ID = 0;
 let categoryIcon;
@@ -57,15 +61,29 @@ const createNewTransaction = () => {
     class="fas fa-times"></i></button></p>`;
 
 	amountInput.value > 0
-		? incomeSection.append(newTransaction) &&
-		  newTransaction.classList.add("income")
-		: expensesSection.append(newTransaction) &&
-		  newTransaction.classList.add("expenses");
+		? incomeSection.append(newTransaction)
+		: expensesSection.append(newTransaction);
 
 	moneyArr.push(parseFloat(amountInput.value));
 
 	closePanel();
 	ID++;
+	console.log(newTransaction.childNodes);
+	countMoney(moneyArr);
+
+	newTransaction.addEventListener("click", (e) => {
+		if (e.target.matches(".transactions__transaction-delete")) {
+			const parent = e.target.closest(".transactions__transaction");
+			const amount = parent.querySelector(".transactions__transaction-amount");
+			const amountParsed = parseFloat(amount.textContent);
+
+			const numberIndex = moneyArr.indexOf(amountParsed);
+
+			moneyArr.splice(numberIndex, 1);
+			countMoney(moneyArr);
+			parent.remove();
+		}
+	});
 };
 
 const checkCategory = (transaction) => {
@@ -85,6 +103,11 @@ const checkCategory = (transaction) => {
 	}
 };
 
+const countMoney = (money) => {
+	newMoney = money.reduce((a, b) => a + b);
+	availableMoney.textContent = `${newMoney}zł`;
+};
+
 const selectCategory = () => {
 	selectedCategory = categorySelect.options[categorySelect.selectedIndex].text;
 };
@@ -92,3 +115,6 @@ const selectCategory = () => {
 saveBtn.addEventListener("click", checkForm);
 addTransactionBtn.addEventListener("click", showPanel);
 cancelBtn.addEventListener("click", closePanel);
+
+// Moje komentarze
+// Jeśli chcemy znaleźć i usunąć dowolny element w z tablicy, sprawdzamy metodą indexOf() index elementu, potem za pomocą splice() usuwamy element.

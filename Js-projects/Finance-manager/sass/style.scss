@@ -22,7 +22,9 @@ body {
 	color: var(--secondColor);
 	background-color: var(--firstColor);
 }
-
+i {
+	pointer-events: none;
+}
 header {
 	display: flex;
 	justify-content: center;
