@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/cdbdae0066.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/Js-projects/Finance-manager/script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1><i class="fas fa-wallet"></i> Wallet</h1>
+        <p>Twój osobisty menedżer finansów</p>
+    </header>
+    <main>
+        <section class="transactions">
+            <h2 class="transactions__title title">Lista transakcji</h2>
+            <div class="transactions__transaction-list">
+                <div class="transactions__income-area">
+                    <h3>Przychód</h3>
+                </div>
+
+                <div class="transactions__expenses-area">
+                    <h3>Wydatki</h3>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="options">
+            <div class="options__box">
+                <h2 class="options__title title">Dostępne środki</h2>
+                <p class="options__available-money">0zł</p>
+            </div>
+            <div class="options__controls">
+                <button class="options__add-transaction"><i class="fas fa-plus" aria-hidden="true"></i> Dodaj
+                    transakcję</button>
+                <button class="options__delete-all"><i class="far fa-trash-alt" aria-hidden="true"></i> Usuń
+                    wszystko</button>
+            </div>
+            <div class="options__style-selection">
+                <h2 class="options__title title">Wybierz motyw:</h2>
+                <div class="options__color-buttons">
+                    <button class="options__light" aria-label="Ustaw jasny motyw"></button>
+                    <button class="options__dark" aria-label="Ustaw ciemny motyw"></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="add-transaction-panel">
+        <h4 class="add-transaction-panel__title title">Dodaj nową transakcję</h4>
+        <label for="name">Nazwa:</label>
+        <small>(podaj nazwę transakcji)</small>
+        <input type="text" id="name">
+
+        <label for="amount">Kwota:</label>
+        <small>(podaj kwotę transakcji, jeśli dodajesz wydatek, postaw znak minusa na początku kwoty)</small>
+        <input type="number" id="amount">
+
+        <label for="category">Wybierz kategorię:</label>
+        <small>( [ + ] oznacza przychód, [ - ] oznacza wydatek)</small>
+        <select id="category">
+            <option value="none" selected disabled></option>
+            <option value="income">[ + ] Przychód</option>
+            <option value="shopping">[ - ] Zakupy</option>
+            <option value="food">[ - ] Jedzenie</option>
+            <option value="cinema">[ - ] Kino</option>
+        </select>
+        <div class="add-transaction-panel__buttons">
+            <button class="add-transaction-panel__save"><i class="fas fa-save"></i> Zapisz</button>
+            <button class="add-transaction-panel__cancel"><i class="far fa-window-close"></i> Anuluj</button>
+        </div>
+    </div>
+</body>
+
+</html>
