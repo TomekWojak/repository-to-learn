@@ -14,8 +14,12 @@ header h1 {
 	font-size: 6rem;
 }
 
-main {
+.section1,
+.section2 {
 	min-height: 100dvh;
+}
+.section2 {
+	margin-block-start: 10em;
 }
 
 .container {
@@ -90,4 +94,28 @@ main {
 		opacity: 1;
 		transform: translateY(0) scale(1);
 	}
+}
+
+.container2 {
+	display: grid;
+	gap: 0.5em;
+	max-width: 1200px;
+	margin: 0 auto;
+	grid-template-areas:
+		"b1 b1 b2"
+		"b3 b4 b5"
+		"b3 b6 b7";
+}
+
+.container__box2 {
+	opacity: 0.5;
+	transform: translateY(50px) scale(0.8);
+	min-height: 300px;
+	background-color: orange;
+	border: 2px solid;
+	transition: transform 0.5s, opacity 0.5s;
+}
+.animated {
+	opacity: 1;
+	transform: translateY(0) scale(1);
 }
