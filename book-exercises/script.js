@@ -49,17 +49,7 @@ const enemy = new Enemy(1, 2);
 const follower = new Follower(0, 0, player);
 follower.follow();
 
-class Dog {
-	constructor(name) {
-		this.name = name;
-	}
-
-	sayHello() {
-		return `Cześć, jestem ${this.name}`;
-	}
-}
-
-const t = new Dog("Alan");
-t.sayHello = function () {
-	return `Cześć, jestem ${this.name.toUpperCase()}`;
-};
+const heading = document.getElementById("heading");
+const heading2 = document.querySelector("#heading");
+console.log(heading === heading2);
+document.title = "Nowa nazwa strony";
