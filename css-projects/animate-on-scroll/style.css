@@ -84,7 +84,7 @@ main {
 @keyframes animate {
 	from {
 		opacity: 0.5;
-		transform: translateY(50px) scale(.8);
+		transform: translateY(50px) scale(0.8);
 	}
 	to {
 		opacity: 1;
