@@ -1,141 +1,141 @@
-const incomeSection = document.querySelector(".transactions__income-area");
-const expensesSection = document.querySelector(".transactions__expenses-area");
-const availableMoney = document.querySelector(".options__available-money");
+const incomesList = document.querySelector(".manager__list--incomes");
+const expensesList = document.querySelector(".manager__list--expenses");
+const addTransactionBtn = document.querySelector(".manager__btn--add");
+const removeTransactionsBtn = document.querySelector(".manager__btn--remove");
+const lightModeBtn = document.querySelector(".manager__theme-btn--light");
+const darkModeBtn = document.querySelector(".manager__theme-btn--dark");
+const summaryPrice = document.querySelector(".manager__summary-price");
 const addTransactionPanel = document.querySelector(".add-transaction-panel");
-
-const nameInput = document.querySelector("#name");
-const amountInput = document.querySelector("#amount");
-const categorySelect = document.querySelector("#category");
-
-const addTransactionBtn = document.querySelector(".options__add-transaction");
-const deleteTransactionBtn = document.querySelector(".options__delete-all");
-const saveBtn = document.querySelector(".add-transaction-panel__save");
-const cancelBtn = document.querySelector(".add-transaction-panel__cancel");
-const lightModeBtn = document.querySelector(".options__light");
-const darkModeBtn = document.querySelector(".options__dark");
-const deleteBtns = document.getElementsByClassName(
-	"transactions__transaction-delete"
-);
-
-let newMoney;
+const nameInput = document.querySelector("#name-input");
+const priceInput = document.querySelector("#price-input");
+const options = document.querySelector("select");
+const saveBtn = document.querySelector(".save");
+const cancelBtn = document.querySelector(".cancel");
+const lists = [incomesList, expensesList];
 let root = document.documentElement;
-let ID = 0;
-let categoryIcon;
-let selectedCategory;
-let moneyArr = [0];
+let total = 0;
+let isPositive;
+let icon;
 
-const showPanel = () => {
-	addTransactionPanel.style.display = "flex";
+const setDarkMode = () => {
+	root.style.setProperty("--border-color", "#fff");
+	root.style.setProperty("--text-color", "#fff");
+	root.style.setProperty("--main-color", "#202020");
+	root.style.setProperty("--btn-txt-hover", "#202020");
+	root.style.setProperty("--btn-hover", "#fff");
 };
-const closePanel = () => {
-	addTransactionPanel.style.display = "none";
-	clearAreas();
+const setLightMode = () => {
+	root.style.setProperty("--border-color", "#33333355");
+	root.style.setProperty("--text-color", "#000");
+	root.style.setProperty("--main-color", "#fff");
+	root.style.setProperty("--btn-txt-hover", "#fff");
+	root.style.setProperty("--btn-hover", "#242222");
 };
-const clearAreas = () => {
+
+const handlePanelVisibility = () => {
+	addTransactionPanel.classList.toggle("active");
 	nameInput.value = "";
-	amountInput.value = "";
-	categorySelect.selectedIndex = 0;
+	priceInput.value = "";
+	options.selectedIndex = 0;
 };
 
-const checkForm = () => {
+const checkInputs = () => {
+	let value = parseFloat(priceInput.value);
+	const priceRegexp = /^[1-9]\d*(\.\d+)?$/;
+
 	if (
 		nameInput.value !== "" &&
-		amountInput.value !== "" &&
-		categorySelect.value !== "none"
+		priceInput.value !== "" &&
+		options.value !== "none"
 	) {
-		createNewTransaction();
+		if (value === 0) {
+			return alert("Podana kwota nie może być równa 0");
+		} else if (!priceRegexp.test(value)) {
+			return alert("Podana kwota musi być większa od 0");
+		} else if (options.value === "income") {
+			total += value;
+			isPositive = true;
+		} else if (options.value !== "income") {
+			total -= value;
+			isPositive = false;
+		}
+		setIcon();
+		createTransaction();
+		handlePanelVisibility();
+		summaryPrice.textContent = `${total}zł`;
 	} else {
-		alert("Wypełnij wszystkie pola");
+		return alert("Uzupełnij wszystkie pola!");
 	}
 };
 
-const createNewTransaction = () => {
-	const newTransaction = document.createElement("div");
-	newTransaction.classList.add("transactions__transaction");
-	newTransaction.setAttribute("id", ID);
-	selectCategory();
-	checkCategory(selectedCategory);
-	newTransaction.innerHTML = `<p class="transactions__transaction-name">${categoryIcon} ${nameInput.value}</p>
-    <p class="transactions__transaction-amount">${amountInput.value}zł <button
-    class="transactions__transaction-delete" aria-label="Usuń transakcję z listy"><i
-    class="fas fa-times"></i></button></p>`;
+const createTransaction = () => {
+	const newTransaction = document.createElement("li");
+	newTransaction.innerHTML = `
+                                <div class="manager__li-category">
+                                    ${icon}
+                                    ${nameInput.value}
+                                </div>
+                                <div class="manager__li-price-info">
+                                    <span class="manager__price">${priceInput.value}zł</span>
+                                    <button class="manager__delete-transaction" aria-label="Usuń transakcję"><i
+                                            class="fa-solid fa-circle-xmark"></i></button>
+                                </div>
+`;
+	newTransaction.classList.add("manager__li");
+	newTransaction.classList.add("manager__income");
+	if (isPositive) {
+		incomesList.append(newTransaction);
+		newTransaction.classList.add("income");
+	} else {
+		expensesList.append(newTransaction);
+		newTransaction.classList.add("expense");
+	}
+};
 
-	amountInput.value > 0
-		? incomeSection.append(newTransaction)
-		: expensesSection.append(newTransaction);
+const setIcon = () => {
+	switch (options.value) {
+		case "income":
+			icon = '<i class="fa-solid fa-money-bill-wave"></i>';
+			break;
+		case "shopping":
+			icon = '<i class="fa-solid fa-bag-shopping"></i>';
+			break;
+		case "entertainment":
+			icon = '<i class="fa-solid fa-film"></i>';
+			break;
+		case "food":
+			icon = '<i class="fa-solid fa-burger"></i>';
+			break;
+	}
+};
 
-	moneyArr.push(parseFloat(amountInput.value));
-
-	closePanel();
-	ID++;
-	countMoney(moneyArr);
-
-	newTransaction.addEventListener("click", (e) => {
-		if (e.target.matches(".transactions__transaction-delete")) {
-			const parent = e.target.closest(".transactions__transaction");
-			const amount = parent.querySelector(".transactions__transaction-amount");
-			const amountParsed = parseFloat(amount.textContent);
-
-			const numberIndex = moneyArr.indexOf(amountParsed);
-
-			moneyArr.splice(numberIndex, 1);
-			countMoney(moneyArr);
+lists.forEach((list) =>
+	list.addEventListener("click", (e) => {
+		if (e.target.matches(".manager__delete-transaction")) {
+			const parent = e.target.closest(".manager__li");
+			const price = parseFloat(
+				parent.querySelector(".manager__price").textContent
+			);
+			if (parent.classList.contains("income")) {
+				total -= price;
+			} else {
+				total += price;
+			}
+			summaryPrice.textContent = `${total}zł`;
 			parent.remove();
 		}
-	});
+	})
+);
+
+const clearAll = () => {
+	lists.forEach((list) => (list.textContent = ""));
+	summaryPrice.textContent = "0zł";
+	total = 0;
 };
 
-const checkCategory = (transaction) => {
-	switch (transaction) {
-		case "[ + ] Przychód":
-			categoryIcon = '<i class="fas fa-money-bill-wave"></i>';
-			break;
-		case "[ - ] Zakupy":
-			categoryIcon = '<i class="fas fa-cart-arrow-down"></i>';
-			break;
-		case "[ - ] Jedzenie":
-			categoryIcon = '<i class="fas fa-hamburger"></i>';
-			break;
-		case "[ - ] Kino":
-			categoryIcon = '<i class="fas fa-film"></i>';
-			break;
-	}
-};
-
-const deleteAllTransactions = () => {
-	const allTransactions = document.querySelectorAll(
-		".transactions__transaction"
-	);
-	allTransactions.forEach((transaction) => transaction.remove());
-	availableMoney.textContent = "0zł";
-	moneyArr = [0];
-};
-
-const countMoney = (money) => {
-	newMoney = money.reduce((a, b) => a + b);
-	availableMoney.textContent = `${newMoney}zł`;
-};
-
-const selectCategory = () => {
-	selectedCategory = categorySelect.options[categorySelect.selectedIndex].text;
-};
-
-const changeStyleToLight = () => {
-	root.style.setProperty("--firstColor", "#F9F9F9");
-	root.style.setProperty("--secondColor", "#14161F");
-	root.style.setProperty("--border-color", "rgba(0, 0, 0, .2");
-};
-const changeStyleToDark = () => {
-	root.style.setProperty("--firstColor", "#14161F");
-	root.style.setProperty("--secondColor", "#F9F9F9");
-	root.style.setProperty("--border-color", "rgba(255, 255, 255, .4");
-};
-
-deleteTransactionBtn.addEventListener("click", deleteAllTransactions);
-saveBtn.addEventListener("click", checkForm);
-addTransactionBtn.addEventListener("click", showPanel);
-cancelBtn.addEventListener("click", closePanel);
-darkModeBtn.addEventListener("click", changeStyleToDark);
-lightModeBtn.addEventListener("click", changeStyleToLight);
-// Moje komentarze
-// Jeśli chcemy znaleźć i usunąć dowolny element w z tablicy, sprawdzamy metodą indexOf() index elementu, potem za pomocą splice() usuwamy element.
+removeTransactionsBtn.addEventListener("click", clearAll);
+cancelBtn.addEventListener("click", handlePanelVisibility);
+saveBtn.addEventListener("click", checkInputs);
+addTransactionBtn.addEventListener("click", handlePanelVisibility);
+lightModeBtn.addEventListener("click", setLightMode);
+darkModeBtn.addEventListener("click", setDarkMode);
