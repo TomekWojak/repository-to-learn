@@ -3,243 +3,328 @@
 	padding: 0;
 	box-sizing: border-box;
 }
-html {
-	font-size: 62.5%;
-}
+
 :root {
-	--firstColor: #f9f9f9;
-	--secondColor: #14161f;
-	--border-color: rgba(0, 0, 0, 0.2);
-}
-button,
-input,
-select {
-	font-family: inherit;
+	--border-color: #33333355;
+	--text-color: #000;
+	--main-color: #fff;
+	--btn-hover: #242222;
+	--btn-txt-hover: #fff;
+	--text-bigest: clamp(3rem, 7vw, 4rem);
+	--text-big: clamp(1.8rem, 5vw, 2.4rem);
+	--text-medium: clamp(1.5rem, 5vw, 2rem);
+	--text-small: clamp(1rem, 3vw, 1.4rem);
 }
 body {
-	min-height: 100vh;
 	font-family: "Montserrat", sans-serif;
-	color: var(--secondColor);
-	background-color: var(--firstColor);
+	background-color: var(--main-color);
 }
-i {
-	pointer-events: none;
-}
-header {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	margin-block-end: 40px;
-	height: 220px;
-}
-header h1 {
-	margin-block-end: 10px;
-	font-size: 6.4rem;
-	font-weight: 200;
-}
-header p {
-	font-size: 2.4rem;
+.wrapper {
+	width: min(100%, 1300px);
+	margin: 0 auto;
 }
 
-main {
-	display: flex;
-	justify-content: center;
-	align-items: flex-start;
+.title,
+.text {
+	text-align: center;
+	font-weight: 300;
+	color: var(--text-color);
+}
+.text {
+	margin-block-start: 0.5em;
+	font-size: var(--text-small);
 }
 .title {
-	margin-block-end: 30px;
-	text-align: center;
-	text-transform: uppercase;
-	font-size: 3.6rem;
-	font-weight: 200;
+	margin-block-start: 1em;
+	font-size: var(--text-bigest);
+	color: var(--text-color);
 }
-.transactions {
-	width: 1000px;
+.manager {
+	padding: 2em;
+	&__title {
+		margin: 0.5em 0;
+		font-weight: 300;
+		text-align: center;
+		font-size: var(--text-big);
+		text-transform: uppercase;
+		color: var(--text-color);
 
-	&__transaction-list {
-		display: flex;
+		&--income,
+		&--expenses {
+			margin: 0 0 1em;
+			font-weight: 700;
+			font-size: var(--text-small);
+		}
+		&--income {
+			color: #14d614ee;
+		}
+		&--expenses {
+			color: #f70c0c;
+		}
 	}
-	&__income-area,
-	&__expenses-area {
-		margin: 0 20px;
-		padding: 30px;
-		width: 50%;
+	&__transactions,
+	&__expenses,
+	&__panel,
+	&__controls,
+	&__theme-panel {
+		margin-block-start: 3em;
+	}
+	&__expenses,
+	&__incomes,
+	&__panel {
+		padding: 1em;
 		border: 1px solid var(--border-color);
 	}
-	&__transaction-amount,
-	&__income-area h3 {
-		color: rgb(19, 200, 108);
-		font-weight: bold;
-		font-size: 1.5rem;
+	&__incomes,
+	&__expenses {
+		width: 100%;
 	}
-	h3 {
-		margin-block-end: 30px;
-		font-size: 2.8rem;
-		text-align: center;
+	&__list {
+		list-style: none;
+		padding: 0.5em 0;
 	}
-	&__expenses-area,
-	&__expenses-area .transactions__transaction-amount {
-		color: rgb(255, 104, 104);
-	}
-	&__transaction {
+	&__li {
 		display: flex;
 		justify-content: space-between;
-		padding: 10px 0;
+		align-items: center;
+		padding: 1em 0;
 		border-bottom: 1px solid var(--border-color);
-
-		&:last-child {
-			border-bottom: none;
-		}
-	}
-	&__transaction-name {
-		font-size: 1.8rem;
+		color: var(--text-color);
 
 		i {
-			margin-inline-end: 10px;
+			flex-shrink: 0;
+			margin-inline-end: 0.5em;
 		}
 	}
-	&__transaction-delete {
-		margin-inline-start: 10px;
-		background: none;
+	&__delete-transaction {
+		padding: 0.5em;
+		margin-inline-start: 0.5em;
 		border: none;
-		font-size: 1.8rem;
-		color: var(--secondColor);
+		background: none;
 		cursor: pointer;
-		transition: transform 0.3s;
+		color: var(--text-color);
 
-		&:hover {
-			transform: scale(0.8);
+		i {
+			margin-inline-end: 0;
+			pointer-events: none;
 		}
 	}
-}
-
-.options {
-	padding: 80px 40px;
-	width: 500px;
-	border: 1px solid var(--border-color);
-
-	&__available-money {
-		margin-block-start: -10px;
+	&__panel {
 		text-align: center;
-		font-size: 6rem;
+	}
+	&__summary-price {
+		font-size: var(--text-bigest);
+		font-weight: 600;
+		color: var(--text-color);
 	}
 	&__controls {
 		display: flex;
-		justify-content: space-around;
-		margin: 50px 0;
-
-		button {
-			padding: 12px 20px;
-			color: var(--secondColor);
-			border: 1px solid var(--border-color);
-			border-radius: 5px;
-			background: none;
-			cursor: pointer;
-			transition: background-color 0.3s, color 0.3s;
-
-			&:hover {
-				color: var(--firstColor);
-				background-color: var(--secondColor);
-			}
-		}
+		flex-direction: column;
+		gap: 1em;
+	}
+	&__btn {
+		width: 100%;
+		padding: 1em 2em;
+		background: none;
+		border: 1px solid var(--border-color);
+		border-radius: 8px;
+		font-family: inherit;
+		cursor: pointer;
+		color: var(--text-color);
 
 		i {
-			margin-inline-end: 10px;
+			margin-inline-end: 0.5em;
 		}
 	}
-	&__style-selection {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-	&__color-buttons {
-		button {
-			margin: 0 30px;
-			width: 50px;
-			height: 50px;
-			border-radius: 50%;
-			cursor: pointer;
-			transition: transform 0.3s;
+	&__theme-btn {
+		margin-inline: 0.5em;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		cursor: pointer;
 
-			&:hover {
-				transform: scale(0.9);
-			}
+		&--light {
+			border: 1px solid var(--border-color);
+			background-color: #fff;
 		}
-	}
-
-	&__light {
-		background-color: #f9f9f9;
-		border: 1px solid #14161f;
-	}
-	&__dark {
-		background-color: #14161f;
-		border: 1px solid #f9f9f9;
+		&--dark {
+			background-color: #000;
+			border: 1px solid transparent;
+		}
 	}
 }
 
 .add-transaction-panel {
-	position: fixed;
-	inset: 0;
 	display: none;
-	justify-content: center;
-	align-items: center;
+	opacity: 0;
 	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	padding: 2em;
+	inset: 0;
 	width: 100%;
 	height: 100%;
+	background: linear-gradient(to right, #4b79a1, #283e51);
 	color: #fff;
-	background-image: linear-gradient(315deg, #4c4177 0%, #2a5470 74%);
+
+	&.active {
+		display: flex;
+		animation: opacity 0.5s forwards;
+	}
 
 	&__title {
-		margin-block-end: 0;
+		font-size: var(--text-medium);
+		margin-block-start: 2em;
 	}
-	label {
-		margin-block-start: 40px;
-		margin-block-end: 5px;
-		font-size: 2.6rem;
+	.addnote {
+		margin: 0.5em 0;
 	}
-	small {
-		margin-block-end: 15px;
-		font-style: italic;
-		color: #ddd;
-	}
-
 	input,
 	select {
-		width: 800px;
+		margin-block-start: 1em;
+		padding: 1em;
+		width: min(100%, 900px);
+		border-radius: 8px;
+		border: none;
 	}
-	input,
-	select,
-	button {
-		padding: 10px 20px;
-		border: 1px solid #000;
-		border-radius: 5px;
-	}
-	input,
-	select,
-	option {
-		font-size: 1.8rem;
-	}
-
-	&__buttons {
+	&__controls {
+		width: min(100%, 900px);
 		display: flex;
-		justify-content: center;
-		margin-block-start: 30px;
-		gap: 30px;
+		flex-direction: column;
+		gap: 1em;
+		margin-block-start: 2em;
 	}
-
-	&__save,
-	&__cancel {
-		padding: 15px 40px;
-		font-size: 1.8rem;
-		color: #fff;
+	.save,
+	.cancel {
+		width: 100%;
+		padding: 1em 2em;
+		border-radius: 8px;
 		border: 1px solid #fff;
 		background: none;
+		color: #fff;
+		font-family: inherit;
 		cursor: pointer;
-		transition: background-color 0.3s;
 
-		&:hover {
-			background-color: rgb(25, 27, 51);
+		i {
+			margin-inline-end: 0.5em;
 		}
+	}
+}
+
+@media (576px <= width) {
+	.manager {
+		&__incomes,
+		&__expenses,
+		&__panel {
+			padding: 2em;
+		}
+		&__controls {
+			display: flex;
+			flex-direction: row;
+			gap: 1em;
+		}
+	}
+	.add-transaction-panel {
+		&__controls {
+			flex-direction: row;
+		}
+	}
+}
+@media (768px <= width) {
+	.manager {
+		&__transactions {
+			display: flex;
+			gap: 1.5em;
+			align-items: stretch;
+		}
+		&__expenses {
+			margin: 0;
+		}
+		&__expenses,
+		&__incomes {
+			flex-grow: 1;
+		}
+		&__panel {
+			margin-block-start: 1.5em;
+		}
+		&__delete-transaction {
+			transition: opacity 0.3s, transform 0.3s 0.1s;
+
+			&:hover {
+				opacity: 0.8;
+				transform: scale(0.98);
+			}
+		}
+		&__btn {
+			transition: background-color 0.3s, color 0.3s;
+
+			&:hover {
+				background-color: var(--btn-hover);
+				color: var(--btn-txt-hover);
+			}
+		}
+		&__theme-btn {
+			transition: transform 0.3s;
+
+			&:hover {
+				transform: scale(0.95);
+			}
+		}
+		&__li {
+			font-size: 1.1rem;
+		}
+	}
+	.add-transaction-panel {
+		.save,
+		.cancel {
+			transition: background-color 0.3s, color 0.3s;
+
+			&:hover {
+				background-color: #fff;
+				color: #000;
+			}
+		}
+	}
+}
+
+@media (1100px <= width) {
+	.wrapper {
+		display: flex;
+		gap: 1.5em;
+	}
+	.manager {
+		&__content,
+		&__panel {
+			flex-grow: 1;
+			width: 50%;
+		}
+		&__panel {
+			width: 30%;
+		}
+		&__transactions {
+			flex-direction: column;
+		}
+	}
+}
+
+@media (1200px <= width) {
+	.wrapper {
+		align-items: flex-start;
+	}
+	.manager {
+		&__transactions {
+			align-items: flex-start;
+			flex-direction: row;
+		}
+	}
+}
+
+@keyframes opacity {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
 	}
 }
