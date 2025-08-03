@@ -1,11 +1,76 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <title>Document</title>
+    <script src="https://kit.fontawesome.com/cdbdae0066.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
-    
+
+    <div class="counter-app">
+
+        <div class="counter-app__settings active">
+            <h1>Ustawienia</h1>
+
+            <label for="event-name">Nazwa wydarzenia:</label>
+            <input type="text" id="event-name" value="Nowy rok">
+            <table class="counter-app__date">
+                <tr>
+                    <td><label for="event-day">Dzień:</label></td>
+                    <td><label for="event-month">Miesiąc:</label></td>
+                    <td><label for="event-year">Rok:</label></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id="event-day" maxlength="2" value="1"></td>
+                    <td><input type="number" id="event-month" maxlength="2" value="1"></td>
+                    <td><input type="number" id="event-year" maxlength="4" value="2025"></td>
+                </tr>
+            </table>
+            <label for="event-image"></label>
+            <input type="text" id="event-image" value="default.jpg">
+            <button class="counter-app__save">Zapisz</button>
+        </div>
+
+        <div class="counter-app__body">
+            <div class="counter-app__image-section">
+                <button class="counter-app__settings-btn"><i class="fas fa-sliders-h"></i></button>
+            </div>
+            <div class="counter-app__time-section">
+                <h3><span class="event">Nowy rok</span>za: </h3>
+                <div class="counter-app__time-cards">
+
+                    <div class="counter-app__card">
+                        <p class="counter-app__number counter-app__number--days">1</p>
+                        <p class="counter-app__card-title">Dni</p>
+                    </div>
+                    <div class="counter-app__card">
+                        <p class="counter-app__number counter-app__number--hours">1</p>
+                        <p class="counter-app__card-title">Godzin</p>
+                    </div>
+                    <div class="counter-app__card">
+                        <p class="counter-app__number counter-app__number--minutes">1</p>
+                        <p class="counter-app__card-title">Dni</p>
+                    </div>
+                    <div class="counter-app__card">
+                        <p class="counter-app__number counter-app__number--seconds">1</p>
+                        <p class="counter-app__card-title">Sekund</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
 </body>
+
 </html>
