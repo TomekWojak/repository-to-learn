@@ -23,13 +23,13 @@ const setValue = () => {
 };
 setValue();
 const setTime = () => {
-    const currentTime = new Date();
+	const currentTime = new Date();
 	const result = usersTime - currentTime;
 	const days = Math.floor(result / 1000 / 60 / 60 / 24);
 	const hours = Math.floor(result / 1000 / 60 / 60) % 24;
 	const minutes = Math.floor(result / 1000 / 60) % 60;
 	const seconds = Math.floor(result / 1000) % 60;
-    
+
 	daysCount.textContent = days;
 	hoursCount.textContent = hours;
 	minutesCount.textContent = minutes;
@@ -37,16 +37,16 @@ const setTime = () => {
 };
 
 const appUpdate = () => {
-    eventSpan.textContent = eventName.value;
+	eventSpan.textContent = eventName.value;
 	imageSection.style.backgroundImage = `url('${eventImg.value}')`;
 	usersTime = new Date(
-        `${eventMonth.value} ${eventDay.value} ${eventYear.value}`
+		`${eventMonth.value} ${eventDay.value} ${eventYear.value}`
 	);
 	setTime();
 };
 appUpdate();
 
-setInterval(setTime, 1000)
+setInterval(setTime, 1000);
 
 settingsBtn.addEventListener("click", () => {
 	settings.classList.toggle("active");
