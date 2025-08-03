@@ -13,3 +13,70 @@ body {
 	font-family: "Montserrat", sans-serif;
 	background-color: #333;
 }
+
+h2 {
+	margin-block-end: 1em;
+	color: #fff;
+	text-align: center;
+	font-weight: lighter;
+	text-transform: uppercase;
+}
+
+.buttons {
+	display: flex;
+	justify-content: space-between;
+	margin-block-end: 2em;
+
+	&__group {
+		margin: 0 3em;
+	}
+	&__btn {
+		padding: 1em 2em;
+		margin: 0 1em;
+		text-transform: uppercase;
+		font-family: inherit;
+		border: 1px solid #fff;
+		color: #fff;
+		background: none;
+		border-radius: 6px;
+		cursor: pointer;
+		transition: color 0.3s, background-color 0.3s;
+
+		&:hover {
+			color: #000;
+			background-color: #fff;
+		}
+	}
+}
+
+.slider-box {
+	margin-block-end: 2em;
+	color: #fff;
+	font-size: 18px;
+}
+#slider {
+	margin-block-end: 0.5em;
+	width: 400px;
+}
+
+.box {
+	width: min(100%, 1000px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.square {
+	margin: 3px;
+	border: 1px solid #000;
+	width: 32px;
+	height: 32px;
+	border-radius: 6px;
+	transition-property: background-color;
+	transition-duration: 3s;
+
+	&:hover {
+		transition-duration: 0s !important;
+	}
+}
