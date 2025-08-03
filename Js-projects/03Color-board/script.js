@@ -7,11 +7,13 @@ const squares = 546;
 let sliderValue = 70;
 let range = 200;
 
-const createSquares = () => {
+const createSquares = (speed) => {
+	box.innerHTML = "";
 	for (let i = 0; i < squares; i++) {
 		const square = document.createElement("div");
 		square.classList.add("square");
 		box.append(square);
+		square.style.transitionDuration = speed;
 
 		square.addEventListener("mouseover", () => {
 			setColor(square);
@@ -40,4 +42,21 @@ const removeColor = (square) => {
 	square.style.backgroundColor = "transparent";
 };
 
+const handleSpeed = (e) => {
+	const newSpeed = e.target.dataset.speed + "s";
+	createSquares(newSpeed);
+};
+
+const handleColorRange = (e) => {
+	range = parseInt(e.target.dataset.colorRange);
+};
+
+const showSliderInfo = () => {
+	sliderInfo.textContent = slider.value;
+};
+
+slider.addEventListener("mousemove", showSliderInfo);
+slider.addEventListener("input", showSliderInfo);
+speedBtns.forEach((btn) => btn.addEventListener("click", handleSpeed));
+colorBtns.forEach((btn) => btn.addEventListener("click", handleColorRange));
 createSquares();
