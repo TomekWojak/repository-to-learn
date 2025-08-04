@@ -84,7 +84,9 @@ const root = document.documentElement;
 
 let posX = 0;
 let posY = 0;
-document.body.addEventListener("keydown", (e) => {
+window.addEventListener("keydown", (e) => {
+	if (e.repeat) return;
+
 	if (e.key === "w") {
 		posY -= 5;
 	} else if (e.key === "a") {
@@ -94,7 +96,6 @@ document.body.addEventListener("keydown", (e) => {
 	} else if (e.key === "d") {
 		posX += 5;
 	}
-	console.log(e);
 	root.style.setProperty("--posY", posY + "px");
 	root.style.setProperty("--posX", posX + "px");
 });
