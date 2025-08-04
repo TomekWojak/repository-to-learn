@@ -54,11 +54,30 @@ const heading2 = document.querySelector("#heading");
 console.log(heading === heading2);
 document.title = "Nowa nazwa strony";
 
-const ul = document.querySelector(".word-list");
-const sentence = document.querySelector(".sentence");
-ul.addEventListener("click", (e) => {
-	const word = e.target.textContent;
-	console.log(e);
-	sentence.textContent += word;
-	sentence.textContent += " ";
+// const ul = document.querySelector(".word-list");
+// const sentence = document.querySelector(".sentence");
+// ul.addEventListener("click", (e) => {
+// 	const word = e.target.textContent;
+// 	console.log(e);
+// 	sentence.textContent += word;
+// 	sentence.textContent += " ";
+// });
+
+const root = document.documentElement;
+
+let hasCreatedBox = false;
+
+document.body.addEventListener("mousemove", (e) => {
+	if (!hasCreatedBox) {
+		const box = document.createElement("div");
+		box.classList.add("box");
+		document.body.append(box);
+		hasCreatedBox = true;
+	}
+
+	const positionX = e.clientX + 'px';
+	const positionY = e.clientY + 'px';
+
+	root.style.setProperty('--position-x', positionX)
+	root.style.setProperty('--position-y', positionY)
 });
