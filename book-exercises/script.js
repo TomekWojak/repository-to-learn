@@ -53,3 +53,12 @@ const heading = document.getElementById("heading");
 const heading2 = document.querySelector("#heading");
 console.log(heading === heading2);
 document.title = "Nowa nazwa strony";
+
+const ul = document.querySelector(".word-list");
+const sentence = document.querySelector(".sentence");
+ul.addEventListener("click", (e) => {
+	const word = e.target.textContent;
+	console.log(e);
+	sentence.textContent += word;
+	sentence.textContent += " ";
+});
