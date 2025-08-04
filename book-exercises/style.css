@@ -10,12 +10,11 @@ body {
 
 .box {
     position: absolute;
-    top: var(--position-y);
-    left: var(--position-x);
+    top: var(--posY);
+    left: var(--posX);
     transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px;
+    width: 100px;
+    height: 100px;
     background-color: blue;
     opacity: 0.5;
-    border-radius: 50%;
 }
