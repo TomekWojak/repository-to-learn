@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+}
+
+.box {
+    position: absolute;
+    top: var(--posY);
+    left: var(--posX);
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    opacity: 0.5;
+}
