@@ -1,16 +1,13 @@
-const gulp = require("gulp");
+const gulp = require("gulp"); //Musimy zawsze zaimportować gulpa
 
-// gulp.task("test", function (done) {
-// 	console.log("test");
-// 	done();
-// });
-// Stara metoda
-
-
-
-function test2(done) {
-	console.log("test2");
+function text1(done) {
+	console.log(1234);
+	done();
+}
+function text2(done) {
+	console.log("abcd");
 	done();
 }
 
-exports.test2 = test2;
+exports.showTextes = gulp.series(text1, text2);
+exports.showTextesP = gulp.parallel(text1, text2);
