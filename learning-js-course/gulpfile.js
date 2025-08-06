@@ -1,13 +1,19 @@
-const gulp = require("gulp"); //Musimy zawsze zaimportować gulpa
+// const gulp = require("gulp"); //Musimy zawsze zaimportować gulpa, ale tutaj pobieramy wszystko co zajduje się w obiekcie gulp.
+// const { series, parallel } = require("gulp"); //Tutaj pobieramy wybrane przez nas metody API - lepsza optymalizacja
 
-function text1(done) {
-	console.log(1234);
+const { series, parallel } = require("gulp");
+
+function sass(done) {
+	console.log("Kompiluję SASS");
 	done();
 }
-function text2(done) {
-	console.log("abcd");
+function html(done) {
+	console.log("Minifikuję HTML");
 	done();
 }
-
-exports.showTextes = gulp.series(text1, text2);
-exports.showTextesP = gulp.parallel(text1, text2);
+function liveServer(done) {
+	console.log("Uruchamiam live server");
+	done();
+}
+const mainFunctions = parallel(sass, html);
+exports.default = series(mainFunctions, liveServer);
