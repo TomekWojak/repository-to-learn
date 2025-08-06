@@ -1,5 +1,5 @@
 body {
-	background-color: red;
+	background-color: #333;
 	font-weight: 60;
 }
 
@@ -13,4 +13,8 @@ body {
 	border: 2px solid red;
 	box-shadow: 5px 5px 2px 2.5px black;
 	appearance: none;
+}
+.text {
+    font-size: 2rem;
+    color: #fff;
 }
