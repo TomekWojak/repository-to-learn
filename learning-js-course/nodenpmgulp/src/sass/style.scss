@@ -1,4 +1,16 @@
 body {
 	background-color: red;
-    font-weight: 60;
+	font-weight: 60;
+}
+
+.container {
+	display: flex;
+	min-height: 100dvh;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-weight: 600;
+	border: 2px solid red;
+	box-shadow: 5px 5px 2px 2.5px black;
+	appearance: none;
 }
