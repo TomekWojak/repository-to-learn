@@ -9,4 +9,15 @@ const observer = new IntersectionObserver((elements) => {
 	});
 });
 
+const mutationObserver = new MutationObserver((entries) => {
+	console.log(entries);
+	entries.forEach((entry) => {
+		entry.addedNodes.forEach((node) => node.classList.add("test"));
+	});
+});
+
+allBoxes.forEach((box) =>
+	mutationObserver.observe(box, { childList: true, subtree: true })
+);
+
 allBoxes.forEach((box) => observer.observe(box));
