@@ -34,18 +34,28 @@ body {
 			height: 600px;
 			opacity: 0;
 			border-radius: 50%;
-			background: radial-gradient(rgb(255, 217, 0), transparent, transparent);
+			background: radial-gradient(rgb(11, 211, 141), transparent, transparent);
 			transition: opacity 0.5s;
 		}
 		&::after {
 			content: "";
 			position: absolute;
-			inset: 2px;
-			background-color: rgba(38, 38, 38, 0.664);
+			inset: 1px;
+			background-color: rgba(38, 38, 38, 0.8);
 			border-radius: inherit;
 		}
 		&:hover::before {
 			opacity: 1;
+		}
+		&:nth-child(2)::before {
+			background: radial-gradient(
+				rgba(255, 255, 255, 0.27),
+				transparent,
+				transparent
+			);
+		}
+		&:nth-child(3)::before {
+			background: radial-gradient(rgb(201, 8, 8), transparent, transparent);
 		}
 	}
 }
