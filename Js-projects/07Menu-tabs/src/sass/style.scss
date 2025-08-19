@@ -43,7 +43,23 @@ h2 {
 }
 .menu-section {
 	display: none;
+	translate: 0 30px;
+	opacity: 0.1;
 }
 .menu-section-active {
 	display: block;
+	translate: 0;
+	opacity: 1;
+	animation: enterAnimation .3s forwards;
+}
+
+@keyframes enterAnimation {
+	from {
+		translate: 0 30px;
+		opacity: 0.1;
+	}
+	to {
+		translate: 0;
+		opacity: 1;
+	}
 }
