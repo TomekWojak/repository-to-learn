@@ -12,3 +12,38 @@ body {
 	background-color: #333;
 	font-family: "Montserrat", sans-serif;
 }
+
+h2 {
+	margin-bottom: 0.5em;
+}
+.wrapper {
+	padding: 2em;
+	width: 700px;
+	background-color: #fff;
+	border-radius: 6px;
+}
+.menu-tabs {
+	margin-block-end: 2em;
+}
+.menu-tab {
+	padding: 0.5em 1em;
+	font-size: 24px;
+	background-color: #fff;
+	border-radius: 6px;
+	border: 1px solid #333;
+	cursor: pointer;
+	transition: background-color 0.3s;
+
+	&:hover {
+		background-color: gold;
+	}
+}
+.menu-tab-active {
+	background-color: gold;
+}
+.menu-section {
+	display: none;
+}
+.menu-section-active {
+	display: block;
+}
