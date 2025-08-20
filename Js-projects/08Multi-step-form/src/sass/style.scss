@@ -1,0 +1,98 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100dvh;
+	background-color: #333;
+	font-family: sans-serif;
+}
+
+h1 {
+	margin-block-end: 0.5em;
+	text-transform: uppercase;
+	color: #ddd;
+}
+.form {
+	margin-block-end: 3em;
+	width: 600px;
+	height: 300px;
+	border-radius: 6px;
+	overflow: hidden;
+}
+.page {
+	display: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	font-size: 22px;
+	background-color: #fff;
+}
+.page:nth-child(even) {
+	background-color: #bbb;
+}
+.active-page {
+	display: flex;
+}
+.progress-box {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	width: 600px;
+	margin-block-end: 3em;
+}
+.progress-bar,
+.progress-box::before {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	height: 4px;
+	z-index: -1;
+}
+.progress-box::before {
+	content: "";
+	width: 100%;
+	background-color: #ddd;
+}
+.progress-bar {
+	width: 0%;
+	background-color: royalblue;
+	transition: width 0.3s;
+}
+.step {
+	display: grid;
+	place-items: center;
+	width: 48px;
+	height: 48px;
+	color: #333;
+	background-color: #fff;
+	border: 3px solid #ddd;
+	border-radius: 6px;
+}
+.active {
+	background-color: royalblue;
+	color: #fff;
+	border-color: rgb(36, 76, 195);
+}
+.btn {
+	padding: 0.7em 2em;
+	font-size: 18px;
+	color: #fff;
+	background-color: royalblue;
+	border-radius: 6px;
+	border: none;
+	cursor: pointer;
+}
+.btn:disabled {
+    background-color: #ddd;
+    color: #333;
+    cursor: default;
+}
