@@ -17,8 +17,6 @@ const handlePrevBtn = () => {
 
 const handleProgressBar = () => {
 	steps.forEach((step, index) => {
-		console.log(currentStep);
-		console.log(index);
 		if (index < currentStep) {
 			step.classList.add("active");
 		} else {
@@ -27,7 +25,30 @@ const handleProgressBar = () => {
 	});
 
 	const activeSteps = document.querySelectorAll(".active");
-	
+	progressBar.style.width =
+		((activeSteps.length - 1) / (steps.length - 1)) * 100 + "%";
+	handleBtnsState();
+    handleFormPage()
 };
+const handleFormPage = () => {
+    formPages.forEach(page => {
+        if(currentStep == page.dataset.number){
+            page.classList.add('active-page')
+        }else {
+            page.classList.remove('active-page')
+        }
+    })
+}
+const handleBtnsState = () => {
+	if (currentStep === 1) {
+		prevBtn.setAttribute("disabled", "true");
+	} else if (currentStep === steps.length) {
+		nextBtn.setAttribute("disabled", "true");
+	} else {
+		prevBtn.removeAttribute("disabled");
+		nextBtn.removeAttribute("disabled");
+	}
+};
+
 nextBtn.addEventListener("click", handleNextBtn);
 prevBtn.addEventListener("click", handlePrevBtn);
