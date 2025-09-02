@@ -25,3 +25,23 @@ enum RedGreenBlue {
 }
 console.log(RedGreenBlue.GREEN);
 
+function helloWorld(): void {
+	console.log("Hello World");
+}
+
+function lengthOfWorld(word: string, test?: string): number {
+	//test? - parametr opcjonalny(nie trzeba podawać)
+	//powinno się definiować typ parametru oraz funkcji!!
+
+	if (test) {
+		console.log(test);
+	}
+
+	return word.length;
+}
+
+console.log(lengthOfWorld("TestWord", "test2"));
+
+const user = { id: 12 };
+const user2: object = { id: 12 };
+const user3: {id: number, name: string} = {id: 12, name: 'Ania'}
