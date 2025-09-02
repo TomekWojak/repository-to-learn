@@ -44,4 +44,13 @@ console.log(lengthOfWorld("TestWord", "test2"));
 
 const user = { id: 12 };
 const user2: object = { id: 12 };
-const user3: {id: number, name: string} = {id: 12, name: 'Ania'}
+const user3: { id: number; name: string } = { id: 12, name: "Ania" };
+
+type User = { id: number; email: string };
+
+const user4: User = { id: 1, email: "John" };
+const user5: User = { id: 12, email: "Ann" };
+
+type Admin = { role: string };
+
+const user6: User & Admin = { id: 3, email: "Tst", role: "ADMIN" }; //Rozszerzamy zakres typów type User
