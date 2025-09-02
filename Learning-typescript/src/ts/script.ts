@@ -54,3 +54,13 @@ const user5: User = { id: 12, email: "Ann" };
 type Admin = { role: string };
 
 const user6: User & Admin = { id: 3, email: "Tst", role: "ADMIN" }; //Rozszerzamy zakres typów type User
+
+let id: number | string;
+
+id = "test";
+id = 1;
+
+function test(code: string | number | boolean): void {
+	console.log(`Test: ${code}`);
+}
+test(true);
