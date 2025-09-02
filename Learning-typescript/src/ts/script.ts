@@ -1,3 +1,5 @@
+import { is } from "@babel/types";
+
 const age: number = 54;
 let surname: string = "Potter";
 const isAdult: boolean = true;
@@ -64,3 +66,21 @@ function test(code: string | number | boolean): void {
 	console.log(`Test: ${code}`);
 }
 test(true);
+
+type ObjUnion = string | number | object | boolean;
+
+let obj1: ObjUnion;
+
+let isAdmin: true | false
+
+isAdmin = true
+
+
+let myUnknow: unknown
+
+myUnknow = 'hello world'
+myUnknow = 100
+
+let myNumber: number = 90
+
+if(typeof myUnknow === 'number') myNumber = myUnknow
