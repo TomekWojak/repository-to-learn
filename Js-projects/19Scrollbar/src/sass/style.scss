@@ -30,6 +30,7 @@ header {
 .scroll-bar {
 	position: absolute;
 	top: 0;
+	left: 0;
 	height: 20px;
 	width: var(--scroll-width);
 	background-color: tomato;
@@ -51,11 +52,11 @@ p {
 }
 
 .scroll-to-top {
-	// display: none;
+	display: none;
 	position: fixed;
 	bottom: 1em;
 	right: 1em;
-    padding: 0.5em;
+	padding: 0.5em;
 	background-color: #fff;
 	border: none;
 	cursor: pointer;
