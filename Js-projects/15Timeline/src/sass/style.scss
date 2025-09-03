@@ -3,3 +3,69 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100dvh;
+	font-family: sans-serif;
+	background-color: #333;
+	color: #fff;
+}
+
+.timeline {
+	position: relative;
+	width: min(100%, 800px);
+
+	&::before {
+		content: "";
+		position: absolute;
+		background-color: #0076e8;
+		width: 2px;
+		height: 100%;
+		display: block;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+}
+.timeline ul {
+	display: flex;
+	flex-direction: column;
+	margin: 0 2em;
+	list-style: none;
+}
+.timeline li {
+	position: relative;
+	margin-bottom: 2em;
+	padding: 2em;
+	width: 50%;
+	border: 1px solid #0076e8;
+	border-radius: 8px;
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		background-color: #0076e8;
+		border-radius: 50%;
+		width: 20px;
+		height: 20px;
+	}
+	&:nth-child(even) {
+		align-self: flex-end;
+		transform: translateX(20px);
+
+		&::after {
+			left: -31px;
+		}
+	}
+	&:nth-child(odd) {
+		transform: translateX(-20px);
+
+		&::after {
+			right: -31px;
+		}
+	}
+}
