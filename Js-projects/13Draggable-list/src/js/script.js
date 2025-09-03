@@ -1,6 +1,6 @@
 const presents = document.querySelectorAll(".present");
 const boxes = document.querySelectorAll(".box");
-const presentsBox = document.querySelector(".present-box");
+const presentsBox = document.querySelector(".presents-box");
 const chosenBox = document.querySelector(".chosen-box");
 const sendBtn = document.querySelector(".send-btn");
 
@@ -18,14 +18,23 @@ boxes.forEach((box) => {
 		e.preventDefault();
 		const isDragged = document.querySelector(".is-dragged");
 		box.append(isDragged);
-        handlePresents()
+		handlePresents();
 	});
 });
 
 const handlePresents = () => {
-    const restPresents = presentsBox.querySelectorAll('.present')
-
-    if(chosenBox.childElementCount > 2){
-        restPresents.forEach(present => present.setAttribute('draggable', false))
-    }
-}
+	const restPresents = presentsBox.querySelectorAll(".present");
+	if (chosenBox.childElementCount > 2) {
+		restPresents.forEach((present) => {
+			present.setAttribute("draggable", "false");
+			present.classList.add("disabled");
+		});
+		sendBtn.disabled = false;
+	} else {
+		restPresents.forEach((present) => {
+			present.setAttribute("draggable", "true");
+			present.classList.remove("disabled");
+		});
+		sendBtn.disabled = true;
+	}
+};
