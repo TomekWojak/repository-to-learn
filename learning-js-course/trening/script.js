@@ -1,3 +1,12 @@
+import { pi, square } from "./app.js";
+
+console.log(pi);
+const square2 = square(5);
+console.log(square2);
+
+
+
+
 const user = {
 	name: "Alicja",
 	age: 25,
@@ -60,3 +69,23 @@ const users2 = [
 
 const [firstUser, ...restUsers] = users2;
 const { name, age } = firstUser;
+
+const student1Grades = [10, 9, 8];
+const student2Grades = [7, 6, 9];
+
+const allGrades = [...student1Grades, ...student2Grades];
+
+const user1 = { name: "Ala", age: 22 };
+const user2 = { name: "Bartek", city: "Warszawa" };
+
+const mergedUser = { ...user1, ...user2 };
+
+const productInfo = { name: "Laptop", price: 4000 };
+const additionalInfo = { warranty: "2 lata", color: "czarny" };
+const morePrices = [100, 200, 300];
+
+const allProducts = { ...productInfo, ...additionalInfo };
+
+const { price } = allProducts;
+const allPrices = [price, ...morePrices];
+console.log(allPrices);
