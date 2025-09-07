@@ -4,9 +4,6 @@ console.log(pi);
 const square2 = square(5);
 console.log(square2);
 
-
-
-
 const user = {
 	name: "Alicja",
 	age: 25,
@@ -89,3 +86,26 @@ const allProducts = { ...productInfo, ...additionalInfo };
 const { price } = allProducts;
 const allPrices = [price, ...morePrices];
 console.log(allPrices);
+
+const input = document.getElementById("username");
+input && (input.value = "Anonim");
+
+const age2 = 0;
+
+const displayAge = age2 ? age2 : "brak danych";
+// albo
+const displayAge2 = age2 || "brak danych";
+console.log(displayAge2);
+
+const user3 = {
+	name: "Bartek",
+	address: {
+		city: "Warszawa",
+	},
+};
+
+const downloadUser = ({ address: { city } }) => {
+	return user3.address && city;
+};
+
+console.log(downloadUser(user3));
