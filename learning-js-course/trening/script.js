@@ -109,3 +109,23 @@ const downloadUser = ({ address: { city } }) => {
 };
 
 console.log(downloadUser(user3));
+
+const title = document.querySelector(".title");
+console.log(title?.textContent);
+
+const user4 = { profile: { email: "ala@test.com" } };
+const email2 = user4.profile?.email;
+console.log(email2);
+
+const settings = null;
+const lang = settings?.language?.current;
+console.log(lang);
+
+const inputValue = document.querySelector("input");
+console.log(inputValue && inputValue.value);
+
+const city = user && user.address && user.city;
+console.log(city);
+
+const lastItem = items && items[items.length - 1];
+console.log(lastItem);
