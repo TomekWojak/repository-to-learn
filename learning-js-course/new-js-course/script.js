@@ -15,3 +15,7 @@ const carInfo = {
 carInfo.name = "Focus";
 
 console.log(carInfo);
+
+const arr1 = ["test", "test2", 1, true];
+console.log(arr1[arr1.length - 1]);
+arr1[1] = "test2!!";
