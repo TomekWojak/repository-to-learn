@@ -118,3 +118,8 @@ let ab = 8,
 for (let i = 0, j = 5; i < 10; i++, j--) {
 	console.log(i, j);
 }
+
+
+let Data = {a: 12, b: 15, c: 17}
+delete Data.b
+console.log(Data);
