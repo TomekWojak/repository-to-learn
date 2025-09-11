@@ -123,3 +123,7 @@ for (let i = 0, j = 5; i < 10; i++, j--) {
 let Data = {a: 12, b: 15, c: 17}
 delete Data.b
 console.log(Data);
+
+let result = '15' + 20 //1520
+
+result = +'15' + 20 // 35 - automatyczna konwersja na liczbę
