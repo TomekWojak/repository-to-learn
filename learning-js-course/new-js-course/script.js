@@ -49,3 +49,29 @@ switch (temp) {
 	default:
 		console.log("unknow temperature");
 }
+
+let wha = -6;
+let whb = 90;
+while (wha <= 6) {
+	console.log(wha);
+	wha++;
+}
+
+while (whb >= 75) {
+	console.log(whb);
+	whb--;
+}
+
+const numbers1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+let numbers1I = 0;
+let numbers1Sum = 0;
+
+while (numbers1I < numbers1.length) {
+	let arrEl = numbers1[numbers1I];
+
+	if (arrEl > 5) numbers1Sum += arrEl;
+
+	numbers1I++;
+}
+
+console.log(numbers1Sum);
