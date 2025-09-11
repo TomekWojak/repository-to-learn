@@ -20,8 +20,32 @@ const arr1 = ["test", "test2", 1, true];
 console.log(arr1[arr1.length - 1]);
 arr1[1] = "test2!!";
 
-
-let a = 0 / 0
-let b = 6 / 2
+let a = 0 / 0;
+let b = 6 / 2;
 console.log(isNaN(a));
 console.log(isNaN(b));
+
+let c = 100 / 33;
+
+let temp = 10;
+
+switch (temp) {
+	case -10:
+	case -5:
+		console.log("cold");
+		break;
+	case 0:
+		console.log("freezing");
+		break;
+	case 5:
+		console.log("early spring");
+		break;
+	case 10:
+		console.log("spring");
+		break;
+	case 20:
+		console.log("summer");
+		break;
+	default:
+		console.log("unknow temperature");
+}
