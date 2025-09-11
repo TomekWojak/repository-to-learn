@@ -104,3 +104,17 @@ for (let i = 0; i < arr2.length; i++) {
 
 	if (num % 2 === 0) summ += num;
 }
+
+let A = 10;
+let B = A; //10 jest kopiowane do zmiennej A - mają inne adresy
+
+let obj = { a: 10 };
+let data = obj; // data i obj odwołują się do tego samego obiektu - do tego samego obiektu  w pamięci. Do data została przekazana referencja do obiektu obj
+// np. let obj = {}, let obj2 = {} - są to 2 różne od siebie obiekty - zajmują inne miejsce, adres a pamięci
+
+let ab = 8,
+	bc = 10;
+
+for (let i = 0, j = 5; i < 10; i++, j--) {
+	console.log(i, j);
+}
