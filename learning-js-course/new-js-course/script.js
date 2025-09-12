@@ -463,4 +463,27 @@ const schoolObj = {
 		};
 		this.students.push(studentInfo);
 	},
+	showStudents() {
+		if (this.students.length === 0) {
+			console.log("Szkoła nie ma studentów!");
+		} else {
+			this.students.forEach((student) =>
+				console.log(student.name, student.surname)
+			);
+		}
+	},
+	showStudentsByName(studentName) {
+		this.students.forEach(({ name }) => {
+			if (name == studentName) {
+				console.log(name);
+			}
+		});
+	},
 };
+
+schoolObj.addStudent("Tomek", "Kowalski");
+schoolObj.addStudent("Bartek", "Nowak");
+schoolObj.addStudent("Ania", "Wierzba");
+schoolObj.addStudent("Ania", "Wierzba");
+schoolObj.showStudents();
+schoolObj.showStudentsByName("Ania");
