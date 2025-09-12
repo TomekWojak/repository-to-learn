@@ -119,11 +119,49 @@ for (let i = 0, j = 5; i < 10; i++, j--) {
 	console.log(i, j);
 }
 
-
-let Data = {a: 12, b: 15, c: 17}
-delete Data.b
+let Data = { a: 12, b: 15, c: 17 };
+delete Data.b;
 console.log(Data);
 
-let result = '15' + 20 //1520
+let result = "15" + 20; //1520
 
-result = +'15' + 20 // 35 - automatyczna konwersja na liczbę
+result = +"15" + 20; // 35 - automatyczna konwersja na liczbę
+
+// operatory relacyjne
+
+let objj = { a: 12, b: 15, c: 16 };
+console.log("a" in objj); // sprawdza czy istnieje klucz
+console.log("q" in objj);
+
+let arrr = ["a", "b", "c"];
+console.log(0 in arrr); // sprawdza czy istnieje index
+console.log(4 in arrr);
+
+const date = new Date(2025, 9, 12);
+console.log(date instanceof Date); // Sprawdza czy Date jest konstruktorem date
+
+console.log(typeof 20);
+
+if ({ a: 10 } == "[object Object]") console.log("done"); // Każdy obiekt przy zamianie na string wywołuje swoją metodę .toString() co daje "[object Object]"
+
+// falsy values
+if (0) console.log("t");
+if (-0) console.log("t");
+if ("") console.log("t");
+if (NaN) console.log("t");
+if (null) console.log("t");
+if (undefined) console.log("t");
+if (false) console.log("t");
+if (0n) console.log("t");
+if (-0n) console.log("t");
+
+// truthly values
+if(' ') console.log('t');
+if('.') console.log('t');
+if('test') console.log('t');
+if(1) console.log('t');
+if(-1) console.log('t');
+if(true) console.log('t');
+if({}) console.log('t');
+if([]) console.log('t');
+if(function test(){}) console.log('t');
