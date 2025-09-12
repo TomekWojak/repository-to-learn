@@ -449,5 +449,18 @@ tvFactory["name"] = "TV Factory Ltd."; // oba poprawne
 
 const factoryName = "name";
 
-tvFactory[factoryName] = 'test'
-console.log(tvFactory);
+tvFactory[factoryName] = "test";
+
+const schoolObj = {
+	name: "SchoolName",
+	city: "Warszawa",
+	students: [],
+
+	addStudent(name, surname) {
+		const studentInfo = {
+			name,
+			surname,
+		};
+		this.students.push(studentInfo);
+	},
+};
