@@ -342,3 +342,40 @@ function op(...params) {
 }
 
 op(1, 2, 3, 4, 5);
+
+function po(a, b, c, d) {
+	console.log(a, b, c, d);
+}
+
+const raa = [1, 2, 3, 4];
+
+po(...raa);
+
+const dataa = {
+	name: "Bartek",
+	city: "Gdańsk",
+};
+
+const createComp = (cpu, gpu, ram, dysk) => {
+	return {
+		cpu,
+		gpu,
+		ram,
+		dysk,
+	};
+};
+
+const createLaptop = ({ cpu, gpu, ram, dysk }) => {
+	return {
+		cpu,
+		gpu,
+		ram,
+		dysk,
+		type: "laptop",
+		weight: 2.5,
+	};
+};
+
+console.log(createLaptop(createComp("amd", "nvidia", "32gb", "1tb")));
+
+
