@@ -365,12 +365,9 @@ const createComp = (cpu, gpu, ram, dysk) => {
 	};
 };
 
-const createLaptop = ({ cpu, gpu, ram, dysk }) => {
+const createLaptop = (obj) => {
 	return {
-		cpu,
-		gpu,
-		ram,
-		dysk,
+		...obj,
 		type: "laptop",
 		weight: 2.5,
 	};
@@ -378,4 +375,21 @@ const createLaptop = ({ cpu, gpu, ram, dysk }) => {
 
 console.log(createLaptop(createComp("amd", "nvidia", "32gb", "1tb")));
 
+const createUser = (name, contact) => {
+	const user = {
+		name,
+		...(typeof contact === "string"
+			? { email: contact }
+			: typeof contact === "number"
+			? { telephone: contact }
+			: {}),
+	};
 
+	return user;
+};
+
+const case1 = createUser("Ola", "ola@example.com");
+const case2 = createUser("Kasia", 989321920);
+
+console.log(case1);
+console.log(case2);
