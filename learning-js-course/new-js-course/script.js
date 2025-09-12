@@ -215,4 +215,88 @@ function averageValue(a, b, c, d) {
 const average = averageValue(2, 4, 8, 10);
 const average2 = averageValue(30, 60, 90, 120);
 const average3 = averageValue(5, 10, 15, 20);
-console.log(average, average2, average3);
+
+function hireNewEmployee(name, surname, email, age, proffesion) {
+	if (
+		name.length < 3 ||
+		surname.length < 3 ||
+		email.length < 10 ||
+		age < 18 ||
+		(proffesion.toLowerCase() !== "programmer" &&
+			proffesion.toLowerCase() !== "admin" &&
+			proffesion.toLowerCase() !== "manager")
+	) {
+		return null;
+	}
+
+	const obj = {
+		company: "Test Ltd.",
+		name: name,
+		surname: surname,
+		age: age,
+		email: email,
+		proffesion: proffesion,
+	};
+
+	return obj;
+}
+
+const employee1 = hireNewEmployee(
+	"Jan",
+	"Kowalski",
+	"jan.kowalski@gmail.com",
+	25,
+	"programmer"
+);
+
+function createNewDevice(brand, screenSize, color) {
+	if (color !== "white" && color !== "black" && color !== "silver") return null;
+
+	const newTv = {
+		brand,
+		screenSize,
+		color,
+	};
+	return newTv;
+}
+
+const firstTv = createNewDevice("Sony", 42, "white");
+console.log(firstTv);
+
+let fooo = function (a, b) {
+	return a + b;
+};
+console.log(fooo(5, 10));
+
+fooo = function (a, b) {
+	return a - b;
+};
+console.log(fooo(5, 10));
+
+const testFnMultiply = function (a, b) {
+	return a * b;
+};
+
+console.log(testFnMultiply(3, 6));
+
+function greaterThan6(arr, callback) {
+	arr.forEach((el) => {
+		if (el > 6) callback(el);
+	});
+}
+
+function showResults(element) {
+	console.log(element);
+}
+
+greaterThan6([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], showResults);
+
+function sumAll() {
+	let result = 0;
+	for (let i = 0; i < arguments.length; i++) {
+		result += arguments[i];
+	}
+
+	return result;
+}
+
