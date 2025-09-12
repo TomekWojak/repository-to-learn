@@ -156,12 +156,63 @@ if (0n) console.log("t");
 if (-0n) console.log("t");
 
 // truthly values
-if(' ') console.log('t');
-if('.') console.log('t');
-if('test') console.log('t');
-if(1) console.log('t');
-if(-1) console.log('t');
-if(true) console.log('t');
-if({}) console.log('t');
-if([]) console.log('t');
-if(function test(){}) console.log('t');
+if (" ") console.log("t");
+if (".") console.log("t");
+if ("test") console.log("t");
+if (1) console.log("t");
+if (-1) console.log("t");
+if (true) console.log("t");
+if ({}) console.log("t");
+if ([]) console.log("t");
+if (function test() {}) console.log("t");
+
+let numd; // zmienna ZADEKLAROWANA, NIEZDEFINIOWANA
+numd = 12; //zmienna ZADEKLAROWANA, ZDEFINIOWANA
+
+c; // błąd - c jest niezadeklarowaną zmienną
+
+// SCOPES
+
+let _a = 21;
+const _txt = "Ania";
+
+if (true) {
+	let _a = 10;
+	let _txt = "Bartek";
+
+	// _a -> 10
+	// _txt -> 'Bartek'
+}
+
+// _a -> 21
+// _txt -> 'Ania'
+
+// var u = 10;
+
+// if (true) {
+// 	var u = 20;
+// 	console.log(u);
+
+// 	var o = 100
+// }
+// console.log(u);
+// console.log(o);
+
+function foo(name) {
+	if (name === "Kasia") {
+		return;
+	}
+
+	return name;
+}
+
+function averageValue(a, b, c, d) {
+	const x = (a + b + c + d) / 4;
+
+	return x;
+}
+
+const average = averageValue(2, 4, 8, 10);
+const average2 = averageValue(30, 60, 90, 120);
+const average3 = averageValue(5, 10, 15, 20);
+console.log(average, average2, average3);
