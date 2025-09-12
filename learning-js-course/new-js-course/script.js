@@ -74,7 +74,7 @@ while (numbers1I < numbers1.length) {
 	numbers1I++;
 }
 
-// //console.log(numbers1Sum);
+//console.log(numbers1Sum);
 
 const testArr = [-6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6];
 let sm = 0;
@@ -391,5 +391,63 @@ const createUser = (name, contact) => {
 const case1 = createUser("Ola", "ola@example.com");
 const case2 = createUser("Kasia", 989321920);
 
-console.log(case1);
-console.log(case2);
+// console.log(case1);
+// console.log(case2);
+
+let phone = {
+	brand: "Xiaomi",
+	model: "Redmi note",
+	manufactureDate: 2025,
+	connect(contact) {
+		console.log(`Połączenie z ${contact}`);
+	},
+	getInfo() {
+		console.log(this.brand, this.model, this.manufactureDate);
+	},
+};
+
+const tvFactory = {
+	name: "Factory",
+	city: "Poznań",
+	employees: [],
+	brand: "Sharp",
+	addEmployee(name, surname) {
+		const obj = {
+			name,
+			surname,
+			email: `${name.toLowerCase()}.${surname.toLowerCase()}@example.com`,
+		};
+		this.employees.push(obj);
+	},
+	showEmployees() {
+		console.log(`${this.name} employees:`);
+
+		for (let i = 0; i < this.employees.length; i++) {
+			console.log(this.employees[i]);
+		}
+	},
+	makeTv(model, color) {
+		return {
+			brand: this.brand,
+			model,
+			color,
+		};
+	},
+};
+
+tvFactory.addEmployee("Bartek", "Nowak");
+tvFactory.addEmployee("Adam", "Kowalski");
+
+tvFactory.showEmployees();
+
+const tv1 = tvFactory.makeTv("Lg", "silver");
+const tv2 = tvFactory.makeTv("Apple", "black");
+console.log(tv1, tv2);
+
+tvFactory.name = "Factory Ltd."; // oba poprawne
+tvFactory["name"] = "TV Factory Ltd."; // oba poprawne
+
+const factoryName = "name";
+
+tvFactory[factoryName] = 'test'
+console.log(tvFactory);
