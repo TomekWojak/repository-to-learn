@@ -300,3 +300,45 @@ function sumAll() {
 	return result;
 }
 
+function foooo(num, obj) {
+	num = 12;
+	obj.data = "!test";
+
+	return {
+		num,
+		aD,
+		obj,
+		dataD,
+	};
+}
+let aD = 7;
+let dataD = { data: "text" };
+console.log(foooo(aD, dataD));
+
+// num przyjmuje kopię wartości aD, przez co oryginalna zmienna aD zostaje taka sama.
+// obj przyjmuje referencję do obiektu dataD, przez co jest zmieniany oryginalny obiekt!!
+const ar = [1, 2, 3, 4, 5, 6, 7];
+
+function tst(arr) {
+	for (let i = 0; i < arr.length; i++) {
+		arr[i] *= 3;
+	}
+}
+tst(ar);
+
+function nestFn(arr) {
+	function nestedFn(data) {
+		console.log(data);
+	}
+
+	for (let i = 0; i < arr.length; i++) {
+		nestedFn(arr[i]);
+	}
+}
+nestFn(ar); //zagnieżdzanie funkcji - lepsza czytelność - wszystko w jednym miejscu
+
+function op(...params) {
+	params.forEach((param) => console.log(param));
+}
+
+op(1, 2, 3, 4, 5);
