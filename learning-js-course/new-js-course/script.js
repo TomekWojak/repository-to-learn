@@ -479,6 +479,12 @@ const schoolObj = {
 			}
 		});
 	},
+	getNumStudents() {
+		return this.students.length;
+	},
+	resetStudents() {
+		this.students = [];
+	},
 };
 
 schoolObj.addStudent("Tomek", "Kowalski");
@@ -487,3 +493,6 @@ schoolObj.addStudent("Ania", "Wierzba");
 schoolObj.addStudent("Ania", "Wierzba");
 schoolObj.showStudents();
 schoolObj.showStudentsByName("Ania");
+console.log(schoolObj.getNumStudents());
+schoolObj.resetStudents();
+console.log(schoolObj.students);
