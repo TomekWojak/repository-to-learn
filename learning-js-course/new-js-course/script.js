@@ -513,3 +513,15 @@ const getObj = (data) => ({ ...data, info: "new items" }); // jeśli nie chcemy 
 	console.log(`b: ${be}`);
 })("test");
 
+function Car(brand, name, color) {
+	this.brand = brand;
+	this.name = name;
+	this.color = color;
+	this.year = 2025;
+
+	this.printData = function () {
+		console.log(this.brand, this.name, this.color, this.year);
+	};
+}
+
+const newCar = new Car("Ford", "Mustang", "green");
