@@ -525,3 +525,28 @@ function Car(brand, name, color) {
 }
 
 const newCar = new Car("Ford", "Mustang", "green");
+
+class Magazine {
+	constructor(title, adverts) {
+		this.title = title;
+		this.adverts = adverts;
+	}
+
+	addAdvert(name, website) {
+		const obj = {
+			name,
+			website,
+		};
+		this.adverts.push(obj);
+	}
+	printAdverts() {
+		for (let i = 0; i < this.adverts.length; i++) {
+			console.log(this.adverts[i]);
+		}
+	}
+}
+
+const testObj = new Magazine("Testowy magazyn", []);
+console.log(testObj);
+testObj.addAdvert("Nowa praca w pobliżu", "getnewjob.com");
+testObj.printAdverts();
