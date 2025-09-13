@@ -550,3 +550,14 @@ const testObj = new Magazine("Testowy magazyn", []);
 console.log(testObj);
 testObj.addAdvert("Nowa praca w pobliżu", "getnewjob.com");
 testObj.printAdverts();
+
+function MakeCar(brand, model) {
+	this.brand = brand;
+	this.model = model;
+
+	this.printInfo = function () {
+		console.log(this.brand);
+	};
+}
+
+// let car1 = MakeCar("Ford", "Mustang"); // Bład, musi być słówko kluczowe new
