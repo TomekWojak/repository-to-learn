@@ -560,4 +560,14 @@ function MakeCar(brand, model) {
 	};
 }
 
-// let car1 = MakeCar("Ford", "Mustang"); // Bład, musi być słówko kluczowe new
+let car1 = MakeCar("Ford", "Mustang"); // Bład, musi być słówko kluczowe new, bo inaczej zostanie dodane do obiektu window
+console.log(window);
+
+function Vehicle(brand, model) {
+	if (this instanceof Vehicle) {
+		return new Vehicle(brand, model);
+	}
+
+	this.brand = brand;
+	this.model = model;
+}
