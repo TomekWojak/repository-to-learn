@@ -564,10 +564,12 @@ let car1 = MakeCar("Ford", "Mustang"); // Bład, musi być słówko kluczowe new
 console.log(window);
 
 function Vehicle(brand, model) {
-	if (this instanceof Vehicle) {
+	if (this instanceof Vehicle == false) {
 		return new Vehicle(brand, model);
 	}
 
 	this.brand = brand;
 	this.model = model;
 }
+const test5 = new Vehicle("Ford", "Mustang");
+
