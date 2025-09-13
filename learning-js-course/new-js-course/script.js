@@ -513,5 +513,3 @@ const getObj = (data) => ({ ...data, info: "new items" }); // jeśli nie chcemy 
 	console.log(`b: ${be}`);
 })("test");
 
-function testsss() {}
-console.log(window.testsss);
