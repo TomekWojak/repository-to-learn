@@ -1,0 +1,1 @@
+const testVariable = 20;

@@ -1,3 +1,5 @@
+const testVariable = 10;
+
 const arr = [50, 80, 120];
 let sum = 0;
 
@@ -464,15 +466,17 @@ const schoolObj = {
 		this.students.push(studentInfo);
 	},
 	showStudents() {
-		if (this.students.length === 0) {
-			console.log("Szkoła nie ma studentów!");
-		} else {
-			this.students.forEach((student) =>
-				console.log(student.name, student.surname)
-			);
-		}
+		if (this.students.length === 0)
+			return console.log("Szkoła nie ma studentów!");
+
+		this.students.forEach((student) =>
+			console.log(student.name, student.surname)
+		);
 	},
 	showStudentsByName(studentName) {
+		if (this.students.length === 0)
+			return console.log("Szkoła nie ma studentów!");
+
 		this.students.forEach(({ name }) => {
 			if (name == studentName) {
 				console.log(name);
@@ -496,3 +500,18 @@ schoolObj.showStudentsByName("Ania");
 console.log(schoolObj.getNumStudents());
 schoolObj.resetStudents();
 console.log(schoolObj.students);
+
+const obbj = { a: 1, b: 2 };
+
+const getObj = (data) => ({ ...data, info: "new items" }); // jeśli nie chcemy tworzyć ciała funkcji
+
+// IIFE
+
+(function (data) {
+	console.log(data);
+	var be = 10;
+	console.log(`b: ${be}`);
+})("test");
+
+function testsss() {}
+console.log(window.testsss);
