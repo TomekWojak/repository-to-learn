@@ -586,3 +586,105 @@ class Con {
 
 const noc = new Con("Car");
 noc.arrow();
+
+const user = {
+	_name: null,
+
+	set name(newValue) {
+		if (newValue.length > 2) {
+			this._name = newValue;
+		} else {
+			console.log("Name too short");
+		}
+	},
+	get name() {
+		return this._name;
+	},
+};
+
+user.name = "Ania";
+
+const truck = {
+	_brand: null,
+	_model: null,
+	_topSpeed: 0,
+
+	set brand(truckBrand) {
+		this._brand = truckBrand;
+	},
+	get brand() {
+		return this._brand;
+	},
+	set model(truckModel) {
+		this._model = truckModel;
+	},
+	get model() {
+		return this._model;
+	},
+	set topSpeed(truckSpeed) {
+		if (truckSpeed > 0) {
+			this._topSpeed = truckSpeed;
+		} else {
+			console.log("Speed too low!");
+		}
+	},
+	get topSpeed() {
+		return this._topSpeed;
+	},
+};
+
+truck.brand = "Test truck";
+truck.model = "t300";
+truck.topSpeed = 150;
+
+class carFactory {
+	#make = null;
+	#model = null;
+	#rentalPrice = null;
+
+	constructor(make, model, rentalPrice) {
+		this.make = make;
+		this.model = model;
+		this.rentalPrice = rentalPrice;
+	}
+
+	set make(makeInfo) {
+		this.#make = makeInfo;
+	}
+	get make() {
+		return this.#make;
+	}
+	set model(modelInfo) {
+		this.#model = modelInfo;
+	}
+	get model() {
+		return this.#model;
+	}
+	set rentalPrice(moneyInfo) {
+		if (moneyInfo > 0) {
+			this.#rentalPrice = moneyInfo;
+		} else {
+			console.log("Price is a wrong number!");
+		}
+	}
+	get rentalPrice() {
+		return this.#rentalPrice;
+	}
+
+	getCarInfo() {
+		return `Car: ${this.#make} ${this.#model}, rental price: ${
+			this.#rentalPrice
+		} / day`;
+	}
+}
+
+const carOne = new carFactory("Toyota", "Corrola", 150);
+console.log(carOne);
+// const carTwo = new carFactory();
+
+// carOne.make = "Toyota";
+// carOne.model = "Corolla";
+// carOne.rentalPrice = 100;
+// console.log(carOne.getCarInfo());
+
+// Będe używał wersji z # - patrzyłem, nie mogę sie odwołać bezpośrednio do np. #make co jest mega na +
