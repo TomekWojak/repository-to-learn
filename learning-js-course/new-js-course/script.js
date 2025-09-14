@@ -717,11 +717,39 @@ const rar = ["H", "E", "L", "L", "O"];
 rar[0] = "R"; // Tablica jest mutowalna - zadziała
 // console.log(rar);
 
+const k = Math.round(12.56);
+const l = Math.round(12.5);
+const m = Math.round(12.49);
+const n = Math.ceil(15.3);
+const o = Math.floor(19.99);
+const p = Math.sqrt(25);
+const r = Math.trunc(15.323);
 
-const k = Math.round(12.56)
-const l = Math.round(12.50)
-const m = Math.round(12.49)
-const n = Math.ceil(15.3)
-const o = Math.floor(19.99)
-const p = Math.sqrt(25)
-const r = Math.trunc(15.323)
+const stringEl = "Kasia ma kota, Kasia ma psa";
+console.log(stringEl.indexOf("Kasia"));
+console.log(stringEl.indexOf("Kasia", 5));
+console.log(stringEl.lastIndexOf("Kasia"));
+
+const tab = new Array(8);
+tab.fill("test");
+
+const tabArr = [
+	"Ania",
+	"Kasia",
+	"Bartek",
+	"Grzegorz",
+	"Adam",
+	"Zbigniew",
+	"Daniel",
+];
+console.log(tabArr.sort());
+
+const nums = [1, 5, 30, 100, 50, 39, 23];
+
+const sortedNumbers = nums.sort((a, b) => a - b);
+console.log(sortedNumbers);
+
+const arrTest = ["a", "b", "c", "d", "e"];
+let tes = arrTest.splice(0, 2, "test", "test2");
+arrTest.splice(1, 0, "x", "y", "z");
+console.log(arrTest);
