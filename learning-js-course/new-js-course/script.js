@@ -16,16 +16,16 @@ const carInfo = {
 
 carInfo.name = "Focus";
 
-//console.log(carInfo);
+//(carInfo);
 
 const arr1 = ["test", "test2", 1, true];
-//console.log(arr1[arr1.length - 1]);
+//(arr1[arr1.length - 1]);
 arr1[1] = "test2!!";
 
 let a = 0 / 0;
 let b = 6 / 2;
-//console.log(isNaN(a));
-//console.log(isNaN(b));
+//(isNaN(a));
+//(isNaN(b));
 
 let c = 100 / 33;
 
@@ -34,33 +34,33 @@ let temp = 10;
 switch (temp) {
 	case -10:
 	case -5:
-		//console.log("cold");
+		//("cold");
 		break;
 	case 0:
-		//console.log("freezing");
+		//("freezing");
 		break;
 	case 5:
-		//console.log("early spring");
+		//("early spring");
 		break;
 	case 10:
-		//console.log("spring");
+		//("spring");
 		break;
 	case 20:
-		//console.log("summer");
+		//("summer");
 		break;
 	default:
-	//console.log("unknow temperature");
+	//("unknow temperature");
 }
 
 let wha = -6;
 let whb = 90;
 while (wha <= 6) {
-	//console.log(wha);
+	//(wha);
 	wha++;
 }
 
 while (whb >= 75) {
-	//console.log(whb);
+	//(whb);
 	whb--;
 }
 
@@ -76,7 +76,7 @@ while (numbers1I < numbers1.length) {
 	numbers1I++;
 }
 
-//console.log(numbers1Sum);
+//(numbers1Sum);
 
 const testArr = [-6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6];
 let sm = 0;
@@ -85,7 +85,7 @@ for (let i = 0; i < testArr.length; i++) {
 	let index = testArr[i];
 	sm += index;
 
-	// if (index > 0) console.log(index);
+	// if (index > 0) (index);
 }
 
 const set = new Set();
@@ -118,12 +118,12 @@ let ab = 8,
 	bc = 10;
 
 for (let i = 0, j = 5; i < 10; i++, j--) {
-	console.log(i, j);
+	i, j;
 }
 
 let Data = { a: 12, b: 15, c: 17 };
 delete Data.b;
-console.log(Data);
+Data;
 
 let result = "15" + 20; //1520
 
@@ -132,41 +132,41 @@ result = +"15" + 20; // 35 - automatyczna konwersja na liczbę
 // operatory relacyjne
 
 let objj = { a: 12, b: 15, c: 16 };
-console.log("a" in objj); // sprawdza czy istnieje klucz
-console.log("q" in objj);
+"a" in objj; // sprawdza czy istnieje klucz
+"q" in objj;
 
 let arrr = ["a", "b", "c"];
-console.log(0 in arrr); // sprawdza czy istnieje index
-console.log(4 in arrr);
+0 in arrr; // sprawdza czy istnieje index
+4 in arrr;
 
 const date = new Date(2025, 9, 12);
-console.log(date instanceof Date); // Sprawdza czy Date jest konstruktorem date
+date instanceof Date; // Sprawdza czy Date jest konstruktorem date
 
-console.log(typeof 20);
+typeof 20;
 
-if ({ a: 10 } == "[object Object]") console.log("done"); // Każdy obiekt przy zamianie na string wywołuje swoją metodę .toString() co daje "[object Object]"
+if ({ a: 10 } == "[object Object]") "done"; // Każdy obiekt przy zamianie na string wywołuje swoją metodę .toString() co daje "[object Object]"
 
 // falsy values
-if (0) console.log("t");
-if (-0) console.log("t");
-if ("") console.log("t");
-if (NaN) console.log("t");
-if (null) console.log("t");
-if (undefined) console.log("t");
-if (false) console.log("t");
-if (0n) console.log("t");
-if (-0n) console.log("t");
+if (0) "t";
+if (-0) "t";
+if ("") "t";
+if (NaN) "t";
+if (null) "t";
+if (undefined) "t";
+if (false) "t";
+if (0n) "t";
+if (-0n) "t";
 
 // truthly values
-if (" ") console.log("t");
-if (".") console.log("t");
-if ("test") console.log("t");
-if (1) console.log("t");
-if (-1) console.log("t");
-if (true) console.log("t");
-if ({}) console.log("t");
-if ([]) console.log("t");
-if (function test() {}) console.log("t");
+if (" ") "t";
+if (".") "t";
+if ("test") "t";
+if (1) "t";
+if (-1) "t";
+if (true) "t";
+if ({}) "t";
+if ([]) "t";
+if (function test() {}) "t";
 
 let numd; // zmienna ZADEKLAROWANA, NIEZDEFINIOWANA
 numd = 12; //zmienna ZADEKLAROWANA, ZDEFINIOWANA
@@ -193,12 +193,12 @@ if (true) {
 
 // if (true) {
 // 	var u = 20;
-// 	console.log(u);
+// 	(u);
 
 // 	var o = 100
 // }
-// console.log(u);
-// console.log(o);
+// (u);
+// (o);
 
 function foo(name) {
 	if (name === "Kasia") {
@@ -263,23 +263,23 @@ function createNewDevice(brand, screenSize, color) {
 }
 
 const firstTv = createNewDevice("Sony", 42, "white");
-console.log(firstTv);
+firstTv;
 
 let fooo = function (a, b) {
 	return a + b;
 };
-console.log(fooo(5, 10));
+fooo(5, 10);
 
 fooo = function (a, b) {
 	return a - b;
 };
-console.log(fooo(5, 10));
+fooo(5, 10);
 
 const testFnMultiply = function (a, b) {
 	return a * b;
 };
 
-console.log(testFnMultiply(3, 6));
+testFnMultiply(3, 6);
 
 function greaterThan6(arr, callback) {
 	arr.forEach((el) => {
@@ -288,7 +288,7 @@ function greaterThan6(arr, callback) {
 }
 
 function showResults(element) {
-	console.log(element);
+	element;
 }
 
 greaterThan6([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], showResults);
@@ -315,7 +315,7 @@ function foooo(num, obj) {
 }
 let aD = 7;
 let dataD = { data: "text" };
-console.log(foooo(aD, dataD));
+foooo(aD, dataD);
 
 // num przyjmuje kopię wartości aD, przez co oryginalna zmienna aD zostaje taka sama.
 // obj przyjmuje referencję do obiektu dataD, przez co jest zmieniany oryginalny obiekt!!
@@ -330,7 +330,7 @@ tst(ar);
 
 function nestFn(arr) {
 	function nestedFn(data) {
-		console.log(data);
+		data;
 	}
 
 	for (let i = 0; i < arr.length; i++) {
@@ -340,13 +340,13 @@ function nestFn(arr) {
 nestFn(ar); //zagnieżdzanie funkcji - lepsza czytelność - wszystko w jednym miejscu
 
 function op(...params) {
-	params.forEach((param) => console.log(param));
+	params.forEach((param) => param);
 }
 
 op(1, 2, 3, 4, 5);
 
 function po(a, b, c, d) {
-	console.log(a, b, c, d);
+	a, b, c, d;
 }
 
 const raa = [1, 2, 3, 4];
@@ -375,7 +375,7 @@ const createLaptop = (obj) => {
 	};
 };
 
-console.log(createLaptop(createComp("amd", "nvidia", "32gb", "1tb")));
+createLaptop(createComp("amd", "nvidia", "32gb", "1tb"));
 
 const createUser = (name, contact) => {
 	const user = {
@@ -393,18 +393,18 @@ const createUser = (name, contact) => {
 const case1 = createUser("Ola", "ola@example.com");
 const case2 = createUser("Kasia", 989321920);
 
-// console.log(case1);
-// console.log(case2);
+// (case1);
+// (case2);
 
 let phone = {
 	brand: "Xiaomi",
 	model: "Redmi note",
 	manufactureDate: 2025,
 	connect(contact) {
-		console.log(`Połączenie z ${contact}`);
+		`Połączenie z ${contact}`;
 	},
 	getInfo() {
-		console.log(this.brand, this.model, this.manufactureDate);
+		this.brand, this.model, this.manufactureDate;
 	},
 };
 
@@ -422,10 +422,10 @@ const tvFactory = {
 		this.employees.push(obj);
 	},
 	showEmployees() {
-		console.log(`${this.name} employees:`);
+		`${this.name} employees:`;
 
 		for (let i = 0; i < this.employees.length; i++) {
-			console.log(this.employees[i]);
+			this.employees[i];
 		}
 	},
 	makeTv(model, color) {
@@ -444,7 +444,7 @@ tvFactory.showEmployees();
 
 const tv1 = tvFactory.makeTv("Lg", "silver");
 const tv2 = tvFactory.makeTv("Apple", "black");
-console.log(tv1, tv2);
+tv1, tv2;
 
 tvFactory.name = "Factory Ltd."; // oba poprawne
 tvFactory["name"] = "TV Factory Ltd."; // oba poprawne
@@ -466,20 +466,16 @@ const schoolObj = {
 		this.students.push(studentInfo);
 	},
 	showStudents() {
-		if (this.students.length === 0)
-			return console.log("Szkoła nie ma studentów!");
+		if (this.students.length === 0) return "Szkoła nie ma studentów!";
 
-		this.students.forEach((student) =>
-			console.log(student.name, student.surname)
-		);
+		this.students.forEach((student) => (student.name, student.surname));
 	},
 	showStudentsByName(studentName) {
-		if (this.students.length === 0)
-			return console.log("Szkoła nie ma studentów!");
+		if (this.students.length === 0) return "Szkoła nie ma studentów!";
 
 		this.students.forEach(({ name }) => {
 			if (name == studentName) {
-				console.log(name);
+				name;
 			}
 		});
 	},
@@ -497,9 +493,9 @@ schoolObj.addStudent("Ania", "Wierzba");
 schoolObj.addStudent("Ania", "Wierzba");
 schoolObj.showStudents();
 schoolObj.showStudentsByName("Ania");
-console.log(schoolObj.getNumStudents());
+schoolObj.getNumStudents();
 schoolObj.resetStudents();
-console.log(schoolObj.students);
+schoolObj.students;
 
 const obbj = { a: 1, b: 2 };
 
@@ -508,9 +504,9 @@ const getObj = (data) => ({ ...data, info: "new items" }); // jeśli nie chcemy 
 // IIFE
 
 (function (data) {
-	console.log(data);
+	data;
 	var be = 10;
-	console.log(`b: ${be}`);
+	`b: ${be}`;
 })("test");
 
 function Car(brand, name, color) {
@@ -520,7 +516,7 @@ function Car(brand, name, color) {
 	this.year = 2025;
 
 	this.printData = function () {
-		console.log(this.brand, this.name, this.color, this.year);
+		this.brand, this.name, this.color, this.year;
 	};
 }
 
@@ -541,13 +537,13 @@ class Magazine {
 	}
 	printAdverts() {
 		for (let i = 0; i < this.adverts.length; i++) {
-			console.log(this.adverts[i]);
+			this.adverts[i];
 		}
 	}
 }
 
 const testObj = new Magazine("Testowy magazyn", []);
-console.log(testObj);
+testObj;
 testObj.addAdvert("Nowa praca w pobliżu", "getnewjob.com");
 testObj.printAdverts();
 
@@ -556,13 +552,15 @@ function MakeCar(brand, model) {
 	this.model = model;
 
 	this.printInfo = function () {
-		console.log(this.brand);
+		this.brand;
 	};
 }
 
-let car1 = MakeCar("Ford", "Mustang"); // Bład, musi być słówko kluczowe new, bo inaczej zostanie dodane do obiektu window
-console.log(window);
+// let car1 = MakeCar("Ford", "Mustang"); // Bład, musi być słówko kluczowe new, bo inaczej brand i model zostaną dodane do obiektu window
 
+window.aka = "test";
+console.log(window.aka);
+console.log(window);
 function Vehicle(brand, model) {
 	if (this instanceof Vehicle == false) {
 		return new Vehicle(brand, model);
@@ -573,3 +571,18 @@ function Vehicle(brand, model) {
 }
 const test5 = new Vehicle("Ford", "Mustang");
 
+class Con {
+	constructor(name) {
+		this.name = name;
+	}
+
+	normal = function () {
+		console.log(this.name);
+	};
+	arrow = () => {
+		console.log(this.name);
+	};
+}
+
+const noc = new Con("Car");
+noc.arrow();
