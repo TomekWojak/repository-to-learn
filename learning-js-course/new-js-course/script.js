@@ -695,7 +695,33 @@ console.log(carOne);
 
 let yy = 5;
 
-if (true) {
-	console.log(yy); // Temporal dead zone
-	let yy = 5;
-}
+// if (true) {
+// 	console.log(yy); // Temporal dead zone
+// 	let yy = 5;
+// }
+
+const txxt = "TEST";
+
+// const sttr = new String(txxt);
+// console.log(sttr.toLowerCase());
+
+const sttr = txxt.toLowerCase(); // Js automatycznie konwertuje prymityw na instancję obiektu String (opakowywuje string w obiekt), po czym używa na niej metodę,  następnie usuwa obiekt. - nie trzeba już używać new String, Number, Boolean -  może to powodować błędy np. w porównianiu szczegółowym ===
+const rtts = new String("test");
+// console.log(rtts);
+
+let stttr = "Hello World!";
+stttr[0] = "R"; // Nie zadziała - string jest niemutowalny!
+// console.log(stttr[0]);
+
+const rar = ["H", "E", "L", "L", "O"];
+rar[0] = "R"; // Tablica jest mutowalna - zadziała
+// console.log(rar);
+
+
+const k = Math.round(12.56)
+const l = Math.round(12.50)
+const m = Math.round(12.49)
+const n = Math.ceil(15.3)
+const o = Math.floor(19.99)
+const p = Math.sqrt(25)
+const r = Math.trunc(15.323)
