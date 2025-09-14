@@ -687,4 +687,8 @@ console.log(carOne);
 // carOne.rentalPrice = 100;
 // console.log(carOne.getCarInfo());
 
-// Będe używał wersji z # - patrzyłem, nie mogę sie odwołać bezpośrednio do np. #make co jest mega na +
+// function oof() {
+// 	data3 = 99;
+// }
+// oof();
+// console.log(data3); // bez deklaracji let lub const - wrzucamy zmienną do window
