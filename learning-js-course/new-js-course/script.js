@@ -692,3 +692,10 @@ console.log(carOne);
 // }
 // oof();
 // console.log(data3); // bez deklaracji let lub const - wrzucamy zmienną do window
+
+let yy = 5;
+
+if (true) {
+	console.log(yy); // Temporal dead zone
+	let yy = 5;
+}
