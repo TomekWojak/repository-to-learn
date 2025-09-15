@@ -121,6 +121,11 @@ for (let i = 0, j = 5; i < 10; i++, j--) {
 	i, j;
 }
 
+let objecT = {}
+let Tcejbo = {}
+
+console.log(objecT === Tcejbo);
+
 let Data = { a: 12, b: 15, c: 17 };
 delete Data.b;
 Data;
