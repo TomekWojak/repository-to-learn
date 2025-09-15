@@ -769,3 +769,12 @@ let filtered = newUArray.filter(function (value) {
 	return value > 2;
 });
 console.log(filtered);
+
+let reduced = [1,2,3,4,5,6,7,8,9,10].reduce((acc, curr) => {
+	return acc + curr
+	// acc początkowo -> 0, curr początkowo -> 1
+	// 0 + 1 = 1
+	// 1 trafia do acc, acc -> 1, curr -> 2
+	// 1 + 2 = 3
+	// itd.
+})
