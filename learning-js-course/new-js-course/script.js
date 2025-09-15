@@ -121,8 +121,8 @@ for (let i = 0, j = 5; i < 10; i++, j--) {
 	i, j;
 }
 
-let objecT = {}
-let Tcejbo = {}
+let objecT = {};
+let Tcejbo = {};
 
 console.log(objecT === Tcejbo);
 
@@ -758,3 +758,14 @@ const arrTest = ["a", "b", "c", "d", "e"];
 let tes = arrTest.splice(0, 2, "test", "test2");
 arrTest.splice(1, 0, "x", "y", "z");
 console.log(arrTest);
+
+let uArray = ["Ania", "Ola", "Grzegorz", "Sylwia", " Bartek"];
+let newUArray = uArray.map((el) => el + "!");
+
+newUArray = [1, 2, 3, 4, 5, 6, 7, 8].map(Math.sqrt);
+console.log(newUArray); // możemy nawet wykonać callback Math w map.
+
+let filtered = newUArray.filter(function (value) {
+	return value > 2;
+});
+console.log(filtered);
