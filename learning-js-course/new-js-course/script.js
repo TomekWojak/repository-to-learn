@@ -770,11 +770,14 @@ let filtered = newUArray.filter(function (value) {
 });
 console.log(filtered);
 
-let reduced = [1,2,3,4,5,6,7,8,9,10].reduce((acc, curr) => {
-	return acc + curr
+let reduced = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].reduce((acc, curr) => {
+	return acc + curr;
 	// acc początkowo -> 0, curr początkowo -> 1
 	// 0 + 1 = 1
 	// 1 trafia do acc, acc -> 1, curr -> 2
 	// 1 + 2 = 3
 	// itd.
-})
+});
+
+const arr6 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+console.log(arr6.every((value) => value > 0)); // Sprawdzamy, czy kazdy element w tablicy spełnia podany warunek
