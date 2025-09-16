@@ -234,3 +234,43 @@ button {
 ::view-transition-group(film) {
 	z-index: 2;
 }
+
+.movie-page main {
+	view-transition-name: info;
+}
+::view-transition-group(info) {
+	z-index: 2;
+	overflow: clip;
+	border-radius: 2rem;
+}
+
+::view-transition-new(info) {
+	opacity: 0;
+	transform: translateY(50px);
+	animation: fadeIn 0.3s 0.5s ease-in forwards;
+}
+::view-transition-old(info) {
+	opacity: 1;
+	transform: translateY(0);
+	animation: fadeOut 0.1s ease-in forwards;
+}
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(50px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	to {
+		opacity: 0;
+		transform: translateY(50px);
+	}
+}
