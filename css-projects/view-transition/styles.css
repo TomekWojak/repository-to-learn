@@ -105,6 +105,9 @@ h1 {
 .films.column li img {
 	width: 150px;
 }
+.films.column .details {
+	display: block;
+}
 
 .movie-page .controls svg {
 	stroke: #fff;
