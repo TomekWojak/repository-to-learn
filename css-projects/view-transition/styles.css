@@ -113,9 +113,18 @@ h1 {
 	color: #fff;
 	font-size: 1.2rem;
 }
-.logo {
-	view-transition-name: logo;
+.movie-page .controls {
+	gap: 2em;
 }
+.movie-page .controls svg {
+	width: 20px;
+	height: auto;
+}
+.movie-page .controls img {
+	width: 30px;
+	height: 30px;
+}
+
 .movie-page {
 	color: #fff;
 }
@@ -187,4 +196,16 @@ button {
 
 ::view-transition-group(*) {
 	animation-duration: 0.5s;
+}
+.logo {
+	view-transition-name: logo;
+}
+.film {
+	view-transition-name: film;
+}
+.search {
+	view-transition-name: search;
+}
+.avatar {
+	view-transition-name: avatar;
 }
