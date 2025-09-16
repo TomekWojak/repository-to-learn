@@ -87,7 +87,7 @@ h1 {
 .films li img {
 	display: block;
 	width: 250px;
-	height: 400px;
+	aspect-ratio: 2 / 3;
 	object-fit: cover;
 	border-radius: 2rem;
 }
@@ -104,7 +104,6 @@ h1 {
 
 .films.column li img {
 	width: 150px;
-	height: auto;
 }
 
 .movie-page .controls svg {
@@ -112,6 +111,10 @@ h1 {
 }
 .movie-page .logo {
 	color: #fff;
+	font-size: 1.2rem;
+}
+.logo {
+	view-transition-name: logo;
 }
 .movie-page {
 	color: #fff;
@@ -175,5 +178,13 @@ button {
 	}
 }
 .rating {
-	margin: .5em 0;
+	margin: 0.5em 0;
+}
+
+@view-transition {
+	navigation: auto;
+}
+
+::view-transition-group(*) {
+	animation-duration: 0.5s;
 }
