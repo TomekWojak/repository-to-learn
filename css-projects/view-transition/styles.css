@@ -16,8 +16,7 @@ body {
 	justify-content: space-between;
 	align-items: center;
 }
-
-img:last-child {
+.avatar {
 	width: 40px;
 	height: 40px;
 	object-fit: cover;
@@ -50,4 +49,25 @@ img:last-child {
 	img {
 		cursor: pointer;
 	}
+}
+h1 {
+	font-size: 2.5rem;
+	text-align: center;
+	margin: 2em 0;
+}
+.films {
+	list-style-type: none;
+	display: flex;
+	justify-content: space-between;
+}
+
+.films li img {
+	display: block;
+	width: 250px;
+	height: 400px;
+	object-fit: cover;
+	border-radius: 2rem;
+}
+.sonic {
+	cursor: pointer;
 }
