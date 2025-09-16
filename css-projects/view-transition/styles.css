@@ -60,6 +60,10 @@ h1 {
 	display: flex;
 	justify-content: space-between;
 }
+.films li {
+	display: flex;
+	gap: 2em;
+}
 
 .films li img {
 	display: block;
@@ -70,4 +74,7 @@ h1 {
 }
 .sonic {
 	cursor: pointer;
+}
+.details {
+	display: none;
 }
