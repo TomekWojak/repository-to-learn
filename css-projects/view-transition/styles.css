@@ -215,3 +215,22 @@ button {
 .movie-page::view-transition-new(hero-img) {
 	object-fit: cover;
 }
+
+.main-page::view-transition-new(hero-img) {
+	object-fit: contain;
+}
+.main-page::view-transition-old(hero-img) {
+	object-fit: cover;
+}
+
+::view-transition-group(hero-img) {
+	z-index: 1;
+}
+::view-transition-group(logo) {
+	z-index: 2;
+}
+::view-transition-group(search),
+::view-transition-group(avatar),
+::view-transition-group(film) {
+	z-index: 2;
+}
