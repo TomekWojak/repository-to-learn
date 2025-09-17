@@ -807,3 +807,41 @@ const ObjEntries = Object.entries(boj3);
 for (const [key, value] of ObjEntries) {
 	console.log(key, value);
 }
+
+const objectToStringify = {
+	str: "hello",
+	a: 50,
+	data: {
+		b: 10,
+		arr: [1, 2, 3, 4],
+	},
+	date: new Date(),
+};
+
+const strData = JSON.stringify(objectToStringify);
+console.log(strData);
+const strGetData = JSON.parse(strData);
+console.log(strGetData);
+strGetData.date = new Date(strGetData.date);
+console.log(strGetData);
+
+// JSON STRINGIFY => JSON PARSE tworzą deep copy. Oznacza to że np. tablica w obiekcie przed stringify i tablica w obiekcie po parse to dwie osobne tablice.
+
+const student1 = {
+	name: "Asia",
+	showInfo(surname, city) {
+		console.log(`${this.name} ${surname} mieszka w ${city}`);
+	},
+};
+
+student1.showInfo("Kowalska", "Poznaniu");
+
+const student2 = {
+	name: "Bartek",
+};
+
+student1.showInfo.call(student2, "Nowak", "Gdańsku"); // 'Pożyczyliśmy' metodę z student1
+student1.showInfo.apply(student2, ["Kowal", "Gdynii"]); // Podobne do call z tą różnicą, że argumenty podajemy w tablicy
+
+let studentInfo = student1.showInfo.bind(student2, "Bartolini", "Rogóżnicy");
+studentInfo(); // Tworzy się funkcja przypisana do konkretnego obiektu - tutaj do student2. Funkcję możemy wywoływać kiedy i gdzie chcemy
