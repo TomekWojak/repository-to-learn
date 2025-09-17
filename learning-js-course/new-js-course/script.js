@@ -792,8 +792,18 @@ console.log(boj);
 // console.log(boj.d === boj2.d);
 console.log(boj.a === boj2.a);
 
-
-const arr7 = [[1, 2], [3, 4]];
+const arr7 = [
+	[1, 2],
+	[3, 4],
+];
 const arr8 = [...arr7];
 console.log(arr7, arr8);
 console.log(arr7[0] === arr8[0]); // true (ta sama tablica!)
+// Podsumowywujac,  Object.assign i spread robi płytką kopię - prymitywy -> kopiowane są ich wartości, objekty i tablice -> przekazywane są ich referencje
+
+const boj3 = { a: 50, b: "text", c: false };
+const ObjEntries = Object.entries(boj3);
+
+for (const [key, value] of ObjEntries) {
+	console.log(key, value);
+}
