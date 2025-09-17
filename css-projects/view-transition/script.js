@@ -7,7 +7,7 @@ const animateFilms = () => {
 	});
 
 	document.startViewTransition(() => {
-		films.classList.add("column");
+		films.classList.toggle("column");
 	});
 };
 

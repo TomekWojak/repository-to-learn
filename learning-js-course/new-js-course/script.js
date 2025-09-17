@@ -781,3 +781,19 @@ let reduced = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].reduce((acc, curr) => {
 
 const arr6 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 console.log(arr6.every((value) => value > 0)); // Sprawdzamy, czy kazdy element w tablicy spełnia podany warunek
+
+const boj = { a: 3, b: 10, c: "text", d: [1, 2, 3], e: { text: true } };
+const boj2 = { test: 30 };
+
+// Object.assign({}, boj2, boj);
+Object.assign(boj2, boj);
+console.log(boj2);
+console.log(boj);
+// console.log(boj.d === boj2.d);
+console.log(boj.a === boj2.a);
+
+
+const arr7 = [[1, 2], [3, 4]];
+const arr8 = [...arr7];
+console.log(arr7, arr8);
+console.log(arr7[0] === arr8[0]); // true (ta sama tablica!)
