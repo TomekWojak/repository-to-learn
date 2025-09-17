@@ -887,3 +887,24 @@ function test(x) {
 
 const multiplyArguments = test(15);
 console.log(multiplyArguments(2));
+
+function prvData() {
+	let privData = 999;
+
+	function showPrivData() {
+		console.log(privData);
+	}
+	function setData(value) {
+		privData = value;
+	}
+
+	return {
+		showPrivData,
+		setData,
+	};
+}
+
+const prvDataObj = prvData();
+
+prvDataObj.setData(45)
+prvDataObj.showPrivData()
