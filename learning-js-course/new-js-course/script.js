@@ -845,3 +845,35 @@ student1.showInfo.apply(student2, ["Kowal", "Gdynii"]); // Podobne do call z tą
 
 let studentInfo = student1.showInfo.bind(student2, "Bartolini", "Rogóżnicy");
 studentInfo(); // Tworzy się funkcja przypisana do konkretnego obiektu - tutaj do student2. Funkcję możemy wywoływać kiedy i gdzie chcemy
+
+let ddd = 90;
+
+function bar() {
+	let e = 10;
+
+	function test() {
+		let num = 45;
+		// console.log(ddd, e, num);
+	}
+
+	return test;
+}
+const testFn = bar();
+testFn();
+
+function counter() {
+	let count = 0;
+
+	return function () {
+		count++;
+		console.log(count);
+	};
+}
+
+const ct = counter();
+const cb = counter()
+ct()
+ct()
+ct()
+ct()
+cb()
