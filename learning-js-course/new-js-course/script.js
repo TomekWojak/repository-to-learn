@@ -871,9 +871,19 @@ function counter() {
 }
 
 const ct = counter();
-const cb = counter()
-ct()
-ct()
-ct()
-ct()
-cb()
+const cb = counter();
+ct();
+ct();
+ct();
+ct();
+cb();
+// Mamy dostęp do zmiennej count, pomimo iż funkcja counter() została dawno zakończona. Wynika to z tego że funkcje pamiętają swoje środowisko. Gdy wywołujemy ct() - czyli tak naprawdę zwracaną w counter() funkcję ona nadal ma dostęp do swojego środowiska, czyli bloku funkcji counter
+
+function test(x) {
+	return function (y) {
+		return x * y;
+	};
+}
+
+const multiplyArguments = test(15);
+console.log(multiplyArguments(2));
