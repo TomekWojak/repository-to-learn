@@ -934,7 +934,7 @@ function changeValue() {
 }
 document.querySelectorAll(".card").forEach((card) => {
 	const changingValue = changeValue();
-	
+
 	const addBtn = card.querySelector(".add");
 	const removeBtn = card.querySelector(".remove");
 	const value = card.querySelector(".amount");
@@ -948,20 +948,35 @@ document.querySelectorAll(".card").forEach((card) => {
 	});
 });
 
+// function elementsFactory(element) {
+// 	return () => {
+// 		return document.createElement(element);
+// 	};
+// }
 
+// const createDiv = elementsFactory("div");
+// createDiv();
+// createDiv();
+// createDiv();
 
-function elementsFactory(element){
-	return () => {
-		return document.createElement(element)
+// const createParagraph = elementsFactory("p");
+// createParagraph();
+// createParagraph();
+// createParagraph();
+
+// function test(element) {
+// 	return document.createElement(element);
+// }
+
+const stwURL = "https://swapi.dev/api/";
+
+const showStwInfo = async (ext) => {
+	try {
+		const response = await fetch(stwURL + ext);
+		const data = await response.json();
+		console.log(data);
+	} catch (err) {
+		console.log(err);
 	}
-}
-
-const createDiv = elementsFactory('div')
-createDiv()
-createDiv()
-createDiv()
-
-const createParagraph = elementsFactory('p')
-createParagraph()
-createParagraph()
-createParagraph()
+};
+showStwInfo('people/1/');
