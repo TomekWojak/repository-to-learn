@@ -948,25 +948,25 @@ document.querySelectorAll(".card").forEach((card) => {
 	});
 });
 
-// function elementsFactory(element) {
-// 	return () => {
-// 		return document.createElement(element);
-// 	};
-// }
+function elementsFactory(element) {
+	return () => {
+		return document.createElement(element);
+	};
+}
 
-// const createDiv = elementsFactory("div");
-// createDiv();
-// createDiv();
-// createDiv();
+const createDiv = elementsFactory("div");
+createDiv();
+createDiv();
+createDiv();
 
-// const createParagraph = elementsFactory("p");
-// createParagraph();
-// createParagraph();
-// createParagraph();
+const createParagraph = elementsFactory("p");
+createParagraph();
+createParagraph();
+createParagraph();
 
-// function test(element) {
-// 	return document.createElement(element);
-// }
+function test(element) {
+	return document.createElement(element);
+}
 
 const stwURL = "https://swapi.dev/api/";
 
