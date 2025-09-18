@@ -885,6 +885,8 @@ function test(x) {
 	};
 }
 
+// Klucz: JS przechowuje referencję do środowiska, a nie kopię wartości w momencie tworzenia. Dlatego zmienne można modyfikować.
+
 const multiplyArguments = test(15);
 console.log(multiplyArguments(2));
 
@@ -945,3 +947,21 @@ document.querySelectorAll(".card").forEach((card) => {
 		value.innerText = changingValue.decreaseValue();
 	});
 });
+
+
+
+function elementsFactory(element){
+	return () => {
+		return document.createElement(element)
+	}
+}
+
+const createDiv = elementsFactory('div')
+createDiv()
+createDiv()
+createDiv()
+
+const createParagraph = elementsFactory('p')
+createParagraph()
+createParagraph()
+createParagraph()
