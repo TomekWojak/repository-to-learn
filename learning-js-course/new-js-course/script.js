@@ -906,5 +906,42 @@ function prvData() {
 
 const prvDataObj = prvData();
 
-prvDataObj.setData(45)
-prvDataObj.showPrivData()
+prvDataObj.setData(45);
+prvDataObj.showPrivData();
+
+// practicing closures
+const addBtn = document.querySelectorAll(".add");
+const removeBtn = document.querySelectorAll(".remove");
+function changeValue() {
+	let amount = 0;
+
+	function increaseValue() {
+		amount++;
+		return amount;
+	}
+	function decreaseValue() {
+		amount--;
+
+		return amount;
+	}
+
+	return {
+		increaseValue,
+		decreaseValue,
+	};
+}
+document.querySelectorAll(".card").forEach((card) => {
+	const changingValue = changeValue();
+	
+	const addBtn = card.querySelector(".add");
+	const removeBtn = card.querySelector(".remove");
+	const value = card.querySelector(".amount");
+
+	addBtn.addEventListener("click", () => {
+		value.innerText = changingValue.increaseValue();
+	});
+
+	removeBtn.addEventListener("click", () => {
+		value.innerText = changingValue.decreaseValue();
+	});
+});
