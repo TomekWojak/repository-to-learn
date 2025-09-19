@@ -948,25 +948,25 @@ document.querySelectorAll(".card").forEach((card) => {
 	});
 });
 
-function elementsFactory(element) {
-	return () => {
-		return document.createElement(element);
-	};
-}
+// function elementsFactory(element) {
+// 	return () => {
+// 		return document.createElement(element);
+// 	};
+// }
 
-const createDiv = elementsFactory("div");
-createDiv();
-createDiv();
-createDiv();
+// const createDiv = elementsFactory("div");
+// createDiv();
+// createDiv();
+// createDiv();
 
-const createParagraph = elementsFactory("p");
-createParagraph();
-createParagraph();
-createParagraph();
+// const createParagraph = elementsFactory("p");
+// createParagraph();
+// createParagraph();
+// createParagraph();
 
-function test(element) {
-	return document.createElement(element);
-}
+// function test(element) {
+// 	return document.createElement(element);
+// }
 
 const stwURL = "https://swapi.dev/api/";
 
@@ -974,7 +974,7 @@ const showStwInfo = async (ext) => {
 	try {
 		const response = await fetch(stwURL + ext);
 		const data = await response.json();
-		console.log(data);
+		// console.log(data);
 	} catch (err) {
 		console.log(err);
 	}
@@ -998,3 +998,14 @@ third();
 // Druga wrzucona na stos funkcja: second
 // Trzecia wrzucona na stos funkcja: first
 // first jest ostatnią funkcją wrzuconą na stos, a więc będzie ona pierwszą funkcją usuniętą ze stosu, potem second i na końcu third. => stos jest pusty, wykonuje się WEB API funkcji asynchronicznych. => Callback który czekał zostaje przekazany do kolejki zadań - jest gotowy, aby był wykonany.
+
+const objectTest = {
+	data: "Hello",
+	testFn: function () {
+		setTimeout(() => {
+			console.log(this);
+		}, 100)
+	},
+};
+
+// objectTest.testFn()
