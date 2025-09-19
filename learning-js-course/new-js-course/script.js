@@ -1030,3 +1030,20 @@ const tasks = [
 
 const newTasksTlist = [...tasks, { name: "task5", completed: true }];
 console.log(newTasksTlist);
+
+const [num, name, ...params] = [1, "test", 2, true, "text"];
+
+const [as, , cs] = [1, 2, 3];
+
+const getBbbjj = () => {
+	const city = "Kraków";
+	const street = "Piłsudzkiego";
+
+	return {
+		city,
+		street,
+	};
+};
+
+const { city, street } = getBbbjj();
+
