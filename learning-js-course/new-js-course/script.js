@@ -1004,8 +1004,29 @@ const objectTest = {
 	testFn: function () {
 		setTimeout(() => {
 			console.log(this);
-		}, 100)
+		}, 100);
 	},
 };
+const bat = [3, 2, 1];
+function oof(a, b, c) {
+	console.log(a, b, c);
+}
+oof(...bat);
+
+const nm = "Bartek";
+const chars = [...nm];
+// console.log(chars);
 
 // objectTest.testFn()
+
+const tasks = [
+	{ name: "task1", completed: true },
+	{ name: "task2", completed: false },
+	{ name: "task3", completed: true },
+	{ name: "task4", completed: false },
+];
+
+// tasks.push({ name: "task5", completed: true });  // git ale zamiast tego można zrobić
+
+const newTasksTlist = [...tasks, { name: "task5", completed: true }];
+console.log(newTasksTlist);
