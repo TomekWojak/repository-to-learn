@@ -1047,3 +1047,52 @@ const getBbbjj = () => {
 
 const { city, street } = getBbbjj();
 
+function prntUser({ city, street }) {
+	console.log(street, city);
+}
+prntUser(getBbbjj());
+
+const hugeObj = {
+	name: "test",
+	id: 5,
+	employment: {
+		company: "example.com",
+		adress: {
+			country: "Poland",
+		},
+	},
+};
+
+// const {
+// 	id,
+// 	employment: { company },
+// 	employment: { adress: country },
+// } = hugeObj;
+
+const {
+	employment: {
+		adress: { street: companyStreet = "Test" },
+	},
+} = hugeObj;
+
+const tab6 = [1, 2, 3, 4, 5, 6, 7, 100];
+for (const el of tab6) {
+	// console.log(el);
+}
+
+const sttrr = "text";
+for (const char of sttrr) {
+	console.log(char);
+}
+
+const map1 = new Map();
+const car = { car: "Mercedes" };
+map1.set("test", { name: "Ania", age: 20 });
+map1.set(car, { topSpeed: 250 });
+
+// console.log(map1.get('test'));
+console.log(map1);
+
+for (const entry of map1) {
+	// console.log(entry); // entry to tablica z parą klucz-wartość (tak jak np. po użyciu Object.entries())
+}
