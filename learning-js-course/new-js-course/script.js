@@ -979,4 +979,22 @@ const showStwInfo = async (ext) => {
 		console.log(err);
 	}
 };
-showStwInfo('people/1/');
+showStwInfo("people/1/");
+
+// Asynchroniczność
+
+function first() {
+	console.log("first");
+}
+function second() {
+	first();
+}
+function third() {
+	second();
+}
+third();
+
+// Pierwsza wrzucona na stos funkcja: third
+// Druga wrzucona na stos funkcja: second
+// Trzecia wrzucona na stos funkcja: first
+// first jest ostatnią funkcją wrzuconą na stos, a więc będzie ona pierwszą funkcją usuniętą ze stosu, potem second i na końcu third. => stos jest pusty, wykonuje się WEB API funkcji asynchronicznych. => Callback który czekał zostaje przekazany do kolejki zadań - jest gotowy, aby był wykonany.
