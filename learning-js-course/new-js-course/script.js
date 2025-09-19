@@ -1102,3 +1102,9 @@ const nSet = new Set([1, 2, 3, 4, 5, 6, 3, 1, 1, 1, 3, 7]);
 for (const el of nSet) {
 	// console.log(el);
 }
+
+const cards = document.querySelectorAll('.card')
+
+for(const card of cards){
+	// console.log(card);
+}
