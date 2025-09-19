@@ -1096,3 +1096,9 @@ console.log(map1);
 for (const entry of map1) {
 	// console.log(entry); // entry to tablica z parą klucz-wartość (tak jak np. po użyciu Object.entries())
 }
+
+const nSet = new Set([1, 2, 3, 4, 5, 6, 3, 1, 1, 1, 3, 7]);
+// Set zawiera unikalne, niepowtarzalne wartości
+for (const el of nSet) {
+	// console.log(el);
+}
