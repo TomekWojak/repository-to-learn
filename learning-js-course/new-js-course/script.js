@@ -1143,7 +1143,11 @@ Object.defineProperty(obj, "test", {
 	value: 15,
 	configurable: false,
 	enumerable: false,
+	writable: false,
 });
 // delete obj.test
 // console.log(obj.propertyIsEnumerable('test'));
 // console.log(obj);
+// for (const el in obj) {
+// 	console.log(el); // klucze
+// }
