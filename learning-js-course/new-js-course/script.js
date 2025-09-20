@@ -1241,7 +1241,8 @@ animal1.getName();
 animal1.age = 12;
 const animal2 = Animal.getNewAnimal();
 console.log(animal2);
-
+animal2.getName()
+console.dir(Animal)
 // setter będzie wywalał błąd jeśli będzie miał tą samą nazwę co this.nazwa
 // bo będziemy wtedy ciągle próbowali wywołać ten setter
 
