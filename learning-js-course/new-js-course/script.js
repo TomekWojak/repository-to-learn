@@ -1239,3 +1239,10 @@ animal1.age = 12;
 
 // setter będzie wywalał błąd jeśli będzie miał tą samą nazwę co this.nazwa
 // bo będziemy wtedy ciągle próbowali wywołać ten setter
+
+
+let _c = 10
+console.log(_c++);
+console.log(_c);
+console.log(++_c);
+console.log(_c);
