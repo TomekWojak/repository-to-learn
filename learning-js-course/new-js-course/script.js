@@ -1151,3 +1151,18 @@ Object.defineProperty(obj, "test", {
 // for (const el in obj) {
 // 	console.log(el); // klucze
 // }
+
+const map2 = new Map();
+map2.set("a", 1);
+map2.set(10, { test: "text" });
+// console.log(map2.get("a"));
+// console.log(map2.size);
+console.log(map2);
+const iterator = map2.entries();
+
+let results = iterator.next();
+console.log(results);
+while (!results.done) {
+	console.log(results.value);
+	results = iterator.next();
+}
