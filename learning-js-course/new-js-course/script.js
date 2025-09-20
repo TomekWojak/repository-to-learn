@@ -1186,3 +1186,56 @@ const map3 = new Map([
 // for (const [key, value] of map3) {
 // 	console.log(key, value);
 // }
+
+const set1 = new Set();
+
+set1.add(5);
+set1.add(NaN);
+set1.add({ b: 50 });
+set1.add("string");
+set1.add(5);
+set1.add(5);
+// set1.clear() // Kasuje wszystkie elementy, tak samo w Map
+
+let arr3 = Array.from(set1);
+console.log(arr3);
+
+class Carr {
+	constructor(name, brand) {
+		this.name = name;
+		this.brand = brand;
+	}
+
+	printCar() {
+		console.log(this.name, this.brand);
+	}
+}
+const caar = new Carr("Ford", "Mustang");
+// caar.printCar()
+// klasy działają zawsze w strict mode
+
+let Animal = class {
+	constructor(name) {
+		this.name = name;
+		this._age = 1;
+	}
+	getName = () => {
+		console.log(this.name);
+	};
+	set age(animalAge) {
+		if (animalAge > 0) {
+			this._age = animalAge;
+		} else {
+			console.log("Mniejsze od 0");
+		}
+	}
+	get age() {
+		return this._age;
+	}
+};
+const animal1 = new Animal("Elephant");
+animal1.getName();
+animal1.age = 12;
+
+// setter będzie wywalał błąd jeśli będzie miał tą samą nazwę co this.nazwa
+// bo będziemy wtedy ciągle próbowali wywołać ten setter
