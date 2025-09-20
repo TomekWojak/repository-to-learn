@@ -1232,16 +1232,20 @@ let Animal = class {
 	get age() {
 		return this._age;
 	}
+	static getNewAnimal() {
+		return new Animal("Default animal");
+	}
 };
 const animal1 = new Animal("Elephant");
 animal1.getName();
 animal1.age = 12;
+const animal2 = Animal.getNewAnimal();
+console.log(animal2);
 
 // setter będzie wywalał błąd jeśli będzie miał tą samą nazwę co this.nazwa
 // bo będziemy wtedy ciągle próbowali wywołać ten setter
 
-
-let _c = 10
+let _c = 10;
 console.log(_c++);
 console.log(_c);
 console.log(++_c);
