@@ -1166,3 +1166,23 @@ while (!results.done) {
 	console.log(results.value);
 	results = iterator.next();
 }
+
+for (const [key, value] of map2) {
+	// console.log(key, value);
+}
+
+map2.forEach((value, key) => {
+	// console.log(value, key);
+});
+// W przypadku map foreach przyjmuje kolejno argumenty: wartość, klucz, mapa
+
+const map3 = new Map([
+	["key1", 8],
+	["key2", 100],
+]);
+// map3.forEach((value, key) => {
+// 	console.log(key, value);
+// });
+// for (const [key, value] of map3) {
+// 	console.log(key, value);
+// }
