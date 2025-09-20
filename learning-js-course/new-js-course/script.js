@@ -1103,8 +1103,47 @@ for (const el of nSet) {
 	// console.log(el);
 }
 
-const cards = document.querySelectorAll('.card')
+const cards = document.querySelectorAll(".card");
 
-for(const card of cards){
+for (const card of cards) {
 	// console.log(card);
 }
+
+const arrOfNums = [1, 5, 10, 25, 34, 100];
+const txt = "text";
+obj = {
+	a: 10,
+	text: "Przykładowy tekst",
+	c: true,
+};
+for (const num of arrOfNums) {
+	// console.log(num);
+}
+for (const num in arrOfNums) {
+	// console.log(num);  // indeksy
+}
+
+for (const char of txt) {
+	// console.log(char);
+}
+for (const char in txt) {
+	console.log(char); // również indeksy
+}
+
+// for (const el of obj) {
+// 	// console.log(el); Obj is not iterable
+// }
+for (const el in obj) {
+	// console.log(el); // klucze
+}
+
+// console.log(obj.propertyIsEnumerable("a"));
+
+Object.defineProperty(obj, "test", {
+	value: 15,
+	configurable: false,
+	enumerable: false,
+});
+// delete obj.test
+// console.log(obj.propertyIsEnumerable('test'));
+// console.log(obj);
