@@ -1300,3 +1300,12 @@ console.log([1] == "1"); // true, [1].toString() => "1"
 console.log(null == undefined); // true
 console.log("" == 0); // true, "" => 0
 console.log(2 * undefined);
+
+// Operatory matematyczne
+
+console.log(1 + []); // "1", number + "" = string
+console.log(1 + [1]); // "11" number + "" = string
+console.log([1, 2] - 1); // NaN, '1,2' - 1 = NaN, gdyby zamiast "," była "." => 1.2 - 1 = 0.2
+console.log([] - 1); // -1, "" => 0
+console.log([null] + 1); // "1", [null] => "", number + "" = string
+console.log([undefined] + 1); // "1", [undefined] => "", number + "" = string
