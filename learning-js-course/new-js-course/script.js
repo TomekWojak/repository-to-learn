@@ -1241,13 +1241,62 @@ animal1.getName();
 animal1.age = 12;
 const animal2 = Animal.getNewAnimal();
 console.log(animal2);
-animal2.getName()
-console.dir(Animal)
+animal2.getName();
+console.dir(Animal);
 // setter będzie wywalał błąd jeśli będzie miał tą samą nazwę co this.nazwa
 // bo będziemy wtedy ciągle próbowali wywołać ten setter
 
-let _c = 10;
-console.log(_c++);
-console.log(_c);
-console.log(++_c);
-console.log(_c);
+// let _c = 10;
+// console.log(_c++);
+// console.log(_c);
+// console.log(++_c);
+// console.log(_c);
+
+console.log("------------");
+console.log("------------");
+
+// KOERCJE - ĆWICZENIA
+
+console.log(1 == "1"); // string jest zamieniany na number => 1 == 1
+console.log("test" == 2); // string jest zamieniany na number => NaN == 2
+console.log(true == 5); // boolean jest zamieniany na number => true = 1, 1 == 5
+console.log("abc" == NaN); // string jest zamieniany na number => NaN, NaN == NaN // false
+console.log([] == []); // false
+console.log({} == {}); // false
+console.log({ a: 10 } == "[object Object]"); // true - obiekt po koercji na string wygląda tak: [object Object]
+
+console.log("5" == 5); // true
+console.log("0" == false); // true
+console.log(" " == 0); // true - w takim zestawieniu, js tratuje string jako pusty
+console.log(true == 1); // true
+console.log(false == 1); // false
+console.log(true == 2); // false
+console.log([1] == 1); // true
+console.log([] == ""); // true
+console.log([] == 0); // true
+console.log(null == undefined); // true
+console.log(null == 0); // false
+console.log(undefined == 0); // false
+
+console.log(false == "0"); // true, false: 0, "0": 0
+console.log(false == []); // true, false: 0, []: "" => 0
+console.log("0" == []); // false, []: ""
+console.log([0] == false); // true, [0]: "0" => 0, false: 0
+console.log([0] == "0"); // true, [0]: "0"
+console.log([0] == 0); // true, [0]: "0" => 0
+console.log([null] == 0); // true, [null]: "" => 0
+console.log([undefined] == 0); // true, [undefined]: "" => 0
+console.log(null == false); // false
+console.log(undefined == false); // false
+
+console.log([] == 0); // true, []: "" => 0
+console.log([1, 2] == "1,2"); // true, [1,2].toString() => '1,2'
+console.log([null] == 0); // true, [null].toString() => "" => 0
+console.log([undefined] == false); // true, [undefined].toString() => "" => 0, false: 0
+console.log([NaN] == "NaN"); // true, [NaN].toString() => 'NaN', 'NaN' nie jest równe niczemu, nawet sobie, ale tu mamy porównanie wartości w stringu.
+console.log([0] == false); // true, [0].toString() => "0" => 0, false: 0
+console.log([1] == true); // true, [1].toString() => "1" => 1, true: 1
+console.log([1] == "1"); // true, [1].toString() => "1"
+console.log(null == undefined); // true
+console.log("" == 0); // true, "" => 0
+console.log(2 * undefined);
