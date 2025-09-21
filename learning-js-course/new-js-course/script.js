@@ -1233,7 +1233,7 @@ let Animal = class {
 		return this._age;
 	}
 	static getNewAnimal() {
-		return new Animal("Default animal");
+		return new Animal("Default animal"); // Można wywołać na klasie, bez słówka 'new', nie zadziała na instancji!
 	}
 };
 const animal1 = new Animal("Elephant");
