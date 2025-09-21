@@ -1345,7 +1345,7 @@ class Human extends OtherAnimal {
 		return this._age;
 	}
 	printName() {
-		// super.printName() 
+		// super.printName()
 		console.log(`Human: ${this.name}`);
 	}
 }
@@ -1353,3 +1353,15 @@ class Human extends OtherAnimal {
 const human1 = new Human("Bartek");
 human1.age = 10;
 human1.printName(); // Domyślnie bierze sobie z klasy, na podstawie której został utworzony, ale możemy tą metodę 'przysłonić', nadpisać
+
+function dataAnalysis(data) {
+	console.log(data);
+}
+function error(err) {
+	console.log(err);
+}
+
+fetch("https://api.chucknorris.io/jokes/random")
+	.then((res) => res.json())
+	.then((data) => dataAnalysis(data))
+	.catch((err) => console.log(err));
