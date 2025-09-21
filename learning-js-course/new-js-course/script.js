@@ -1379,6 +1379,7 @@ getData();
 
 let symbol1 = Symbol("Symbol1");
 let symbol2 = Symbol("Symbol1");
+// Każde wywołanie Symbol() tworzy unikatową wartość
 
 // console.log(symbol1 === symbol2); // false
 // console.log(symbol1 == symbol2); // false
@@ -1394,3 +1395,25 @@ for (const el in obj) {
 }
 
 console.log(Object.getOwnPropertySymbols(obj));
+
+// stara metoda na domyślny parametr funkcji
+
+function test1(x) {
+	// if (typeof x === "undefined") x = 20;
+	console.log(x);
+}
+
+// test1()
+// test1(1)
+
+function test2(a, b = 44, c = { test: "text" }) {
+	console.log(a, b, c);
+}
+test2(6);
+
+function test3([a = 2, b = 5] = []) {
+	console.log(a, b);
+}
+// Ustawiamy domyślne wartości dla przypadku kiedy jako argument podamy pustą tablicę i co ciekawe - jeśli wgl nic nie podamy, to trzeba ustawić tablicę jako domyślny parametr
+test3([10, 20]);
+test3([]);
