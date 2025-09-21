@@ -1365,3 +1365,14 @@ fetch("https://api.chucknorris.io/jokes/random")
 	.then((res) => res.json())
 	.then((data) => dataAnalysis(data))
 	.catch((err) => console.log(err));
+
+async function getData() {
+	try {
+		const response = await fetch("https://api.chucknorris.io/jokes/random");
+		const data = await response.json();
+		console.log(data);
+	} catch (err) {
+		console.log(err);
+	}
+}
+getData();
