@@ -1328,6 +1328,9 @@ class OtherAnimal {
 	get type() {
 		return this._type;
 	}
+	printName() {
+		console.log(`Animal: ${this.name}`);
+	}
 }
 
 class Human extends OtherAnimal {
@@ -1341,7 +1344,12 @@ class Human extends OtherAnimal {
 	get age() {
 		return this._age;
 	}
+	printName() {
+		// super.printName() 
+		console.log(`Human: ${this.name}`);
+	}
 }
 
 const human1 = new Human("Bartek");
 human1.age = 10;
+human1.printName(); // Domyślnie bierze sobie z klasy, na podstawie której został utworzony, ale możemy tą metodę 'przysłonić', nadpisać
