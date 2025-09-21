@@ -1376,3 +1376,21 @@ async function getData() {
 	}
 }
 getData();
+
+let symbol1 = Symbol("Symbol1");
+let symbol2 = Symbol("Symbol1");
+
+// console.log(symbol1 === symbol2); // false
+// console.log(symbol1 == symbol2); // false
+
+obj = {
+	a: 10,
+};
+obj[symbol1] = 100;
+// console.log(obj[symbol1]);
+
+for (const el in obj) {
+	console.log(el); // nie dostaniemy symbolu ponieważ nie jest on iterowalny
+}
+
+console.log(Object.getOwnPropertySymbols(obj));
