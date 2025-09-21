@@ -1309,3 +1309,39 @@ console.log([1, 2] - 1); // NaN, '1,2' - 1 = NaN, gdyby zamiast "," była "." =>
 console.log([] - 1); // -1, "" => 0
 console.log([null] + 1); // "1", [null] => "", number + "" = string
 console.log([undefined] + 1); // "1", [undefined] => "", number + "" = string
+
+// EXTENDS I SUPER
+class OtherAnimal {
+	constructor(name) {
+		this.name = name;
+
+		if (Animal.count === undefined) Animal.count = 0; // Taki zapis pozwala nam kontrolować ilość obiektów utworzonych na podstawie danej klasy.
+		this.id = Animal.count;
+		Animal.count++;
+		this._type = "animal";
+	}
+	set type(animalType) {
+		if (typeof animalType === "string") {
+			this._type = animalType;
+		}
+	}
+	get type() {
+		return this._type;
+	}
+}
+
+class Human extends OtherAnimal {
+	constructor(name) {
+		super(name);
+		this._age = 0;
+	}
+	set age(humanAge) {
+		if (typeof humanAge === "number") this._age = humanAge;
+	}
+	get age() {
+		return this._age;
+	}
+}
+
+const human1 = new Human("Bartek");
+human1.age = 10;
