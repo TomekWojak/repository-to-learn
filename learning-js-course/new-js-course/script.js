@@ -1417,3 +1417,10 @@ function test3([a = 2, b = 5] = []) {
 // Ustawiamy domyślne wartości dla przypadku kiedy jako argument podamy pustą tablicę i co ciekawe - jeśli wgl nic nie podamy, to trzeba ustawić tablicę jako domyślny parametr
 test3([10, 20]);
 test3([]);
+
+function test4({ a = 1, b = 2 } = {}) {
+	console.log(a, b);
+}
+test4({ a: 10 });
+
+test4()
