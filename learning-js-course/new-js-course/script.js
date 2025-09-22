@@ -1454,3 +1454,36 @@ const txtx = `Hello from ${obj.city}`;
 console.log(txtx);
 const txtx2 = divide`Hello from ${obj.city}`;
 // taki zapis funkcji rozbija template na stringi i wartości zapisane w ${}
+
+const arr5 = Array.of(5, 3, 2, 1, "test", { a: 10 }, 44);
+const arr9 = Array.from([1, 2, 3, 4], (a) => a * 2); // Mapujemy bez użycia metody .map()
+const arr10 = Array.from(
+	[1, 2, 3, 4],
+	function (a) {
+		return a * this.value;
+	},
+	{ value: 4 }
+);
+console.log(arr10);
+const arr11 = [1, 2, 3, 4, 5];
+// console.log(arr.fill(100)); // fill zamienia wszystkie elementy na podany w nawiasie, lub może też uzupełnić tablicę [empty, empty]
+// console.log(arr.fill(100, 2)); // wypełnia ale od indeksu 2
+// console.log(arr.fill(100, 1, 3)); // od indeksu 1 do 3 nie włącznie
+
+// console.log(arr11.find(el => el > 4)); // Pierwszy element spełniający warunek
+// console.log(arr11.findIndex(el => el > 4)); // Index pierwszego elementu który spełnia warunek
+
+const arr12 = [4, 100, 20, 300, 232, 10];
+console.log(arr12.copyWithin(1, 3));
+// Skopiuj elementy od indeksu 3 do końca i wklej je w miejscu indeksu 1
+
+const testArray = [180, "text", { a: 10 }, 30];
+for (const el of testArray.values()) {
+	console.log(el);
+} // wartości
+for (const el of testArray.keys()) {
+	console.log(el);
+} // indeksy
+for (const [key, value] of testArray.entries()) {
+	console.log(key, value);
+} // indeks i wartość
