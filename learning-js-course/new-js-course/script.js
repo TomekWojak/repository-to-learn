@@ -1361,21 +1361,21 @@ function error(err) {
 	console.log(err);
 }
 
-fetch("https://api.chucknorris.io/jokes/random")
-	.then((res) => res.json())
-	.then((data) => dataAnalysis(data))
-	.catch((err) => console.log(err));
+// fetch("https://api.chucknorris.io/jokes/random")
+// 	.then((res) => res.json())
+// 	.then((data) => dataAnalysis(data))
+// 	.catch((err) => console.log(err));
 
-async function getData() {
-	try {
-		const response = await fetch("https://api.chucknorris.io/jokes/random");
-		const data = await response.json();
-		console.log(data);
-	} catch (err) {
-		console.log(err);
-	}
-}
-getData();
+// async function getData() {
+// 	try {
+// 		const response = await fetch("https://api.chucknorris.io/jokes/random");
+// 		const data = await response.json();
+// 		console.log(data);
+// 	} catch (err) {
+// 		console.log(err);
+// 	}
+// }
+// getData();
 
 let symbol1 = Symbol("Symbol1");
 let symbol2 = Symbol("Symbol1");
@@ -1423,4 +1423,20 @@ function test4({ a = 1, b = 2 } = {}) {
 }
 test4({ a: 10 });
 
-test4()
+test4();
+
+const tx = 10;
+const xt = {a: 'red'}
+function tsts(x) {
+	x = 5;
+	console.log(x);
+}
+function stst(obj){
+	obj = null
+	console.log(obj);
+}
+
+tsts(tx);
+stst(xt)
+console.log(xt);
+console.log(tx);
