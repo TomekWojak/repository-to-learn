@@ -1426,17 +1426,31 @@ test4({ a: 10 });
 test4();
 
 const tx = 10;
-const xt = {a: 'red'}
+const xt = { a: "red" };
 function tsts(x) {
 	x = 5;
 	console.log(x);
 }
-function stst(obj){
-	obj = null
+function stst(obj) {
+	obj = null;
 	console.log(obj);
 }
 
 tsts(tx);
-stst(xt)
+stst(xt);
 console.log(xt);
 console.log(tx);
+
+obj = {
+	city: "Kraków",
+};
+
+function divide(strings, ...values) {
+	console.log(strings);
+	console.log(values);
+}
+
+const txtx = `Hello from ${obj.city}`;
+console.log(txtx);
+const txtx2 = divide`Hello from ${obj.city}`;
+// taki zapis funkcji rozbija template na stringi i wartości zapisane w ${}
