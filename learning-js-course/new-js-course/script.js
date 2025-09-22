@@ -1267,7 +1267,7 @@ console.log({ a: 10 } == "[object Object]"); // true - obiekt po koercji na stri
 
 console.log("5" == 5); // true
 console.log("0" == false); // true
-console.log(" " == 0); // true - w takim zestawieniu, js tratuje string jako pusty
+console.log(" " == 0); // true - w takim zestawieniu, js traktuje string jako pusty
 console.log(true == 1); // true
 console.log(false == 1); // false
 console.log(true == 2); // false
