@@ -1478,12 +1478,22 @@ console.log(arr12.copyWithin(1, 3));
 // Skopiuj elementy od indeksu 3 do końca i wklej je w miejscu indeksu 1
 
 const testArray = [180, "text", { a: 10 }, 30];
-for (const el of testArray.values()) {
-	console.log(el);
-} // wartości
-for (const el of testArray.keys()) {
-	console.log(el);
-} // indeksy
-for (const [key, value] of testArray.entries()) {
-	console.log(key, value);
-} // indeks i wartość
+// for (const el of testArray.values()) {
+// 	console.log(el);
+// } // wartości
+// for (const el of testArray.keys()) {
+// 	console.log(el);
+// } // indeksy
+// for (const [key, value] of testArray.entries()) {
+// 	console.log(key, value);
+// } // indeks i wartość
+
+console.log(Math.trunc(3.2));
+console.log(Math.sign(-5));
+console.log(Math.cbrt(64));
+console.log(Math.log2(2));
+console.log(Number.MAX_SAFE_INTEGER);
+console.log(Number.MIN_SAFE_INTEGER);
+console.log(Number.isInteger(10));
+console.log(isFinite(1 / 0));
+console.log(isNaN(null * 2)); // 0 => false
