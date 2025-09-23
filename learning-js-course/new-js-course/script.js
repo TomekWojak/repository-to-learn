@@ -1513,3 +1513,5 @@ const info = arr13.every((item) => item > 0); // every zwraca true jeśli każdy
 const atLeastOne = arr13.some((el) => el > 3); // some zwraca true jesli chociaż jeden element spełnia dany warunek
 // console.log(atLeastOne);
 console.log("-----------");
+
+let pow = 5 ** 2 // Operator potęgowania
