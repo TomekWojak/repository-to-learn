@@ -1514,4 +1514,8 @@ const atLeastOne = arr13.some((el) => el > 3); // some zwraca true jesli chocia�
 // console.log(atLeastOne);
 console.log("-----------");
 
-let pow = 5 ** 2 // Operator potęgowania
+let pow = 5 ** 2; // Operator potęgowania
+console.log(Object.getOwnPropertyDescriptors(obj)); // Pokazuje wszystkie konfiguracje konkretnego obiektu, np. configurable, enumerable itp.
+const strring = "Hello";
+console.log(strring.padStart(20, "t")); // określamy ilość znaków i czym ma być uzupełniona ta ilość - z przodu stringa.
+console.log(strring.padEnd(20, "t")); // określamy ilość znaków i czym ma być uzupełniona ta ilość - z tyłu stringa.
