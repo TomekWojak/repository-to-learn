@@ -1497,3 +1497,12 @@ console.log(Number.MIN_SAFE_INTEGER);
 console.log(Number.isInteger(10));
 console.log(isFinite(1 / 0));
 console.log(isNaN(null * 2)); // 0 => false
+console.log("-----------");
+const arr13 = [1, 2, 3, 4, 5, 6];
+const filteredd = arr13.filter((x) => x > 2);
+// console.log(filteredd);
+const reducedd = arr13.reduce((acc, curr) => acc + curr)
+// console.log(reducedd);
+const found = arr13.find(el => el > 2)
+console.log(found);
+console.log("-----------");
