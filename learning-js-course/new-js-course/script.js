@@ -1519,3 +1519,20 @@ console.log(Object.getOwnPropertyDescriptors(obj)); // Pokazuje wszystkie konfig
 const strring = "Hello";
 console.log(strring.padStart(20, "t")); // określamy ilość znaków i czym ma być uzupełniona ta ilość - z przodu stringa.
 console.log(strring.padEnd(20, "t")); // określamy ilość znaków i czym ma być uzupełniona ta ilość - z tyłu stringa.
+
+
+async function *getData() {
+	yield await Promise.resolve('Wykonano 1')
+	yield await Promise.resolve('Wykonano 2')
+	yield await Promise.resolve('Wykonano 3')
+	yield await Promise.resolve('Wykonano 4')
+}
+
+async function testIter(){
+	let dataIter1 = getData()
+	console.log(dataIter1);
+	for await (let val of dataIter1){
+		console.log(val);
+	}
+}
+testIter()
