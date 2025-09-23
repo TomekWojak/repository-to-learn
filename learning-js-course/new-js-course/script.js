@@ -1501,8 +1501,15 @@ console.log("-----------");
 const arr13 = [1, 2, 3, 4, 5, 6];
 const filteredd = arr13.filter((x) => x > 2);
 // console.log(filteredd);
-const reducedd = arr13.reduce((acc, curr) => acc + curr)
+const reducedd = arr13.reduce((acc, curr) => acc + curr);
 // console.log(reducedd);
-const found = arr13.find(el => el > 2)
-console.log(found);
+const found = arr13.find((el) => el > 2);
+// console.log(found);
+const foundIndex = arr13.findIndex((i) => i > 3);
+console.log(foundIndex);
+const info = arr13.every((item) => item > 0); // every zwraca true jeśli każdy element w tablicy spełnił warunek
+// console.log(info);
+
+const atLeastOne = arr13.some((el) => el > 3); // some zwraca true jesli chociaż jeden element spełnia dany warunek
+// console.log(atLeastOne);
 console.log("-----------");
