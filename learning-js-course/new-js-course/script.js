@@ -1703,3 +1703,18 @@ function createValidatedProxy(target, schema) {
 }
 
 const proxyT2 = createValidatedProxy(user13, schema);
+
+const arr15 = [1, 2, 3, 4, 5, 6, [32, 43], [7, 8, 9, [10, 11, 12]]];
+console.log(arr15.flat()); // Spłaszczamy tablicę do zagnieżdżenia pierwszego stopnia
+console.log(arr15.flat(2)); // Spłaszczamy tablicę do zagnieżdżenia drugiego stopnia
+console.log([1, 2, 3].flatMap((x) => [x, x * 2])); // Zostaje zwrócona tablica [1, 1*2], [2, 2*2], [3, 3*2], a następnie tablice są spłaszczane do jednej
+console.log([1, 2, 3].flatMap((el) => el * 2));
+// flatMap działa do zagnieżdżenia pierwszego stopnia
+
+const entries = new Map([
+	["a", 20],
+	["str", "text"],
+	["obj", { ad: 10 }],
+]);
+const oobbjj = Object.fromEntries(entries);
+
