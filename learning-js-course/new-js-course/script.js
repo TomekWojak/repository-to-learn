@@ -1718,3 +1718,9 @@ const entries = new Map([
 ]);
 const oobbjj = Object.fromEntries(entries);
 
+const xx = null || 10;
+console.log(xx); // 10
+// || działa, ale gdy mamy np. "" || 10, a chcemy dopuścić "" to mimo wszystko i tak wyświetli 10, z tego powodu, że || odrzuca wszystkie falsy values
+
+const yyy = null ?? 20; // Jeśli lewa strona to null lub undefined => zwróć prawą
+console.log(yyy); // 20
