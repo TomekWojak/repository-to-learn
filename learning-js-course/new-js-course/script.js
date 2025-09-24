@@ -1571,3 +1571,29 @@ custArray.forEach((el) => {
 	const random = randomMaxNumIter.next(100);
 	console.log(`random: ${random.value}`);
 });
+
+const car2 = {
+	name: "Ford",
+	topSpeed: 300,
+	printInfo() {
+		console.log(this.name, this.topSpeed);
+	},
+};
+console.log(Reflect.has(car2, "name"));
+console.log(Reflect.has(car2, "brand"));
+
+Reflect.set(car2, "brand", "testBrand");
+console.log(car2);
+console.log(Reflect.ownKeys(car2));
+Reflect.deleteProperty(car2, "brand");
+console.log(car2);
+
+class TTest {
+	constructor(a, b) {
+		this.a = a;
+		this.b = b;
+	}
+}
+obj = Reflect.construct(TTest, [1, 2]);
+console.log(obj);
+console.log(Reflect.ownKeys([1,2,3,4,5]));
