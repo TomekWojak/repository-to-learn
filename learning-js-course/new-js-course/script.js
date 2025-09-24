@@ -1520,21 +1520,21 @@ const strring = "Hello";
 console.log(strring.padStart(20, "t")); // określamy ilość znaków i czym ma być uzupełniona ta ilość - z przodu stringa.
 console.log(strring.padEnd(20, "t")); // określamy ilość znaków i czym ma być uzupełniona ta ilość - z tyłu stringa.
 
-async function* getData() {
-	yield await Promise.resolve("Wykonano 1");
-	yield await Promise.resolve("Wykonano 2");
-	yield await Promise.resolve("Wykonano 3");
-	yield await Promise.resolve("Wykonano 4");
-}
+// async function* getData() {
+// 	yield await Promise.resolve("Wykonano 1");
+// 	yield await Promise.resolve("Wykonano 2");
+// 	yield await Promise.resolve("Wykonano 3");
+// 	yield await Promise.resolve("Wykonano 4");
+// }
 
-async function testIter() {
-	let dataIter1 = getData();
-	console.log(dataIter1);
-	for await (let val of dataIter1) {
-		console.log(val);
-	}
-}
-testIter();
+// async function testIter() {
+// 	let dataIter1 = getData();
+// 	console.log(dataIter1);
+// 	for await (let val of dataIter1) {
+// 		console.log(val);
+// 	}
+// }
+// testIter();
 
 function* foo() {
 	yield "test";
@@ -1579,6 +1579,7 @@ const car2 = {
 		console.log(this.name, this.topSpeed);
 	},
 };
+console.log(Reflect.get(car2, "name"));
 console.log(Reflect.has(car2, "name"));
 console.log(Reflect.has(car2, "brand"));
 
@@ -1596,4 +1597,33 @@ class TTest {
 }
 obj = Reflect.construct(TTest, [1, 2]);
 console.log(obj);
-console.log(Reflect.ownKeys([1,2,3,4,5]));
+console.log(Reflect.ownKeys([1, 2, 3, 4, 5]));
+
+obj = {
+	a: 1,
+	b: 100,
+	str: "text",
+};
+const handler = {
+	get(target, prop, receiver) {
+		if (prop === "a") return "A+++";
+		return target[prop] + "!";
+	},
+	set(target, prop, value) {
+		if (prop === "a" || prop === "b") {
+			if (Number.isInteger(value)) {
+				target[prop] = value;
+			}
+		} else if (prop === "str" && typeof value === "string") {
+			target[prop] = value;
+		}
+	},
+};
+
+const proxy1 = new Proxy(obj, handler);
+console.log("proxy:", proxy1.a);
+console.log("proxy:", proxy1.str);
+proxy1.b = 12;
+console.log("proxy b:", proxy1.b);
+proxy1.str = 'test';
+console.log("proxy str:", proxy1.str);
