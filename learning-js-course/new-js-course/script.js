@@ -1767,3 +1767,24 @@ Promise.allSettled(promiseArr).then((results) => {
 	results.forEach(({ status, value }) => console.log(status, value));
 });
 // Pokazuje stan wszystkich promisów, a także zwrócone wartości każdego z nich
+
+console.log("Ania, Anna, Ola, Karol".replaceAll(/a/g, "b"));
+
+const promisesArr2 = [
+	Promise.resolve("g"),
+	Promise.resolve("i"),
+	Promise.resolve("t"),
+];
+
+const resultsP = Promise.any(promisesArr2);
+resultsP.then((status) => console.log(status));
+// Jeśli wszystkie resolved => pierwszy promise
+// Jeśli wszystkie rejected => error
+// Jeśli chociaż jeden resolved => pierwszy promis
+
+let v = 10;
+let z = 20;
+
+v &&= z;
+// Jeśli v istnieje, przypisz do v wartość z
+
