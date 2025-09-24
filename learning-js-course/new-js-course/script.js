@@ -1788,3 +1788,24 @@ let z = 20;
 v &&= z;
 // Jeśli v istnieje, przypisz do v wartość z
 
+class Caar {
+	constructor() {
+		this.name = "Ford";
+		this._brand = "Mustang";
+		this.onclick = this.#clicked;
+	}
+
+	// public instance field
+	color = "red";
+	topSpeed = 250;
+
+	// private instance field
+	#currentPrice = 1500;
+
+	#clicked = () => {
+		console.log("clicked");
+	};
+}
+let carFord = new Caar();
+carFord.onclick()
+

@@ -10,3 +10,10 @@ console.log(testFn(5, 11));
 // Nie możemy w taki sposób zmieniać wartości eksportowanej zmiennej
 changeXValue(50);
 console.log(x); // 50
+
+// const url = "https://testApi/api";
+
+// const res = await fetch(url);
+// const data = await res.json();
+// console.log(data);
+// Gdy korzystamy z type="module" możemy korzystać z await bez słówka async
