@@ -1625,5 +1625,81 @@ console.log("proxy:", proxy1.a);
 console.log("proxy:", proxy1.str);
 proxy1.b = 12;
 console.log("proxy b:", proxy1.b);
-proxy1.str = 'test';
+proxy1.str = "test";
 console.log("proxy str:", proxy1.str);
+
+const user10 = { name: "Kacper" };
+
+const proxy = new Proxy(user10, {
+	get(target, prop) {
+		console.log(`Próba pobrania ${prop}`);
+		return target[prop];
+	},
+	set(target, prop, value) {
+		if (prop === "favFood" && typeof value === "string" && value.length > 5) {
+			return (target[prop] = value);
+		} else {
+			console.log("Wprowadź poprawne dane");
+		}
+	},
+});
+
+proxy.favFood = "Hamburger";
+console.log(proxy.favFood);
+// console.log(proxy.name);
+
+const target1 = { a: 1, b: 2 };
+
+const proxyT1 = new Proxy(target1, {
+	get(target, prop) {
+		console.log(`GET ${prop} => ${target[prop]}`);
+		return target[prop];
+	},
+	set(target, prop, value) {
+		console.log(`SET ${prop} => ${value}`);
+		target[prop] = value;
+		return true;
+	},
+});
+
+proxyT1.b = 10;
+const user13 = { id: 7, name: "Ada", age: 30, score: 50 };
+
+const schema = {
+	id: "number",
+	name: "string",
+	age: "number",
+	score: { type: "number", min: 0, max: 100 },
+};
+
+function createValidatedProxy(target, schema) {
+	return new Proxy(target, {
+		set(target, prop, value) {
+			const hasKey = Reflect.has(target, prop);
+
+			if (!hasKey) throw new Error("Klucz nie istnieje w obiekcie!");
+
+			if (prop === "id") {
+				return true;
+			} else if (prop === "age" && typeof value === schema.age) {
+				target[prop] = value;
+				return true;
+			} else if (prop === "name" && typeof value === schema.name) {
+				target[prop] = value;
+				return true;
+			} else if (
+				prop === "score" &&
+				typeof value === schema.score.type &&
+				value > 0 &&
+				value <= 100
+			) {
+				target[prop] = value;
+				return true;
+			} else {
+				throw new Error("Element nie pasuje do żadnych kryteriów");
+			}
+		},
+	});
+}
+
+const proxyT2 = createValidatedProxy(user13, schema);
