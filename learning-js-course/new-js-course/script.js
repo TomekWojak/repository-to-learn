@@ -1724,3 +1724,46 @@ console.log(xx); // 10
 
 const yyy = null ?? 20; // Jeśli lewa strona to null lub undefined => zwróć prawą
 console.log(yyy); // 20
+
+let ob = {
+	a: 10,
+	obj: {
+		b: 20,
+		data: {
+			str: "test",
+		},
+	},
+};
+console.log(ob?.obj?.data?.str);
+
+const url = "https://jakiesciekaweapi/api";
+
+// function testApi() {
+// 	return new Promise((resolve, reject) => {
+// 		fetch(url).then((res) => res.json().then((data) => resolve(data)));
+// 	}).catch((err) => reject(err));
+// }
+
+// testApi()
+// 	.then((result) => console.log(result))
+// 	.catch((err) => console.log(err));
+
+// function testApi() {
+// 	return Promise.resolve(fetch(url).then((res) => res.json()));
+// }
+// testApi()
+// 	.then((data) => console.log(data))
+// 	.catch((err) => console.log(err));
+// // W obu przypadkach do resolve() przekazywany jest prawidłowy obiekt, który jesteśmy w stanie odczytać
+
+const promiseArr = [
+	Promise.resolve(20),
+	Promise.reject(null),
+	Promise.resolve({ str: "ok" }),
+	Promise.reject(new Error("Error")),
+];
+Promise.allSettled(promiseArr).then((results) => {
+	console.log("All promises settled", results);
+	results.forEach(({ status, value }) => console.log(status, value));
+});
+// Pokazuje stan wszystkich promisów, a także zwrócone wartości każdego z nich
