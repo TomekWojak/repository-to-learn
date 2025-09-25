@@ -18,13 +18,12 @@ document.addEventListener("DOMContentLoaded", function () {
 		const userData = [result].map((obj) => {
 			return {
 				fullName: `${obj.name.title} ${obj.name.first} ${obj.name.last}`,
-				personPicture: obj.picture.large,
-				username: obj.login.username,
-				email: obj.email,
-				country: obj.location.country,
+				personPicture: obj?.picture?.large,
+				username: obj?.login?.username,
+				email: obj?.email,
+				country: obj?.location?.country,
 			};
 		});
-		console.log(result);
 		return userData[0];
 	};
 
