@@ -2,6 +2,9 @@ document.addEventListener("DOMContentLoaded", function () {
 	const userInfo = {
 		avatar: document.querySelector(".avatar-img"),
 		userFullName: document.querySelector(".full-name"),
+		userName: document.querySelector(".username"),
+		email: document.querySelector(".email"),
+		country: document.querySelector(".country"),
 	};
 
 	async function loadUser() {
@@ -12,17 +15,25 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 	const dataReady = (data) => {
 		const result = data.results[0];
-		const fullName = `${result.name.title} ${result.name.first} ${result.name.last}`;
-		const personPictrue = result.picture.large;
-
-		return {
-			fullName,
-			personPictrue,
-		};
+		const userData = [result].map((obj) => {
+			return {
+				fullName: `${obj.name.title} ${obj.name.first} ${obj.name.last}`,
+				personPicture: obj.picture.large,
+				username: obj.login.username,
+				email: obj.email,
+				country: obj.location.country,
+			};
+		});
+		console.log(result);
+		return userData[0];
 	};
-	const renderUi = ({ fullName, personPictrue }) => {
-		userInfo.avatar.src = personPictrue;
+
+	const renderUi = ({ fullName, personPicture, username, email, country }) => {
+		userInfo.avatar.src = personPicture;
 		userInfo.userFullName.textContent = fullName;
+		userInfo.userName.textContent = `@${username}`;
+		userInfo.email.textContent = email;
+		userInfo.country.textContent = country;
 	};
 
 	loadUser();

@@ -27,7 +27,7 @@ h2 {
 	border-radius: 100%;
 }
 .user-profile {
-	width: 20em;
+	width: min(100%, 30em);
 	margin: auto;
 	padding: 0.5em;
 	background-color: #ddd;
@@ -40,6 +40,7 @@ h2 {
 }
 .username {
 	font-size: 0.8rem;
+	margin-block-start: 0.5em;
 }
 .user-details {
 	margin-block-start: 1em;
