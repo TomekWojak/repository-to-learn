@@ -1,9 +1,11 @@
-document.addEventListener('DOMContentLoaded', function(){
-    
-    async function loadData() {
-        const response = await fetch('https://randomuser.me/api')
-        const data = await response.json()
-        console.log(data);
-    }
-    loadData()
-})
+document.addEventListener("DOMContentLoaded", function () {
+	fetch("https://randomuser.me/api")
+		.then((res) => res.json())
+		.then((data) => dataReady(data));
+
+
+
+       const dataReady = (data) => {
+            
+       } 
+});
