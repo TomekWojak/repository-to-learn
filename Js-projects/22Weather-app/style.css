@@ -7,6 +7,8 @@
 body {
 	height: 100vh;
 	display: flex;
+	flex-direction: column;
+	gap: 2em;
 	justify-content: center;
 	align-items: center;
 	font-family: sans-serif;
@@ -15,16 +17,44 @@ body {
 	width: 600px;
 }
 .header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	background-color: rgb(110, 147, 216);
 	width: 200px;
+}
+h2 {
+	font-size: 2rem;
 }
 .list {
 	background-color: #f9f9f9;
 }
+
 li {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 2px solid #ddd;
 	transition: background-color 0.3s;
 
 	&:hover {
 		background-color: #d9d6d6;
 	}
+}
+.search-box {
+	width: 600px;
+	display: flex;
+	justify-content: space-between;
+}
+.search-engine {
+	display: block;
+	width: 500px;
+	padding: 1em;
+}
+.search-btn {
+	margin-inline-start: auto;
+	display: block;
+	padding: 1em 2em;
+	width: 90px;
+    cursor: pointer;
 }
