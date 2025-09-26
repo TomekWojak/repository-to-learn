@@ -1,21 +1,35 @@
 document.addEventListener("DOMContentLoaded", function () {
 	const body = document.body;
-	const API_KEY = "46544b0cedb8b4ecd4a5ebc480021ca1";
 	const LOCATION_URL = "https://api.openweathermap.org/data/2.5/weather?";
 
 	navigator.geolocation.getCurrentPosition(async (position) => {
 		const userCityInfo = await loadWeatherDataBasedOnUserPosition(position);
 		body.append(renderMainContent(userCityInfo));
-		console.log(userCityInfo);
-	}, error => console.log(error));
+	});
 	const loadWeatherDataBasedOnUserPosition = async (position) => {
-		const response = await fetch(
-			`${LOCATION_URL}lat=${position.coords.latitude}&lon=${position.coords.longitude}&lang=pl&appid=${API_KEY}&units=metric`
-		);
-		const data = await response.json();
-		return data;
+		try {
+			const response = await fetch(
+				`${LOCATION_URL}lat=${position.coords.latitude}&lon=${position.coords.longitude}&lang=pl&appid=${API_KEY}&units=metric`
+			);
+			const data = await response.json();
+			return data;
+		} catch {
+			console.log("Błąd ładowania danych");
+		}
 	};
+	const loadWeatherData = async (cityName) => {
+		try {
+			const response = await fetch(
+				`${LOCATION_URL}q=${cityName}&appid=${API_KEY}&units=metric`
+			);
+			if (!response.ok) return alert("Błędna nazwa miasta lub państwa");
+			const data = await response.json();
 
+			body.append(renderMainContent(data));
+		} catch (error) {
+			console.error("error", error);
+		}
+	};
 	const renderStaticArea = () => {
 		const searchEngine = createElement("input", ["search-engine"]);
 		const searchButton = createElement("button", ["search-btn"]);
@@ -24,6 +38,17 @@ document.addEventListener("DOMContentLoaded", function () {
 		searchButton.textContent = "Sprawdź";
 		searchBox.append(searchEngine, searchButton);
 		body.append(searchBox);
+
+		searchButton.addEventListener("click", () => {
+			checkWeather(searchEngine);
+		});
+	};
+	const checkWeather = (input) => {
+		const inputValue = input.value.trim();
+		if (inputValue === "") return alert("Pole nie może być puste");
+
+		input.value = "";
+		loadWeatherData(inputValue);
 	};
 	const renderMainContent = ({
 		name,
@@ -32,6 +57,8 @@ document.addEventListener("DOMContentLoaded", function () {
 		sys: { sunset, sunrise },
 		weather,
 	}) => {
+		document.querySelector(".container")?.remove();
+
 		const weatherBoxBody = createElement("div", ["body"]);
 		const weatherBox = createElement("div", ["container"]);
 		const weatherCityName = createElement("h2");
@@ -74,5 +101,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 		return element;
 	};
+
 	renderStaticArea();
 });
