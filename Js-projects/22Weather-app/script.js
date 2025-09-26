@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 	const body = document.body;
+	const API_KEY = "fd20a8f36de3b6b0b81a08368b2a2d08";
 	const LOCATION_URL = "https://api.openweathermap.org/data/2.5/weather?";
 
 	navigator.geolocation.getCurrentPosition(async (position) => {
