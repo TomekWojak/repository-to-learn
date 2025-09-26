@@ -6,7 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	navigator.geolocation.getCurrentPosition(async (position) => {
 		const userCityInfo = await loadWeatherDataBasedOnUserPosition(position);
 		body.append(renderMainContent(userCityInfo));
-	});
+		console.log(userCityInfo);
+	}, error => console.log(error));
 	const loadWeatherDataBasedOnUserPosition = async (position) => {
 		const response = await fetch(
 			`${LOCATION_URL}lat=${position.coords.latitude}&lon=${position.coords.longitude}&lang=pl&appid=${API_KEY}&units=metric`
@@ -29,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		main: { temp, humidity, pressure },
 		wind: { speed },
 		sys: { sunset, sunrise },
+		weather,
 	}) => {
 		const weatherBoxBody = createElement("div", ["body"]);
 		const weatherBox = createElement("div", ["container"]);
@@ -38,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		const weatherBoxList = createElement("div", ["list"]);
 
 		weatherCityName.textContent = name;
-
+		weatherStatusImg.src = `https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
 		weatherBoxList.append(
 			createListItem("Temperatura", temp),
 			createListItem("Wilgotność", humidity),
