@@ -1,0 +1,30 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: sans-serif;
+}
+.container {
+	width: 600px;
+}
+.header {
+	background-color: rgb(110, 147, 216);
+	width: 200px;
+}
+.list {
+	background-color: #f9f9f9;
+}
+li {
+	transition: background-color 0.3s;
+
+	&:hover {
+		background-color: #d9d6d6;
+	}
+}
