@@ -5,13 +5,15 @@
 }
 
 body {
+	font-family: sans-serif;
+}
+.root {
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	gap: 1em;
 	justify-content: center;
 	align-items: center;
-	font-family: sans-serif;
 }
 .container {
 	width: 600px;
