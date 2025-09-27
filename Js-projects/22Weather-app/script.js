@@ -2,11 +2,12 @@ document.addEventListener("DOMContentLoaded", function () {
 	const body = document.body;
 	const API_KEY = "fd20a8f36de3b6b0b81a08368b2a2d08";
 	const LOCATION_URL = "https://api.openweathermap.org/data/2.5/weather?";
-
-	navigator.geolocation.getCurrentPosition(async (position) => {
-		const userCityInfo = await loadWeatherDataBasedOnUserPosition(position);
-		body.append(renderMainContent(userCityInfo));
-	});
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(async (position) => {
+			const userCityInfo = await loadWeatherDataBasedOnUserPosition(position);
+			body.append(renderMainContent(userCityInfo));
+		});
+	}
 	const loadWeatherDataBasedOnUserPosition = async (position) => {
 		try {
 			const response = await fetch(
@@ -56,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		main: { temp, humidity, pressure },
 		wind: { speed },
 		sys: { sunset, sunrise },
+		clouds: { all },
 		weather,
 	}) => {
 		document.querySelector(".container")?.remove();
@@ -73,9 +75,20 @@ document.addEventListener("DOMContentLoaded", function () {
 			createListItem("Temperatura", temp),
 			createListItem("Wilgotność", humidity),
 			createListItem("Ciśnienie", pressure),
+			createListItem("Zachmurzenie", all, "%"),
 			createListItem("Szybkość wiatru", speed, "m/s"),
-			createListItem("Wschód słońca", sunrise),
-			createListItem("Zachód słońca", sunset)
+			createListItem(
+				"Wschód słońca",
+				`${new Date(sunrise * 1000).getHours()}:${new Date(
+					sunrise * 1000
+				).getMinutes()}` // * 1000 ponieważ zazwyczaj api pogodowe dostarczają dane w timestamp
+			),
+			createListItem(
+				"Zachód słońca",
+				`${new Date(sunset * 1000).getHours()}:${new Date(
+					sunset * 1000
+				).getMinutes()}`
+			)
 		);
 		weatherBoxHeader.append(weatherStatusImg, weatherCityName);
 		weatherBoxBody.append(weatherBoxList);

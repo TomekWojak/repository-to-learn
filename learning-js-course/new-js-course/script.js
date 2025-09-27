@@ -1807,5 +1807,18 @@ class Caar {
 	};
 }
 let carFord = new Caar();
-carFord.onclick()
+carFord.onclick();
 
+function Item(name) {
+	this.name = name;
+}
+Item.prototype.weight = 10;
+Item.prototype.year = 2025;
+Item.prototype.printInfo = function () {
+	console.log(this.name, this.year);
+};
+
+const newBook = new Item('book')
+// console.log(newBook.weight);
+// console.log(newBook.year);
+// newBook.printInfo()
