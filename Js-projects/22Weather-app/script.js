@@ -1,13 +1,21 @@
 document.addEventListener("DOMContentLoaded", function () {
-	const body = document.body;
+	const root = document.querySelector('.root')
 	const API_KEY = "fd20a8f36de3b6b0b81a08368b2a2d08";
 	const LOCATION_URL = "https://api.openweathermap.org/data/2.5/weather?";
+<<<<<<< HEAD
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(async (position) => {
 			const userCityInfo = await loadWeatherDataBasedOnUserPosition(position);
 			body.append(renderMainContent(userCityInfo));
 		});
 	}
+=======
+
+	navigator.geolocation.getCurrentPosition(async (position) => {
+		const userCityInfo = await loadWeatherDataBasedOnUserPosition(position);
+		root.append(renderMainContent(userCityInfo));
+	});
+>>>>>>> e2c15f41c0eb9b808a17060710e745ca23b3ae1f
 	const loadWeatherDataBasedOnUserPosition = async (position) => {
 		try {
 			const response = await fetch(
@@ -27,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			if (!response.ok) return alert("Błędna nazwa miasta lub państwa");
 			const data = await response.json();
 
-			body.append(renderMainContent(data));
+			root.append(renderMainContent(data));
 		} catch (error) {
 			console.error("error", error);
 		}
@@ -39,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		searchButton.textContent = "Sprawdź";
 		searchBox.append(searchEngine, searchButton);
-		body.append(searchBox);
+		root.append(searchBox);
 
 		searchButton.addEventListener("click", () => {
 			checkWeather(searchEngine);
@@ -77,6 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			createListItem("Ciśnienie", pressure),
 			createListItem("Zachmurzenie", all, "%"),
 			createListItem("Szybkość wiatru", speed, "m/s"),
+<<<<<<< HEAD
 			createListItem(
 				"Wschód słońca",
 				`${new Date(sunrise * 1000).getHours()}:${new Date(
@@ -89,6 +98,10 @@ document.addEventListener("DOMContentLoaded", function () {
 					sunset * 1000
 				).getMinutes()}`
 			)
+=======
+			createListItem("Wschód słońca", `${new Date(sunrise * 1000).getHours()}:${new Date(sunrise * 1000).getMinutes()}`),
+			createListItem("Zachód słońca", `${new Date(sunset * 1000).getHours()}:${new Date(sunset * 1000).getMinutes()}`)
+>>>>>>> e2c15f41c0eb9b808a17060710e745ca23b3ae1f
 		);
 		weatherBoxHeader.append(weatherStatusImg, weatherCityName);
 		weatherBoxBody.append(weatherBoxList);

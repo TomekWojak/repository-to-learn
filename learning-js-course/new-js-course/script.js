@@ -235,7 +235,7 @@ function hireNewEmployee(name, surname, email, age, proffesion) {
 	) {
 		return null;
 	}
-
+	
 	const obj = {
 		company: "Test Ltd.",
 		name: name,
