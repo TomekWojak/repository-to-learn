@@ -1,0 +1,18 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	flex-direction: column;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+textarea {
+	margin-bottom: 1em;
+	resize: vertical;
+	width: 60%;
+	height: 100px;
+}

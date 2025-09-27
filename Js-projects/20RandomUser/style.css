@@ -1,0 +1,49 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	padding: 2em;
+	background-color: #f9f9f9;
+	font-family: sans-serif;
+}
+span {
+	display: block;
+}
+h2 {
+	margin-block-end: 1em;
+	color: cornflowerblue;
+	text-align: center;
+}
+.row {
+	display: flex;
+}
+.column {
+	flex: 50%;
+}
+.avatar-img {
+	margin: 0.3em;
+	border-radius: 100%;
+}
+.user-profile {
+	width: min(100%, 30em);
+	margin: auto;
+	padding: 0.5em;
+	background-color: #ddd;
+	border-radius: 0.4em;
+	color: cornflowerblue;
+}
+.full-name {
+	font-size: 1rem;
+	font-weight: 600;
+}
+.username {
+	font-size: 0.8rem;
+	margin-block-start: 0.5em;
+}
+.user-details {
+	margin-block-start: 1em;
+	font-size: 0.8rem;
+	color: teal;
+}
