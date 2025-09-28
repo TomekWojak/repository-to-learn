@@ -1844,3 +1844,24 @@ const showObjData = (obj) => {
 	}
 };
 showObjData(ccar1);
+
+function Computer(brand) {
+	this.brand = brand;
+}
+const laptop = new Computer("Asus");
+console.log(laptop);
+
+const laptop2 = new Computer("Hp");
+console.log(laptop2);
+console.log(laptop.constructor); // Poprawny konstruktor => Computer
+Computer.prototype.weight = 200; // Nawet po utworzeniu instancji danej funkcji konstruującej, jeśli dodamy coś do prototypu - automatycznie zostanie dodana ta właściwość do wszystkich instancji pochodzących od jednego konstruktora
+
+Computer.prototype = {
+	year: 2025,
+	month: "September",
+}; // Tej wartości nie zobaczymy w wcześniej utworzonych instancjach, ponieważ wskazują one na STARĄ WERSJĘ prototypu. My tutaj tworzymy nową!
+Computer.prototype.constructor = Computer;
+const tablet = new Computer("huawei"); // Korzysta z nowego prototypu
+console.log(tablet);
+console.log(tablet.constructor); // Konstruktor Object() { [native code] }
+// Jeśli przypisujemy do prototypu nowy obiekt => tracimy informacje o użytym konstruktorze, żeby to naprawić trzeba dopisać Computer.prototype.constructor = Computer;
