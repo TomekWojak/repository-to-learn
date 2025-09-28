@@ -1865,3 +1865,30 @@ const tablet = new Computer("huawei"); // Korzysta z nowego prototypu
 console.log(tablet);
 console.log(tablet.constructor); // Konstruktor Object() { [native code] }
 // Jeśli przypisujemy do prototypu nowy obiekt => tracimy informacje o użytym konstruktorze, żeby to naprawić trzeba dopisać Computer.prototype.constructor = Computer;
+
+function Vehicle() {
+	this.name = "Vehicle";
+	this.toString = function () {
+		return this.name;
+	};
+}
+function Truck() {
+	this.name = "Truck";
+	this.numOfWheels = 10;
+}
+function Volvo(model, topSpeed) {
+	this.name = "Volvo";
+	this.model = model;
+	this.topSpeed = topSpeed;
+}
+
+Truck.prototype = new Vehicle();
+console.log("-------");
+Truck.prototype.constructor = Truck;
+
+Volvo.prototype = new Truck();
+Volvo.prototype.constructor = Volvo;
+console.dir(Volvo);
+console.log("-------");
+const volvo1 = new Volvo('T4', 200)
+console.log(volvo1);
