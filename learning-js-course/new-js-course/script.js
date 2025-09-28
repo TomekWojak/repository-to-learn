@@ -1780,7 +1780,7 @@ const resultsP = Promise.any(promisesArr2);
 resultsP.then((status) => console.log(status));
 // Jeśli wszystkie resolved => pierwszy promise
 // Jeśli wszystkie rejected => error
-// Jeśli chociaż jeden resolved => pierwszy promis
+// Jeśli chociaż jeden resolved => pierwszy promise
 
 let v = 10;
 let z = 20;
@@ -1837,3 +1837,10 @@ console.log(ccar1);
 console.log(ccar1.hasOwnProperty("color")); // true - wyżej jest przypisanie wartości 'green' do własnej własciwości color obiektu ccar1
 const ccar2 = new CCar("Mazda");
 console.log(ccar2.hasOwnProperty("color")); // false - obiekt ma tylko jedną własną właściwość - brand. Color dziedziczy z prototypu
+
+const showObjData = (obj) => {
+	for (const prop in obj) {
+		if (obj.hasOwnProperty(prop)) console.log(prop, obj[prop]); // Pokaże nam również to, co obiekt dziedziczy z prototypu, chyba że dodamy warunek hasOwnProperty()
+	}
+};
+showObjData(ccar1);
