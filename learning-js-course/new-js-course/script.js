@@ -1890,5 +1890,37 @@ Volvo.prototype = new Truck();
 Volvo.prototype.constructor = Volvo;
 console.dir(Volvo);
 console.log("-------");
-const volvo1 = new Volvo('T4', 200)
+const volvo1 = new Volvo("T4", 200);
 console.log(volvo1);
+
+function Machine(brand, name) {
+	this.brand = brand;
+	this.name = name;
+	this.printInfo = function () {
+		console.log(this.brand, this.name);
+	};
+}
+Machine.prototype.getBrand = function () {
+	return this.brand;
+};
+
+function Caarr(brand, name, type, numOfWheels) {
+	Machine.call(this, brand, name);
+	this.type = type;
+	this.numOfWheels = numOfWheels;
+}
+Caarr.prototype = new Machine();
+Caarr.prototype.constructor = Car;
+
+const systemInfo = {
+	name: "unknown",
+	login() {
+		console.log(this.user, this.system);
+	},
+};
+const employee = Object.create(systemInfo, {
+	user: { value: "Bartek" },
+	system: { value: "Windows" },
+});
+
+// console.log(employee);
