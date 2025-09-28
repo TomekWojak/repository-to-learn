@@ -235,7 +235,7 @@ function hireNewEmployee(name, surname, email, age, proffesion) {
 	) {
 		return null;
 	}
-	
+
 	const obj = {
 		company: "Test Ltd.",
 		name: name,
@@ -1818,7 +1818,22 @@ Item.prototype.printInfo = function () {
 	console.log(this.name, this.year);
 };
 
-const newBook = new Item('book')
+const newBook = new Item("book");
 // console.log(newBook.weight);
 // console.log(newBook.year);
 // newBook.printInfo()
+
+function CCar(brand) {
+	this.brand = brand;
+}
+
+CCar.prototype.color = "black";
+CCar.prototype.showInfo = function () {
+	console.log(this.brand, this.color);
+};
+const ccar1 = new CCar("Ford");
+ccar1.color = "green"; // Przykrywamy dziedziczoną z prototypu wartość ale tylko dla konkretnej instancji obiektu
+console.log(ccar1);
+console.log(ccar1.hasOwnProperty("color")); // true - wyżej jest przypisanie wartości 'green' do własnej własciwości color obiektu ccar1
+const ccar2 = new CCar("Mazda");
+console.log(ccar2.hasOwnProperty("color")); // false - obiekt ma tylko jedną własną właściwość - brand. Color dziedziczy z prototypu
