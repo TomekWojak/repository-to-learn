@@ -28,7 +28,7 @@ input {
 		"seven eight nine divider clear"
 		"four five six multiply subtract"
 		"three two one plus equals"
-		"zero1 zero2 dot dot dot";
+		"zero1 zero2 dot plus equals";
 }
 .num {
 	display: inline-block;
@@ -89,6 +89,7 @@ input {
 }
 .plus {
 	grid-area: plus;
+    height: 100%;
 }
 .subtract {
 	grid-area: subtract;
@@ -101,6 +102,7 @@ input {
 }
 .equals {
 	grid-area: equals;
+    height: 100%;
 	background-color: #ff5722;
 }
 .clear {
