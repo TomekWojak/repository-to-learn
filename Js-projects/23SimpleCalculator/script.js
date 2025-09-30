@@ -31,9 +31,12 @@ const calculator = {
 	},
 	evaluate: function () {
 		const result = math.evaluate(calculator.input.value);
-		calculator.input.value = result;
+		calculator.setInput(result);
 	},
 	clear: function () {
-		calculator.input.value = "";
+		calculator.setInput("");
+	},
+	setInput: function (str) {
+		calculator.input.value = str;
 	},
 };
