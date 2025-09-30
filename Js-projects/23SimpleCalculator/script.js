@@ -16,9 +16,19 @@ const calculator = {
 	},
 	buttonClick: function (e) {
 		const value = e.target.innerHTML;
-		calculator.addToInput(value);
+
+		if (value === "=") {
+			calculator.evaluate();
+		} else {
+			calculator.addToInput(value);
+		}
 	},
+
 	addToInput: function (val) {
 		this.input.value += val;
+	},
+	evaluate: function () {
+		const result = math.evaluate(calculator.input.value);
+		calculator.input.value = result;
 	},
 };
