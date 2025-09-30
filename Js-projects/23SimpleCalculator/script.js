@@ -19,6 +19,8 @@ const calculator = {
 
 		if (value === "=") {
 			calculator.evaluate();
+		} else if (value === "c") {
+			calculator.clear();
 		} else {
 			calculator.addToInput(value);
 		}
@@ -30,5 +32,8 @@ const calculator = {
 	evaluate: function () {
 		const result = math.evaluate(calculator.input.value);
 		calculator.input.value = result;
+	},
+	clear: function () {
+		calculator.input.value = "";
 	},
 };
