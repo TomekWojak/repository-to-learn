@@ -130,20 +130,56 @@
 // // const lastItem = items && items[items.length - 1];
 // // console.log(lastItem);
 
-const text = "kot pies kot pies pies kot kot";
+// const text = "kot pies kot pies pies kot kot";
 
-const countWords = (text) => {
-	const words = {};
+// const countWords = (text) => {
+// 	const words = {};
 
-	const arr = text.split(" ");
+// 	const arr = text.split(" ");
 
-	arr.forEach((word) => {
-		if (words[word]) {
-			words[word] += 1;
-		} else {
-			words[word] = 1;
-		}
-	});
-	console.log(words)
+// 	arr.forEach((word) => {
+// 		if (words[word]) {
+// 			words[word] += 1;
+// 		} else {
+// 			words[word] = 1;
+// 		}
+// 	});
+// 	console.log(words)
+// };
+// countWords(text);
+
+const miniCalc = () => {
+	const a = parseFloat(prompt("Podaj liczbę: "));
+	const b = parseFloat(prompt("Podaj drugą liczbę: "));
+	const operator = prompt("Podaj operator: ");
+
+	if (
+		operator !== "*" &&
+		operator !== "/" &&
+		operator !== "+" &&
+		operator !== "-"
+	) {
+		alert("Nieznany operator");
+		return;
+	}
+
+	let results;
+
+	switch (operator) {
+		case "+":
+			results = a + b;
+			break;
+		case "-":
+			results = a - b;
+			break;
+		case "*":
+			results = a * b;
+			break;
+		case "/":
+			results = a / b;
+			break;
+	}
+
+	console.log(`Wynik: ${results}`);
 };
-countWords(text);
+miniCalc();
