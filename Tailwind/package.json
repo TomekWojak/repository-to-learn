@@ -1,0 +1,17 @@
+{
+	"name": "tailwind-project",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"build":"@tailwindcss -i ./src/input.css -o ./dist/main.css",
+		"watch":"@tailwindcss -i ./src/input.css -o ./dist/main.css --watch"
+	},
+	"keywords": [],
+	"author": "Tomasz Wojak",
+	"license": "ISC",
+	"devDependencies": {
+		"@tailwindcss/cli": "^4.1.16",
+		"tailwindcss": "^4.1.16"
+	}
+}
