@@ -8,16 +8,23 @@
   <link rel="stylesheet" href="./dist/main.css">
 </head>
 
-<body>
-  <div class="w-3xs aspect-square relative bg-amber-400">
-    <div class="w-32 aspect-square absolute inset-1/2 -translate-1/2 bg-amber-700"></div>
-  </div>
-  <div class="w-[511px] my-8 md:columns-3 gap-0">
-    <img class="w-full h-auto" src="https://unsplash.it/400/400 " alt="">
-    <img class="w-full h-auto" src="https://unsplash.it/400/400 " alt="">
-    <img class="w-full h-auto" src="https://unsplash.it/400/400 " alt="">
-  </div>
-  <div class="bg-slate-200 p-8"><p class="max-w-prose">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem officiis consequuntur delectus dolorum sit consectetur tenetur, cupiditate mollitia ullam debitis facere deserunt possimus necessitatibus explicabo praesentium quibusdam amet nostrum qui.</p></div>
+<body class="bg-gray-700 text-white">
+  <button
+    class="relative m-5 text-2xl px-8 py-3 bg-amber-400 rounded-lg uppercase cursor-pointer hover:bg-amber-800 hover:text-blue-600 transition-colors duration-300 before:content-[''] before:absolute before:block before:-inset-0.5 before:bg-amber-300 before:rounded-[inherit] before:-z-1">Przycisk</button>
+
+  <ul class="py-6 px-6 marker:text-red-400 list-disc selection:bg-lime-400">
+    
+  </ul>
+  <script>
+    const ul = document.querySelector("ul")
+    for (let i = 1; i <= 10; i++) {
+      const li = document.createElement("li");
+      li.textContent = `Element listy ${i}`;
+      li.classList.add("even:bg-red-500")
+      li.classList.add("odd:bg-lime-500")
+      ul.append(li)
+    }
+  </script>
 </body>
 
 </html>
