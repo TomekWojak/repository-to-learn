@@ -5,83 +5,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="./dist/main.css">
 </head>
 
-<body class="dark:bg-[#333]">
-  <div class="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 py-10">
-    <div
-      class="card relative shadow-md hover:shadow-lg transition-shadow cursor-pointer rounded-xl overflow-hidden before:content-[''] before:inset-0 before:bg-linear-to-t before:from-black/60 before:via-black/50 before:to-transparent before:absolute group">
-      <video src="https://cdn.pixabay.com/video/2025/09/22/305657_tiny.mp4" autoplay muted loop></video>
-      <h2
-        class="text-5xl text-white absolute bottom-1 left-5 transition-transform duration-300 group-hover:-translate-y-6">
-        Forest</h2>
-
-      <div
-        class="card-info absolute bottom-0 left-5 translate-y-full transition-transform duration-300 group-hover:translate-y-0">
-        <p class="text-base text-white">Dowiedz się więcej...</p>
-      </div>
-    </div>
-    <div
-      class="card relative shadow-md hover:shadow-lg transition-shadow cursor-pointer rounded-xl overflow-hidden before:content-[''] before:inset-0 before:bg-linear-to-t before:from-black/60 before:via-black/50 before:to-transparent before:absolute group">
-      <video src="https://cdn.pixabay.com/video/2025/09/22/305657_tiny.mp4" autoplay muted loop></video>
-      <h2
-        class="text-5xl text-white absolute bottom-1 left-5 transition-transform duration-300 group-hover:-translate-y-6">
-        Forest</h2>
-
-      <div
-        class="card-info absolute bottom-0 left-5 translate-y-full transition-transform duration-300 group-hover:translate-y-0">
-        <p class="text-base text-white">Dowiedz się więcej...</p>
-      </div>
-    </div>
-    <div
-      class="card relative shadow-md hover:shadow-lg transition-shadow cursor-pointer rounded-xl overflow-hidden before:content-[''] before:inset-0 before:bg-linear-to-t before:from-black/60 before:via-black/50 before:to-transparent before:absolute group">
-      <video src="https://cdn.pixabay.com/video/2025/09/22/305657_tiny.mp4" autoplay muted loop></video>
-      <h2
-        class="text-5xl text-white absolute bottom-1 left-5 transition-transform duration-300 group-hover:-translate-y-6">
-        Forest</h2>
-
-      <div
-        class="card-info absolute bottom-0 left-5 translate-y-full transition-transform duration-300 group-hover:translate-y-0">
-        <p class="text-base text-white">Dowiedz się więcej...</p>
-      </div>
-    </div>
-    <div
-      class="card relative shadow-md hover:shadow-lg transition-shadow cursor-pointer rounded-xl overflow-hidden before:content-[''] before:inset-0 before:bg-linear-to-t before:from-black/60 before:via-black/50 before:to-transparent before:absolute group">
-      <video src="https://cdn.pixabay.com/video/2025/09/22/305657_tiny.mp4" autoplay muted loop></video>
-      <h2
-        class="text-5xl text-white absolute bottom-1 left-5 transition-transform duration-300 group-hover:-translate-y-6">
-        Forest</h2>
-
-      <div
-        class="card-info absolute bottom-0 left-5 translate-y-full transition-transform duration-300 group-hover:translate-y-0">
-        <p class="text-base text-white">Dowiedz się więcej...</p>
-      </div>
-    </div>
-    <div
-      class="card relative shadow-md hover:shadow-lg transition-shadow cursor-pointer rounded-xl overflow-hidden before:content-[''] before:inset-0 before:bg-linear-to-t before:from-black/60 before:via-black/50 before:to-transparent before:absolute group">
-      <video src="https://cdn.pixabay.com/video/2025/09/22/305657_tiny.mp4" autoplay muted loop></video>
-      <h2
-        class="text-5xl text-white absolute bottom-1 left-5 transition-transform duration-300 group-hover:-translate-y-6">
-        Forest</h2>
-
-      <div
-        class="card-info absolute bottom-0 left-5 translate-y-full transition-transform duration-300 group-hover:translate-y-0">
-        <p class="text-base text-white">Dowiedz się więcej...</p>
-      </div>
-    </div>
-    <div
-      class="card relative shadow-md hover:shadow-lg transition-shadow cursor-pointer rounded-xl overflow-hidden before:content-[''] before:inset-0 before:bg-linear-to-t before:from-black/60 before:via-black/50 before:to-transparent before:absolute group">
-      <video src="https://cdn.pixabay.com/video/2025/09/22/305657_tiny.mp4" autoplay muted loop></video>
-      <h2
-        class="text-5xl text-white absolute bottom-1 left-5 transition-transform duration-300 group-hover:-translate-y-6">
-        Forest</h2>
-
-      <div
-        class="card-info absolute bottom-0 left-5 translate-y-full transition-transform duration-300 group-hover:translate-y-0">
-        <p class="text-base text-white">Dowiedz się więcej...</p>
-      </div>
-    </div>
+<body>
+  <div class="box-top sticky flex justify-between py-6 px-7 container">
+    <img src="./assets/asset 9.svg" width="40" height="40" alt="" class="logo w-7 h-7">
+    <button class="toggler cursor-pointer md:hidden">
+      <img src="./assets/menu (2).svg" alt="" class="w-7 h-7">
+    </button>
+    <nav class="nav hidden md:block">
+      <ul class="flex gap-4">
+        <li>
+          <a href="/" class="hover:underline">HOME</a>
+        </li>
+        <li>
+          <a href="/" class="hover:underline">ABOUT</a>
+        </li>
+        <li>
+          <a href="/" class="hover:underline">WORKS</a>
+        </li>
+        <li>
+          <a href="/" class="hover:underline">CONTACT</a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </body>
 
