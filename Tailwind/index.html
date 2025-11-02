@@ -13,13 +13,14 @@
 </head>
 
 <body>
-  <div class="box-top sticky flex justify-between py-6 px-7 container">
-    <img src="./assets/asset 9.svg" width="40" height="40" alt="" class="logo w-7 h-7">
-    <button class="toggler cursor-pointer md:hidden">
-      <img src="./assets/menu (2).svg" alt="" class="w-7 h-7">
-    </button>
-    <nav class="nav hidden md:block">
-      <ul class="flex gap-4">
+  <div class="box-top sticky">
+    <nav class="container py-5 md:py-8 flex justify-between items-center">
+      <img src="./assets/asset 9.svg" width="40" height="40" alt="" class="logo w-7 h-7">
+      <button class="toggler cursor-pointer md:hidden">
+        <img src="./assets/menu (2).svg" alt="" class="w-7 h-7">
+      </button>
+
+      <ul class="gap-4 hidden md:flex">
         <li>
           <a href="/" class="hover:underline">HOME</a>
         </li>
@@ -35,6 +36,23 @@
       </ul>
     </nav>
   </div>
+  <header class="hero container">
+    <div class="bg-[#131315] px-3 pt-15 pb-5 rounded-4xl">
+      <h1 class="font-bold text-3xl text-center text-white">Visual Designer Based in Indonesia</h1>
+      <p class="text-gray-300 text-xs text-center my-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
+        ratione
+        voluptate
+        molestias rem dolores. Iure ipsum aut, atque suscipit voluptatem voluptate rerum magni dolore ex, at esse vero,
+        architecto excepturi.</p>
+      <button
+        class="group relative py-2 px-6 pr-14 bg-linear-180 text-white font-bold block mx-auto rounded-full hover:text-[#FD7E4E] z-0 transition-colors duration-300 cursor-pointer">Contact
+        me
+        <span
+          class="w-7 h-7 inline-block bg-white rounded-[30px] align-middle absolute top-1/2 -translate-y-1/2 right-3 origin-right group-hover:w-[153px] transition-[width] duration-300 -z-1">
+          <img class="w-4 absolute top-1/2 right-1.5 -translate-y-1/2" src="./assets/asset 10.svg"
+            alt=""></span></button>
+    </div>
+  </header>
 </body>
 
 </html>
