@@ -148,38 +148,38 @@
 // };
 // countWords(text);
 
-const miniCalc = () => {
-	const a = parseFloat(prompt("Podaj liczbę: "));
-	const b = parseFloat(prompt("Podaj drugą liczbę: "));
-	const operator = prompt("Podaj operator: ");
+// const miniCalc = () => {
+// 	const a = parseFloat(prompt("Podaj liczbę: "));
+// 	const b = parseFloat(prompt("Podaj drugą liczbę: "));
+// 	const operator = prompt("Podaj operator: ");
 
-	if (
-		operator !== "*" &&
-		operator !== "/" &&
-		operator !== "+" &&
-		operator !== "-"
-	) {
-		alert("Nieznany operator");
-		return;
-	}
+// 	if (
+// 		operator !== "*" &&
+// 		operator !== "/" &&
+// 		operator !== "+" &&
+// 		operator !== "-"
+// 	) {
+// 		alert("Nieznany operator");
+// 		return;
+// 	}
 
-	let results;
+// 	let results;
 
-	switch (operator) {
-		case "+":
-			results = a + b;
-			break;
-		case "-":
-			results = a - b;
-			break;
-		case "*":
-			results = a * b;
-			break;
-		case "/":
-			results = a / b;
-			break;
-	}
+// 	switch (operator) {
+// 		case "+":
+// 			results = a + b;
+// 			break;
+// 		case "-":
+// 			results = a - b;
+// 			break;
+// 		case "*":
+// 			results = a * b;
+// 			break;
+// 		case "/":
+// 			results = a / b;
+// 			break;
+// 	}
 
-	console.log(`Wynik: ${results}`);
-};
-miniCalc();
+// 	console.log(`Wynik: ${results}`);
+// };
+// miniCalc();
