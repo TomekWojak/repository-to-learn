@@ -1,3 +1,7 @@
+const navigteTo = (url) => {
+	history.pushState(null, null, url);
+	router;
+};
 const router = async () => {
 	const routes = [
 		{ path: "/", view: () => console.log("Main page") },
@@ -11,7 +15,6 @@ const router = async () => {
 			isMatching: location.pathname === route.path,
 		};
 	});
-	console.log(potentialMatches);
 
 	let match = potentialMatches.find(
 		(potentialMatch) => potentialMatch.isMatching
@@ -23,9 +26,16 @@ const router = async () => {
 			isMatching: true,
 		};
 	}
-	console.log(match);
+	match.route.view();
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+	document.body.addEventListener('click', (e) => {
+		// delegacja zdarzeń, zastosowana po to żeby dla wszystkich nowych linków działały listenery
+		e.preventDefault()
+		if(e.target.matches('.nav__link')){
+			console.log(e);
+		}
+	})
 	router();
 });
