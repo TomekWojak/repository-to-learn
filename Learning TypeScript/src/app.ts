@@ -1,10 +1,11 @@
-const input1 = document.querySelector<HTMLInputElement>(".input1")!;
-const input2 = document.querySelector<HTMLInputElement>(".input2")!;
-const button = document.querySelector("button");
+let age = 20; // type inference
+let test: number; // jeśli puste - trzeba okreslić co to
 
-const addValues = (x1: number, x2: number) => x1 + x2;
+// w funkcjach zawsze okreslać typy parametrów
 
-button?.addEventListener("click", () => {
-	const sum = addValues(parseFloat(input1.value), parseFloat(input2.value));
-    console.log(sum);
-});
+const logAge = (age: number | string) => {
+	console.log(`Cześć, mam ${age} lat`);
+};
+
+logAge(20);
+logAge("dwadziescia");
