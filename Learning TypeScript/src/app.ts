@@ -4,20 +4,26 @@ const button = [...document.querySelectorAll("button")].find(
 );
 const input = document.querySelector<HTMLInputElement>("#name");
 
+type Category = "general" | "work" | "gym" | "hobby";
 interface Task {
 	title: string;
 	done: boolean;
+	category?: Category;
 }
 
+const categories: Category[] = ["general", "work", "gym", "hobby"];
+
 const tasks: Task[] = [
-	{ title: "Wyrzucić śmieci", done: false },
+	{ title: "Wyrzucić śmieci", done: false, category: "general" },
 	{ title: "Pójść na siłownię", done: true },
-	{ title: "Zrobić zakupy", done: false },
+	{ title: "Zrobić zakupy", done: false, category: "general" },
 ];
 
 const giveClassName = (el: Element, classes: string[]) => {
 	classes.forEach((cls: string) => {
-		el.classList.add(cls);
+		if (cls) {
+			el.classList.add(cls);
+		}
 	});
 };
 
@@ -33,7 +39,12 @@ const renderTasks = () => {
 		label.textContent = task.title;
 		input.checked = task.done;
 
-		giveClassName(taskEl, ["text-white", "block", "my-2"]);
+		giveClassName(taskEl, [
+			"text-white",
+			"block",
+			"my-2",
+			`${task.category ? task.category : ""}`,
+		]);
 		giveClassName(input, ["align-middle", "inline-block", "ml-2"]);
 
 		taskEl.append(label, input);
