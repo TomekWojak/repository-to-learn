@@ -4,13 +4,16 @@ const button = [...document.querySelectorAll("button")].find(
 );
 const input = document.querySelector<HTMLInputElement>("#name");
 
-const tasks: { name: string; done: boolean }[] = [
-	{ name: "Wyrzucić śmieci", done: false },
-	{ name: "Pójść na siłownię", done: true },
-	{ name: "Zrobić zakupy", done: false },
-];
+interface Task {
+	title: string;
+	done: boolean;
+}
 
-const task = { name: "Wyrzucić śmieci", done: false };
+const tasks: Task[] = [
+	{ title: "Wyrzucić śmieci", done: false },
+	{ title: "Pójść na siłownię", done: true },
+	{ title: "Zrobić zakupy", done: false },
+];
 
 const giveClassName = (el: Element, classes: string[]) => {
 	classes.forEach((cls: string) => {
@@ -27,7 +30,7 @@ const renderTasks = () => {
 		label.setAttribute("for", `task-${id}`);
 		input.type = "checkbox";
 		input.id = `task-${id}`;
-		label.textContent = task.name;
+		label.textContent = task.title;
 		input.checked = task.done;
 
 		giveClassName(taskEl, ["text-white", "block", "my-2"]);
@@ -42,16 +45,16 @@ const renderTasks = () => {
 	});
 };
 
-const addTask = (task: string) => {
+const addTask = (task: Task) => {
 	tasksContainer && (tasksContainer.innerHTML = "");
-	tasks.push({ name: task, done: false });
+	tasks.push(task);
 };
 
 button?.addEventListener("click", (e) => {
 	e.preventDefault();
 
 	if (input) {
-		addTask(input.value);
+		addTask({ title: input.value, done: false });
 		renderTasks();
 	}
 });
