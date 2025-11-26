@@ -1,19 +1,46 @@
-let age = 20; // type inference
-let test; // jeśli puste - trzeba okreslić co to
-// w funkcjach zawsze okreslać typy parametrów
-// union type
-const logAge = (age) => {
-    console.log(`Cześć, mam ${age} lat`);
+const tasksContainer = document.querySelector("ul");
+const button = [...document.querySelectorAll("button")].find((btn) => btn.textContent === "Add");
+const input = document.querySelector("#name");
+const tasks = [
+    { name: "Wyrzucić śmieci", done: false },
+    { name: "Pójść na siłownię", done: true },
+    { name: "Zrobić zakupy", done: false },
+];
+const task = { name: "Wyrzucić śmieci", done: false };
+const giveClassName = (el, classes) => {
+    classes.forEach((cls) => {
+        el.classList.add(cls);
+    });
 };
-logAge(20);
-logAge("dwadziescia");
-const button = document.querySelector("button");
-const calculatePrice = (originalPrice, hasDiscount) => {
-    return hasDiscount ? originalPrice * 0.8 : originalPrice;
+const renderTasks = () => {
+    tasks.forEach((task, id) => {
+        const taskEl = document.createElement("li");
+        const label = document.createElement("label");
+        const input = document.createElement("input");
+        label.setAttribute("for", `task-${id}`);
+        input.type = "checkbox";
+        input.id = `task-${id}`;
+        label.textContent = task.name;
+        input.checked = task.done;
+        giveClassName(taskEl, ["text-white", "block", "my-2"]);
+        giveClassName(input, ["align-middle", "inline-block", "ml-2"]);
+        taskEl.append(label, input);
+        tasksContainer?.append(taskEl);
+        input.addEventListener("change", () => {
+            task.done = !task.done;
+        });
+    });
 };
-button?.addEventListener("click", () => {
-    const originalPrice = 50;
-    const hasDiscount = new URLSearchParams(window.location.search).get("discount") === "true";
-    console.log(calculatePrice(originalPrice, hasDiscount));
+const addTask = (task) => {
+    tasksContainer && (tasksContainer.innerHTML = "");
+    tasks.push({ name: task, done: false });
+};
+button?.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (input) {
+        addTask(input.value);
+        renderTasks();
+    }
 });
+renderTasks();
 export {};
